@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    >
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sdp"
+        app:cardCornerRadius="@dimen/_20sdp"
+        app:cardElevation="8dp">
+
+        <ImageView
+            android:id="@+id/img_detail_value"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_humidity"
+            app:tint="@color/color_yellow" />
+
+    </androidx.cardview.widget.CardView>
+
+    <com.netviet.weathernew.widget.customview.CustomTextviewMedium
+        android:id="@+id/tv_detail_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="59%"
+        android:textSize="@dimen/_14ssp"
+        android:layout_marginVertical="@dimen/_6sdp"
+        />
+
+    <com.netviet.weathernew.widget.customview.CustomTextviewMedium
+        android:id="@+id/tv_detail_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/corner_radius_orange"
+        android:text="Độ ẩm"
+        android:gravity="center"
+        android:paddingVertical="@dimen/_4sdp"
+        android:textColor="#715C42"
+        />
+</LinearLayout>

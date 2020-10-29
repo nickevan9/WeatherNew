@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="@dimen/_8sdp">
+
+    <com.netviet.weathernew.widget.customview.CustomTextviewBold
+        android:id="@+id/tv_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_150sdp"
+        android:includeFontPadding="false"
+        android:text="Hà Nội"
+        android:textColor="?attr/textColorApp"
+        android:textSize="@dimen/_20ssp" />
+
+    <com.netviet.weathernew.widget.customview.CustomTextviewMedium
+        android:id="@+id/tv_weather_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_location"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:includeFontPadding="false"
+        android:text="Chủ yếu Có Mây"
+        android:textColor="?attr/textColorApp"
+        android:textSize="@dimen/_12ssp" />
+
+    <com.netviet.weathernew.widget.customview.CustomTextviewBold
+        android:id="@+id/tv_temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_weather_status"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:background="@drawable/border_bottom"
+        android:includeFontPadding="false"
+        android:text="25ºC"
+        android:textColor="?attr/textColorApp"
+        android:textSize="@dimen/_42ssp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/tv_temp"
+        android:layout_marginTop="@dimen/_4sdp"
+        >
+
+        <com.netviet.weathernew.widget.customview.CustomTextviewMedium
+            android:id="@+id/tv_temp_min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="23ºC"
+            android:drawableEnd="@drawable/ic_baseline_arrow_downward"
+            android:textSize="@dimen/_14ssp"
+            android:drawablePadding="@dimen/_2sdp"
+            android:textColor="?attr/textColorSecond"
+            android:drawableTint="@color/color_yellow"
+            />
+
+        <com.netviet.weathernew.widget.customview.CustomTextviewMedium
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/_4sdp"
+            android:text="-----"
+            android:textColor="?attr/textColorSecond"
+            />
+
+        <com.netviet.weathernew.widget.customview.CustomTextviewMedium
+            android:id="@+id/tv_temp_max"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="30ºC"
+            android:drawableEnd="@drawable/ic_baseline_arrow_upward"
+            android:textSize="@dimen/_14ssp"
+            android:drawablePadding="@dimen/_4sdp"
+            android:textColor="?attr/textColorSecond"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:drawableTint="@color/color_yellow"
+            />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

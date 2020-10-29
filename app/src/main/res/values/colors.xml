@@ -3,4 +3,41 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+
+<!--    night-->
+    <color name="textColorAppNight">#EFEFEF</color>
+    <color name="textColorSecondNight">#858585 </color>
+
+    <color name="bgCardColorNight">#1E1E1E</color>
+
+
+    <color name="bgCardSelectedNight">#FFAE21</color>
+
+    <color name="rainTextColorNight">#B0B0B0</color>
+
+
+
+    <color name="bgMoonNight">#FFFFFF</color>
+    <color name="moonInsideColorNight">#131313</color>
+
+    <color name="lineColorNight">#FFAD21</color>
+
+
+<!--    light-->
+    <color name="textColorAppLight">#494949</color>
+    <color name="textColorSecondLight">#484849</color>
+
+    <color name="bgCardColorLight">#FFFFFF</color>
+
+
+    <color name="bgCardSelectedLight">#FFFFFF</color>
+
+    <color name="rainTextColorLight">#494949</color>
+
+
+    <color name="bgMoonLight">#494949</color>
+    <color name="moonInsideColorLight">#FFFFFF</color>
+
+    <color name="lineColorLight">#494949</color>
+    <color name="color_yellow">#FEAD22</color>
 </resources>

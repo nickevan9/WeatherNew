@@ -31,14 +31,41 @@
     <declare-styleable name="MoonCustomView">
         <attr name="percent_moon" format="string" />
     </declare-styleable>
-    
-    
-    <attr name="backgroundApp" format="integer"/>
-    <attr name="textColorApp" format="reference"/>
+
+
+    <attr name="backgroundApp" format="integer" />
+    <attr name="textColorApp" format="reference" />
+    <attr name="textColorSecond" format="reference"/>
 
     <declare-styleable name="weatherDetail">
-        <attr name="bgCardColor" format="reference"/>
-
+        <attr name="bgCardColor" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="hourDetail">
+        <attr name="bgCardSelected" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="dayDetail">
+        <attr name="rainTextColor" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="sunDetail">
+        <attr name="backgroundSun" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="moonDetail">
+        <attr name="bgMoon" format="reference" />
+        <attr name="moonInsideColor" format="reference" />
+    </declare-styleable>
+
+
+    <declare-styleable name="windDetail">
+        <attr name="imgRow" format="integer"/>
+        <attr name="imgWind" format="integer"/>
+        <attr name="imgPressure" format="integer"/>
+        <attr name="lineColor" format="reference"/>
+    </declare-styleable>
+
+
 
 </resources>
