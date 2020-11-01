@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl_next_day"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bg_tranfer_item"
+    android:padding="8dp">
+
+    <LinearLayout
+        android:id="@+id/ln_day_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.netviet.weathernew.widget.customview.CustomTextviewMedium
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Dự báo hàng ngày"
+            android:textAllCaps="true"
+            android:textColor="?attr/textColorApp"
+            android:textSize="@dimen/_13ssp" />
+
+        <ImageView
+            android:id="@+id/img_next_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:src="@drawable/ic_baseline_arrow_right"
+            android:textSize="@dimen/_13ssp"
+            app:tint="?attr/textColorApp" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_next_day"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ln_day_text"
+        android:layout_marginTop="@dimen/_4sdp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rv_next_day"
+        android:layout_marginTop="@dimen/_8sdp"
+        app:cardBackgroundColor="?attr/bgCardColor"
+        app:cardCornerRadius="20dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_card_next_day"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

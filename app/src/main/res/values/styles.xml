@@ -21,10 +21,8 @@
         <item name="backgroundSun">@drawable/bg_sun_light</item>
         <item name="bgMoon">@color/bgMoonLight</item>
         <item name="moonInsideColor">@color/moonInsideColorLight</item>
-        <item name="imgRow">@drawable/ic_row_white</item>
-        <item name="imgWind">@drawable/ic_wind_white</item>
-        <item name="imgPressure">@drawable/ic_pressure</item>
-        <item name="lineColor">@color/lineColorLight</item>
+        <item name="bgWind">@color/bgWindDetailLight</item>
+        <item name="tintColor">@color/tintColorLight</item>
     </style>
 
     <style name="AppTheme.Dark" parent="Theme.AppCompat.Light.NoActionBar">
@@ -41,10 +39,8 @@
         <item name="backgroundSun">@drawable/bg_sun_light</item>
         <item name="bgMoon">@color/bgMoonNight</item>
         <item name="moonInsideColor">@color/moonInsideColorNight</item>
-        <item name="imgRow">@drawable/ic_row_white</item>
-        <item name="imgWind">@drawable/ic_wind_white</item>
-        <item name="imgPressure">@drawable/ic_pressure</item>
-        <item name="lineColor">@color/lineColorNight</item>
+        <item name="bgWind">@color/bgWindDetailNight</item>
+        <item name="tintColor">@color/tintColorNight</item>
     </style>
 
 </resources>

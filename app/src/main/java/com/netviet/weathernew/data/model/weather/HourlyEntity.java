@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class FchEntity implements Serializable {
+public class HourlyEntity implements Serializable {
     @SerializedName("pr")
     @Expose
     private Double pr;
@@ -19,7 +19,7 @@ public class FchEntity implements Serializable {
     private String upt;
     @SerializedName("wn")
     @Expose
-    private String wn;
+    private String windDirection;
     @SerializedName("uv")
     @Expose
     private Double uv;
@@ -31,16 +31,16 @@ public class FchEntity implements Serializable {
     private Double tp;
     @SerializedName("p")
     @Expose
-    private Double p;
+    private Double pressure;
     @SerializedName("s")
     @Expose
-    private String s;
+    private String status;
     @SerializedName("ws")
     @Expose
-    private Double ws;
+    private Double windSpeed;
     @SerializedName("t")
     @Expose
-    private Double t;
+    private Double temp;
     @SerializedName("time_tag")
     @Expose
     private Double timeTag;
@@ -49,7 +49,7 @@ public class FchEntity implements Serializable {
     private Double v;
     @SerializedName("tf")
     @Expose
-    private Double tf;
+    private Double tempFeel;
     @SerializedName("dt")
     @Expose
     private String dt;
@@ -90,12 +90,12 @@ public class FchEntity implements Serializable {
         this.upt = upt;
     }
 
-    public String getWn() {
-        return wn;
+    public String getWindDirection() {
+        return windDirection;
     }
 
-    public void setWn(String wn) {
-        this.wn = wn;
+    public void setWindDirection(String windDirection) {
+        this.windDirection = windDirection;
     }
 
     public Double getUv() {
@@ -122,36 +122,36 @@ public class FchEntity implements Serializable {
         this.tp = tp;
     }
 
-    public Double getP() {
-        return p;
+    public Double getPressure() {
+        return pressure;
     }
 
-    public void setP(Double p) {
-        this.p = p;
+    public void setPressure(Double pressure) {
+        this.pressure = pressure;
     }
 
-    public String getS() {
-        return s;
+    public String getStatus() {
+        return status;
     }
 
-    public void setS(String s) {
-        this.s = s;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public Double getWs() {
-        return ws;
+    public Double getWindSpeed() {
+        return windSpeed;
     }
 
-    public void setWs(Double ws) {
-        this.ws = ws;
+    public void setWindSpeed(Double windSpeed) {
+        this.windSpeed = windSpeed;
     }
 
-    public Double getT() {
-        return t;
+    public Double getTemp() {
+        return temp;
     }
 
-    public void setT(Double t) {
-        this.t = t;
+    public void setTemp(Double temp) {
+        this.temp = temp;
     }
 
     public Double getTimeTag() {
@@ -170,12 +170,12 @@ public class FchEntity implements Serializable {
         this.v = v;
     }
 
-    public Double getTf() {
-        return tf;
+    public Double getTempFeel() {
+        return tempFeel;
     }
 
-    public void setTf(Double tf) {
-        this.tf = tf;
+    public void setTempFeel(Double tempFeel) {
+        this.tempFeel = tempFeel;
     }
 
     public String getDt() {

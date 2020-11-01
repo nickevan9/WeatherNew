@@ -60,10 +60,8 @@
 
 
     <declare-styleable name="windDetail">
-        <attr name="imgRow" format="integer"/>
-        <attr name="imgWind" format="integer"/>
-        <attr name="imgPressure" format="integer"/>
-        <attr name="lineColor" format="reference"/>
+        <attr name="bgWind" format="reference"/>
+        <attr name="tintColor" format="reference"/>
     </declare-styleable>
 
 

@@ -1,8 +1,8 @@
 package com.netviet.weathernew.app;
 
 
-import com.netviet.weathernew.data.model.weather.FcdEntity;
-import com.netviet.weathernew.data.model.weather.FchEntity;
+import com.netviet.weathernew.data.model.weather.DailyEntity;
+import com.netviet.weathernew.data.model.weather.HourlyEntity;
 
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
@@ -104,34 +104,34 @@ public class TimeUtilsExt {
         return dateFormat.print(dateTime);
     }
 
-    public static List<FchEntity> mapTimeToNow(List<FchEntity> fchEntityList,String timeZone){
+    public static List<HourlyEntity> mapTimeToNow(List<HourlyEntity> hourlyEntityList, String timeZone){
         DateTimeZone.setDefault(DateTimeZone.forID(timeZone));
-        List<FchEntity> listRemove = new ArrayList<>();
+        List<HourlyEntity> listRemove = new ArrayList<>();
         DateTime dateTimeNow = DateTime.now();
         DateTimeFormatter dateFormat = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm");
-        for (FchEntity fchEntity : fchEntityList){
-            DateTime dateTime = new DateTime(dateFormat.parseDateTime(fchEntity.getDt()));
+        for (HourlyEntity hourlyEntity : hourlyEntityList){
+            DateTime dateTime = new DateTime(dateFormat.parseDateTime(hourlyEntity.getDt()));
             if (dateTimeNow.getMillis() > dateTime.getMillis()){
-                listRemove.add(fchEntity);
+                listRemove.add(hourlyEntity);
             }
         }
-        fchEntityList.removeAll(listRemove);
-        return fchEntityList;
+        hourlyEntityList.removeAll(listRemove);
+        return hourlyEntityList;
     }
 
-    public static List<FcdEntity> mapDateToNow(List<FcdEntity> fcdEntityList, String timeZone){
+    public static List<DailyEntity> mapDateToNow(List<DailyEntity> dailyEntityList, String timeZone){
         DateTimeZone.setDefault(DateTimeZone.forID(timeZone));
         DateTime dateTimeNow = DateTime.now();
-        List<FcdEntity> listRemove = new ArrayList<>();
+        List<DailyEntity> listRemove = new ArrayList<>();
         DateTimeFormatter dateFormat = DateTimeFormat.forPattern("yyyy-MM-dd");
-        for (FcdEntity fcdEntity : fcdEntityList){
-            DateTime dateTime = new DateTime(dateFormat.parseDateTime(fcdEntity.getDt()));
+        for (DailyEntity dailyEntity : dailyEntityList){
+            DateTime dateTime = new DateTime(dateFormat.parseDateTime(dailyEntity.getDt()));
             if (dateTimeNow.getDayOfYear() > dateTime.getDayOfYear()){
-                listRemove.add(fcdEntity);
+                listRemove.add(dailyEntity);
             }
         }
-        fcdEntityList.removeAll(listRemove);
-        return fcdEntityList;
+        dailyEntityList.removeAll(listRemove);
+        return dailyEntityList;
     }
 }
 

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl_next_day"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bg_tranfer_item"
+    android:padding="8dp">
+
+    <LinearLayout
+        android:id="@+id/ln_map_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.netviet.weathernew.widget.customview.CustomTextviewMedium
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Bản đồ"
+            android:textAllCaps="true"
+            android:textColor="?attr/textColorApp"
+            android:textSize="@dimen/_13ssp" />
+
+        <ImageView
+            android:id="@+id/img_map"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:src="@drawable/ic_baseline_arrow_right"
+            android:textSize="@dimen/_13ssp"
+            app:tint="?attr/textColorApp" />
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ln_map_text"
+        android:layout_marginTop="@dimen/_4sdp"
+        app:cardCornerRadius="@dimen/_4sdp"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/map"/>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

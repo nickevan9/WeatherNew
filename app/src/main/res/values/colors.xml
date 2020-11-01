@@ -20,7 +20,9 @@
     <color name="bgMoonNight">#FFFFFF</color>
     <color name="moonInsideColorNight">#131313</color>
 
-    <color name="lineColorNight">#FFAD21</color>
+    <color name="bgWindDetailNight">#1D1D1D</color>
+
+    <color name="tintColorNight">#FFAD21</color>
 
 
 <!--    light-->
@@ -38,6 +40,9 @@
     <color name="bgMoonLight">#494949</color>
     <color name="moonInsideColorLight">#FFFFFF</color>
 
-    <color name="lineColorLight">#494949</color>
+    <color name="bgWindDetailLight">#D7D7D7</color>
+
+    <color name="tintColorLight">#494949</color>
     <color name="color_yellow">#FEAD22</color>
+    <color name="bg_tranfer_item">#00000000</color>
 </resources>

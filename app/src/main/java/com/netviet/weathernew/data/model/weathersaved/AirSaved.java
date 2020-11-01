@@ -24,6 +24,7 @@ public class AirSaved {
     private String nitrogenDioxideAqi;
 
     public AirSaved() {
+
     }
 
     public AirSaved(String statusAir, Integer aqi, String particulateBigAqi, String particulateSmallAqi, String coAqi, String sulfurDioxideAqi, String ozoneAqi, String nitrogenDioxideAqi) {

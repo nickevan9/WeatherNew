@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">WeatherNew</string>
+
+    <string name="temp">%s ºC</string>
 </resources>

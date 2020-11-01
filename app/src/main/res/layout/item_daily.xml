@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/_4sdp">
+
+    <LinearLayout
+        android:id="@+id/linearDaily"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_item_daily"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.netviet.weathernew.widget.customview.CustomTextviewMedium
+                android:id="@+id/tv_temp_max"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_10ssp" />
+
+
+            <ImageView
+                android:id="@+id/imgPbDaily"
+                android:layout_width="5dp"
+                android:layout_height="match_parent"
+                android:layout_above="@id/tv_temp_min"
+                android:layout_below="@id/tv_temp_max"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:background="@drawable/line_custom" />
+
+            <com.netviet.weathernew.widget.customview.CustomTextviewMedium
+                android:id="@+id/tv_temp_min"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_10ssp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/img_daily"
+        android:layout_width="@dimen/_24sdp"
+        android:layout_height="@dimen/_24sdp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_rain"
+        android:layout_marginTop="@dimen/_8sdp"
+        />
+
+    <com.netviet.weathernew.widget.customview.CustomTextviewMedium
+        android:id="@+id/tv_rain_percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:gravity="center"
+        android:text="8%"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/_12ssp" />
+
+
+</LinearLayout>

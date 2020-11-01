@@ -7,19 +7,19 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class FcdEntity  implements Serializable {
+public class DailyEntity implements Serializable {
     @SerializedName("pr")
     @Expose
     private Double pr;
     @SerializedName("pp")
     @Expose
-    private Double pp;
+    private Double rainPercent;
     @SerializedName("set")
     @Expose
     private String set;
     @SerializedName("tx")
     @Expose
-    private Double tx;
+    private Double tempMax;
     @SerializedName("wn")
     @Expose
     private String wn;
@@ -37,7 +37,7 @@ public class FcdEntity  implements Serializable {
     private Double tp;
     @SerializedName("tn")
     @Expose
-    private Double tn;
+    private Double tempMin;
     @SerializedName("p")
     @Expose
     private Double p;
@@ -86,12 +86,12 @@ public class FcdEntity  implements Serializable {
         this.pr = pr;
     }
 
-    public Double getPp() {
-        return pp;
+    public Double getRainPercent() {
+        return rainPercent;
     }
 
-    public void setPp(Double pp) {
-        this.pp = pp;
+    public void setRainPercent(Double rainPercent) {
+        this.rainPercent = rainPercent;
     }
 
     public String getSet() {
@@ -102,12 +102,12 @@ public class FcdEntity  implements Serializable {
         this.set = set;
     }
 
-    public Double getTx() {
-        return tx;
+    public Double getTempMax() {
+        return tempMax;
     }
 
-    public void setTx(Double tx) {
-        this.tx = tx;
+    public void setTempMax(Double tempMax) {
+        this.tempMax = tempMax;
     }
 
     public String getWn() {
@@ -150,12 +150,12 @@ public class FcdEntity  implements Serializable {
         this.tp = tp;
     }
 
-    public Double getTn() {
-        return tn;
+    public Double getTempMin() {
+        return tempMin;
     }
 
-    public void setTn(Double tn) {
-        this.tn = tn;
+    public void setTempMin(Double tempMin) {
+        this.tempMin = tempMin;
     }
 
     public Double getP() {
