@@ -43,6 +43,7 @@
 
     <declare-styleable name="hourDetail">
         <attr name="bgCardSelected" format="reference" />
+        <attr name="textInCard" format="reference"/>
     </declare-styleable>
 
     <declare-styleable name="dayDetail">

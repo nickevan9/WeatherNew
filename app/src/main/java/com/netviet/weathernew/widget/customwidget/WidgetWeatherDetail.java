@@ -44,13 +44,13 @@ public class WidgetWeatherDetail extends RelativeLayout {
 
     private void applyDataHourly(HourlyEntity hourlyEntity){
 
-        tvTemp.setText(getContext().getString(R.string.temp,String.valueOf(hourlyEntity.getTempFeel().intValue())));
+        tvTemp.setText(getContext().getString(R.string.set_temp,String.valueOf(hourlyEntity.getTempFeel().intValue())));
         tvWeatherStatus.setText(hourlyEntity.getStatus());
     }
 
     private void applyDataDaily( DailyEntity dailyEntity){
-        tvTempMax.setText(getContext().getString(R.string.temp,String.valueOf(dailyEntity.getTempMax())));
-        tvTempMin.setText(getContext().getString(R.string.temp,String.valueOf(dailyEntity.getTempMin())));
+        tvTempMax.setText(getContext().getString(R.string.set_temp,String.valueOf(dailyEntity.getTempMax())));
+        tvTempMin.setText(getContext().getString(R.string.set_temp,String.valueOf(dailyEntity.getTempMin())));
 
     }
 

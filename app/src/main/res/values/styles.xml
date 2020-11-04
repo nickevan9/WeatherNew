@@ -17,6 +17,7 @@
         <item name="textColorSecond">@color/textColorSecondLight</item>
         <item name="bgCardColor">@color/bgCardColorLight</item>
         <item name="bgCardSelected">@color/bgCardSelectedLight</item>
+        <item name="textInCard">@color/textColorAppLight</item>
         <item name="rainTextColor">@color/rainTextColorLight</item>
         <item name="backgroundSun">@drawable/bg_sun_light</item>
         <item name="bgMoon">@color/bgMoonLight</item>
@@ -35,6 +36,7 @@
         <item name="textColorSecond">@color/textColorSecondNight</item>
         <item name="bgCardColor">@color/bgCardColorNight</item>
         <item name="bgCardSelected">@color/bgCardSelectedNight</item>
+        <item name="textInCard">@color/textColorAppNight</item>
         <item name="rainTextColor">@color/rainTextColorNight</item>
         <item name="backgroundSun">@drawable/bg_sun_light</item>
         <item name="bgMoon">@color/bgMoonNight</item>

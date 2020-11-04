@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">WeatherNew</string>
 
-    <string name="temp">%s ºC</string>
+    <string name="set_temp">%s ºC</string>
 
     <string name="excellent_title">Good</string>
     <string name="good_title">Moderate</string>

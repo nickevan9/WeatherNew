@@ -12,6 +12,7 @@
 
 
     <color name="bgCardSelectedNight">#FFAE21</color>
+    <color name="textInCardNight">#2A2213</color>
 
     <color name="rainTextColorNight">#B0B0B0</color>
 
@@ -25,6 +26,8 @@
     <color name="tintColorNight">#FFAD21</color>
 
 
+
+
 <!--    light-->
     <color name="textColorAppLight">#494949</color>
     <color name="textColorSecondLight">#484849</color>
@@ -33,6 +36,7 @@
 
 
     <color name="bgCardSelectedLight">#FFFFFF</color>
+    <color name="textInCardLight">#4E4E4E</color>
 
     <color name="rainTextColorLight">#494949</color>
 
