@@ -4,24 +4,23 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.netviet.weathernew.R;
 
 import java.util.List;
 
-public class DetailValueAdapter extends RecyclerView.Adapter<DetailValueAdapter.ViewHolder> {
+public class AirDetailAdapter extends RecyclerView.Adapter<AirDetailAdapter.ViewHolder> {
 
-    private List<DetailValue> valueList;
+    private List<AirValue> valueList;
     private LayoutInflater mInflater;
     private Context context;
 
-
-    public DetailValueAdapter(Context context,List<DetailValue> detailValues){
-        this.valueList = detailValues;
+    public AirDetailAdapter(Context context,List<AirValue> airValues){
+        this.valueList = airValues;
         this.context = context;
         this.mInflater = LayoutInflater.from(context);
     }
@@ -30,13 +29,13 @@ public class DetailValueAdapter extends RecyclerView.Adapter<DetailValueAdapter.
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.item_weather_detail, parent, false);
-        return new DetailValueAdapter.ViewHolder(view);
+        View view = mInflater.inflate(R.layout.item_air, parent, false);
+        return new AirDetailAdapter.ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
+        holder.bindItem(valueList.get(position));
     }
 
     @Override
@@ -44,11 +43,26 @@ public class DetailValueAdapter extends RecyclerView.Adapter<DetailValueAdapter.
         return valueList.size();
     }
 
+    public void applyData(List<AirValue> airValues){
+        this.valueList = airValues;
+        notifyDataSetChanged();
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder{
 
+        TextView tvName;
+        TextView tvValue;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
+            tvName = itemView.findViewById(R.id.tv_name);
+            tvValue = itemView.findViewById(R.id.tv_value);
+        }
+
+        public void bindItem(AirValue airValue){
+            tvValue.setText(airValue.getValue());
+            tvName.setText(airValue.getName());
         }
     }
 }

@@ -26,7 +26,6 @@
             android:id="@+id/img_next_hour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:src="@drawable/ic_baseline_arrow_right"
             android:textSize="@dimen/_13ssp"
             app:tint="?attr/textColorApp" />
@@ -37,6 +36,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/ln_hour_text"
-        android:layout_marginTop="@dimen/_4sdp" />
+        android:layout_marginTop="@dimen/_6sdp" />
 
 </RelativeLayout>

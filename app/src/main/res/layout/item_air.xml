@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <com.netviet.weathernew.widget.customview.CustomTextviewMedium
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/textColorApp"
+        android:text="PM 10"
+        android:textSize="@dimen/_12ssp"/>
+
+    <com.netviet.weathernew.widget.customview.CustomTextviewBold
+        android:id="@+id/tv_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2"
+        android:textColor="?attr/textColorApp"
+        android:textSize="@dimen/_12ssp"
+        android:layout_marginStart="@dimen/_6sdp"
+        />
+
+</LinearLayout>

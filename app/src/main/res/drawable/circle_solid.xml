@@ -6,7 +6,7 @@
                 android:width="@dimen/_100sdp"
                 android:height="@dimen/_100sdp" />
             <solid
-                android:color="@color/tranfer_status" />
+                android:color="@color/bg_tranfer_item" />
         </shape>
     </item>
 
