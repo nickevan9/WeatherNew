@@ -30,6 +30,10 @@
 
     <declare-styleable name="MoonCustomView">
         <attr name="percent_moon" format="string" />
+        <attr name="strokeMoon" format="reference" />
+        <attr name="moonInsideColor" format="reference" />
+        <attr name="textColorDay" format="reference"/>
+        <attr name="textColorMoonStatus" format="reference"/>
     </declare-styleable>
 
 
@@ -53,12 +57,6 @@
     <declare-styleable name="sunDetail">
         <attr name="backgroundSun" format="integer" />
     </declare-styleable>
-
-    <declare-styleable name="moonDetail">
-        <attr name="bgMoon" format="reference" />
-        <attr name="moonInsideColor" format="reference" />
-    </declare-styleable>
-
 
     <declare-styleable name="windDetail">
         <attr name="bgWind" format="reference"/>

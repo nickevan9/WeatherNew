@@ -44,12 +44,22 @@ public class DailyAdapter extends RecyclerView.Adapter<DailyAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
+        if (!dailyEntities.isEmpty()){
+            DailyEntity dailyEntity = dailyEntities.get(position);
+            holder.bindItem(dailyEntity);
+        }
     }
 
     @Override
     public int getItemCount() {
         return 7;
+    }
+
+    public void applyData(List<DailyEntity> dailyEntities,String timeZone,int max, int min){
+        this.dailyEntities = dailyEntities;
+        this.timeZone = timeZone;
+        this.max = max;
+        this.min = min;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

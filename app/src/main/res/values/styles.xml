@@ -22,6 +22,8 @@
         <item name="backgroundSun">@drawable/bg_sun_light</item>
         <item name="bgMoon">@color/bgMoonLight</item>
         <item name="moonInsideColor">@color/moonInsideColorLight</item>
+        <item name="textColorDay">@color/textColorDayLight</item>
+        <item name="textColorMoonStatus">@color/textColorMoonStatusLight</item>
         <item name="bgWind">@color/bgWindDetailLight</item>
         <item name="tintColor">@color/tintColorLight</item>
     </style>
@@ -41,6 +43,8 @@
         <item name="backgroundSun">@drawable/bg_sun_light</item>
         <item name="bgMoon">@color/bgMoonNight</item>
         <item name="moonInsideColor">@color/moonInsideColorNight</item>
+        <item name="textColorDay">@color/textColorDayNight</item>
+        <item name="textColorMoonStatus">@color/textColorMoonStatusNight</item>
         <item name="bgWind">@color/bgWindDetailNight</item>
         <item name="tintColor">@color/tintColorNight</item>
     </style>

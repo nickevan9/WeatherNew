@@ -20,6 +20,8 @@
 
     <color name="bgMoonNight">#FFFFFF</color>
     <color name="moonInsideColorNight">#131313</color>
+    <color name="textColorDayNight">#FFFFFF</color>
+    <color name="textColorMoonStatusNight">#FFAD22</color>
 
     <color name="bgWindDetailNight">#1D1D1D</color>
 
@@ -43,6 +45,8 @@
 
     <color name="bgMoonLight">#494949</color>
     <color name="moonInsideColorLight">#FFFFFF</color>
+    <color name="textColorDayLight">#9F9D9E</color>
+    <color name="textColorMoonStatusLight">#494949</color>
 
     <color name="bgWindDetailLight">#D7D7D7</color>
 
