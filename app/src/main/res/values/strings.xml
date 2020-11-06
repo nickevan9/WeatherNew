@@ -2,6 +2,9 @@
     <string name="app_name">WeatherNew</string>
 
     <string name="set_temp">%s ºC</string>
+    <string name="set_speed">%s m/s</string>
+    <string name="wind_level">Wind level %x</string>
+    <string name="set_pressure">%x mph</string>
 
     <string name="excellent_title">Good</string>
     <string name="good_title">Moderate</string>
@@ -9,4 +12,7 @@
     <string name="moderate_pollution_title">Unhealthy</string>
     <string name="heavily_polluted_title">Very Unhealthy</string>
     <string name="heavy_pollution_title">Hazardous</string>
+    <string name="today">Today</string>
+    <string name="seven_day_next">7 day next</string>
+    <string name="fourteen_day_next">14 day next</string>
 </resources>
