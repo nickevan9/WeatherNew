@@ -6,18 +6,16 @@ import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 import com.netviet.weathernew.R;
 import com.netviet.weathernew.app.RxBus;
 import com.netviet.weathernew.app.WindConvert;
 import com.netviet.weathernew.data.model.weather.HourlyEntity;
 
-public class WidgetWeatherWind extends ConstraintLayout {
+public class WidgetWeatherWind extends RelativeLayout {
 
     private ImageView imgWind;
     private TextView tvWindDirection;
