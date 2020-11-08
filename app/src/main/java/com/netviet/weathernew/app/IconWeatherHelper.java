@@ -523,187 +523,69 @@ public class IconWeatherHelper {
         int drawable = 0;
         switch (code){
             case "d000":
-                drawable = R.drawable.bg_sunny;
-                break;
             case "d100":
-                drawable = R.drawable.bg_cloudy_day;
-                break;
             case "d200":
-                drawable = R.drawable.bg_cloudy_day;
-                break;
             case "d210":
-                drawable = R.drawable.bg_rain;
-                break;
             case "d211":
-                drawable = R.drawable.bg_sleet;
-                break;
             case "d212":
-                drawable = R.drawable.bg_snow;
-                break;
             case "d220":
-                drawable = R.drawable.bg_rain;
-                break;
             case "d221":
-                drawable = R.drawable.bg_sleet;
-                break;
             case "d222":
-                drawable = R.drawable.bg_snow;
-                break;
             case "d240":
-                drawable = R.drawable.bg_rain;
-                break;
             case "d300":
-                drawable = R.drawable.bg_cloudy_day;
-                break;
             case "d310":
-                drawable = R.drawable.bg_rain;
-                break;
             case "d311":
-                drawable = R.drawable.bg_sleet;
-                break;
             case "d312":
-                drawable = R.drawable.bg_snow;
-                break;
             case "d320":
-                drawable = R.drawable.bg_rain;
-                break;
             case "d321":
-                drawable = R.drawable.bg_sleet;
-                break;
             case "d322":
-                drawable = R.drawable.bg_snow;
-                break;
             case "d340":
-                drawable = R.drawable.bg_rain;
-                break;
             case "d400":
-                drawable = R.drawable.bg_cloudy_day;
-                break;
             case "d411":
-                drawable = R.drawable.bg_sleet;
-                break;
             case "d412":
-                drawable = R.drawable.bg_snow;
-                break;
             case "d420":
-                drawable = R.drawable.bg_rain;
-                break;
             case "d421":
-                drawable = R.drawable.bg_sleet;
-                break;
             case "d422":
-                drawable = R.drawable.bg_snow;
-                break;
             case "d430":
-                drawable = R.drawable.bg_rain;
-                break;
             case "d431":
-                drawable = R.drawable.bg_sleet;
-                break;
             case "d432":
-                drawable = R.drawable.bg_snow;
-                break;
             case "d440":
-                drawable = R.drawable.bg_rain;
-                break;
             case "d500":
-                drawable = R.drawable.bg_cloudy_day;
-                break;
             case "d600":
-                drawable = R.drawable.bg_fog;
-                break;
-            case "n000":
-                drawable = R.drawable.bg_cloudy_night;
-                break;
-            case "n100":
-                drawable = R.drawable.bg_cloudy_night;
-                break;
-            case "n200":
-                drawable = R.drawable.bg_cloudy_night;
-                break;
-            case "n210":
-                drawable = R.drawable.bg_rain;
-                break;
-            case "n211":
-                drawable = R.drawable.bg_sleet;
-                break;
-            case "n212":
-                drawable = R.drawable.bg_snow;
-                break;
-            case "n220":
-                drawable = R.drawable.bg_rain;
-                break;
-            case "n221":
-                drawable = R.drawable.bg_sleet;
-                break;
-            case "n222":
-                drawable = R.drawable.bg_snow;
-                break;
-            case "n240":
-                drawable = R.drawable.bg_rain;
-                break;
-            case "n300":
-                drawable = R.drawable.bg_cloudy_night;
-                break;
-            case "n310":
-                drawable = R.drawable.bg_rain;
-                break;
-            case "n311":
-                drawable = R.drawable.bg_sleet;
-                break;
-            case "n312":
-                drawable = R.drawable.bg_snow;
-                break;
-            case "n320":
-                drawable = R.drawable.bg_rain;
-                break;
-            case "n321":
-                drawable = R.drawable.bg_sleet;
-                break;
-            case "n322":
-                drawable = R.drawable.bg_snow;
-                break;
-            case "n340":
-                drawable = R.drawable.bg_rain;
-                break;
-            case "n400":
-                drawable = R.drawable.bg_cloudy_night;
-                break;
-            case "n411":
-                drawable = R.drawable.bg_sleet;
-                break;
-            case "n412":
-                drawable = R.drawable.bg_snow;
-                break;
-            case "n420":
-                drawable = R.drawable.bg_rain;
-                break;
-            case "n421":
-                drawable = R.drawable.bg_sleet;
-                break;
-            case "n422":
-                drawable = R.drawable.bg_snow;
-                break;
-            case "n430":
-                drawable = R.drawable.bg_rain;
-                break;
-            case "n431":
-                drawable = R.drawable.bg_sleet;
-                break;
-            case "n432":
-                drawable = R.drawable.bg_snow;
-                break;
-            case "n440":
-                drawable = R.drawable.bg_rain;
-                break;
-            case "n500":
-                drawable = R.drawable.bg_cloudy_night;
+                drawable = R.drawable.bg_light;
                 break;
             case "n600":
-                drawable = R.drawable.bg_fog;
-                break;
+            case "n440":
+            case "n500":
+            case "n100":
+            case "n000":
+            case "n200":
+            case "n210":
+            case "n432":
+            case "n431":
+            case "n430":
+            case "n422":
+            case "n421":
+            case "n420":
+            case "n412":
+            case "n411":
+            case "n400":
+            case "n340":
+            case "n322":
+            case "n321":
+            case "n320":
+            case "n312":
+            case "n311":
+            case "n310":
+            case "n300":
+            case "n240":
+            case "n222":
+            case "n221":
+            case "n220":
+            case "n212":
+            case "n211":
             default:
-                drawable = R.drawable.bg_cloudy_day;
+                drawable = R.drawable.bg_night;
                 break;
         }
         return drawable;

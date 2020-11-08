@@ -10,6 +10,7 @@ import com.netviet.weathernew.data.response.AirService;
 import com.netviet.weathernew.data.response.ApiClient;
 import com.netviet.weathernew.data.response.WeatherService;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -17,7 +18,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class LoadingPresenter implements LoadingContract.Controller {
+public class LoadingPresenter implements LoadingContract.Presenter {
     private LoadingContract.View mView;
     private Context context;
     private DataProccessor dataProccessor;
@@ -35,7 +36,7 @@ public class LoadingPresenter implements LoadingContract.Controller {
         if (weatherDbs.isEmpty()) {
             mView.loadDataEmpty();
         } else {
-
+            fetchAllWeather(weatherDbs);
         }
     }
 
@@ -65,23 +66,25 @@ public class LoadingPresenter implements LoadingContract.Controller {
                             WeatherDb weatherDb = createWeather(weatherEntity, airEntity, new Date());
 
                             if (finalIndex == (weatherDbs.size() - 1)) {
-//                                insertToDb(weatherDb, true);
+                                weatherDbs.set(finalIndex, weatherDb);
+                                dataProccessor.setWeatherData(weatherDbs);
+                                mView.hideLoading();
                             } else {
-//                                insertToDb(weatherDb, false);
+                                weatherDbs.set(finalIndex, weatherDb);
                             }
 
                         }
 
                         @Override
                         public void onFailure(Call<AirEntity> call, Throwable t) {
-
+                            mView.loadDataFailed(t.getMessage());
                         }
                     });
                 }
 
                 @Override
                 public void onFailure(Call<WeatherEntity> call, Throwable t) {
-
+                    mView.loadDataFailed(t.getMessage());
                 }
             });
 
@@ -108,16 +111,54 @@ public class LoadingPresenter implements LoadingContract.Controller {
     @Override
     public void getSingleWeather(Double lat, Double lon) {
         mView.showLoadingAPI();
+
+        AirService airService = ApiClient.getInstance().getClient2().create(AirService.class);
+        WeatherService weatherService = ApiClient.getInstance().getClient().create(WeatherService.class);
+
+        Call<AirEntity> airEntityCall = airService.getAirIndex(lat, lon);
+        Call<WeatherEntity> weatherEntityCall = weatherService.getWeatherData(lat, lon);
+
+
+        weatherEntityCall.enqueue(new Callback<WeatherEntity>() {
+            @Override
+            public void onResponse(Call<WeatherEntity> call, Response<WeatherEntity> response) {
+                WeatherEntity weatherEntity = response.body();
+                airEntityCall.enqueue(new Callback<AirEntity>() {
+                    @Override
+                    public void onResponse(Call<AirEntity> call, Response<AirEntity> response) {
+                        AirEntity airEntity = response.body();
+                        WeatherDb weatherDb = createWeather(weatherEntity, airEntity, new Date());
+
+                        List<WeatherDb> weatherDbList = new ArrayList<>();
+                        weatherDbList.add(weatherDb);
+
+                        DataProccessor.setWeatherData(weatherDbList);
+                        mView.hideLoading();
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<AirEntity> call, Throwable t) {
+                        mView.loadDataFailed(t.getMessage());
+                    }
+                });
+            }
+
+            @Override
+            public void onFailure(Call<WeatherEntity> call, Throwable t) {
+                mView.loadDataFailed(t.getMessage());
+            }
+        });
     }
 
     @Override
     public void attachView(LoadingContract.View view) {
-
+        this.mView = view;
     }
 
     @Override
     public void detachView(LoadingContract.View view) {
-
+        this.mView = null;
     }
 
     @Override

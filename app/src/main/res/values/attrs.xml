@@ -40,6 +40,7 @@
     <attr name="backgroundApp" format="integer" />
     <attr name="textColorApp" format="reference" />
     <attr name="textColorSecond" format="reference"/>
+    <attr name="bgBottomBar" format="reference"/>
 
     <declare-styleable name="weatherDetail">
         <attr name="bgCardColor" format="reference" />

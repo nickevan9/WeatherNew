@@ -26,6 +26,7 @@
     <color name="bgWindDetailNight">#1D1D1D</color>
 
     <color name="tintColorNight">#FFAD21</color>
+    <color name="bgColorBottomBarNight">#232325</color>
 
 
 
@@ -53,4 +54,6 @@
     <color name="tintColorLight">#494949</color>
     <color name="color_yellow">#FEAD22</color>
     <color name="bg_tranfer_item">#00000000</color>
+
+    <color name="bgColorBottomBarLight">#FFFFFF</color>
 </resources>

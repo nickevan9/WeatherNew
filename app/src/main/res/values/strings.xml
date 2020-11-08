@@ -15,4 +15,11 @@
     <string name="today">Today</string>
     <string name="seven_day_next">7 day next</string>
     <string name="fourteen_day_next">14 day next</string>
+
+
+    <string name="syncing_server">Syncing with server</string>
+    <string name="syncing_database">Syncing with database</string>
+    <string name="weather">Weather</string>
+    <string name="location">Location</string>
+    <string name="theme">Themes</string>
 </resources>

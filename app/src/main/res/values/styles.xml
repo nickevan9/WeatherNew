@@ -26,6 +26,7 @@
         <item name="textColorMoonStatus">@color/textColorMoonStatusLight</item>
         <item name="bgWind">@color/bgWindDetailLight</item>
         <item name="tintColor">@color/tintColorLight</item>
+        <item name="bgBottomBar">@color/bgColorBottomBarLight</item>
     </style>
 
     <style name="AppTheme.Dark" parent="Theme.AppCompat.Light.NoActionBar">
@@ -47,6 +48,7 @@
         <item name="textColorMoonStatus">@color/textColorMoonStatusNight</item>
         <item name="bgWind">@color/bgWindDetailNight</item>
         <item name="tintColor">@color/tintColorNight</item>
+        <item name="bgBottomBar">@color/bgColorBottomBarNight</item>
     </style>
 
 </resources>

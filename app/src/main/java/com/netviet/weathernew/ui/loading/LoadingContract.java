@@ -14,7 +14,7 @@ public class LoadingContract {
         void loadDataEmpty();
     }
 
-    public interface Controller extends IBaseController<View> {
+    public interface Presenter extends IBaseController<View> {
         void getAllWeather();
 
         void getSingleWeather(Double lat,Double lon);
