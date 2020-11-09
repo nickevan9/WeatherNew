@@ -1,4 +1,4 @@
-package com.netviet.weathernew.ui.home;
+package com.netviet.weathernew.ui.weather;
 
 import android.content.Context;
 
@@ -18,14 +18,14 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class HomePresenter implements HomeContract.Controller {
+public class WeatherPresenter implements WeatherContract.Presenter {
 
-    private HomeContract.View mView;
+    private WeatherContract.View mView;
 
     private Context context;
     private DataProccessor dataProccessor;
 
-    public HomePresenter(Context context) {
+    public WeatherPresenter(Context context) {
         this.context = context;
         dataProccessor = new DataProccessor(context);
     }
@@ -100,13 +100,13 @@ public class HomePresenter implements HomeContract.Controller {
 
 
     @Override
-    public void attachView(HomeContract.View view) {
-
+    public void attachView(WeatherContract.View view) {
+        this.mView = view;
     }
 
     @Override
-    public void detachView(HomeContract.View view) {
-
+    public void detachView(WeatherContract.View view) {
+        this.mView = null;
     }
 
     @Override

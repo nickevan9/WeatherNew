@@ -43,8 +43,8 @@ public class WidgetWeatherSun extends RelativeLayout {
         String sunRise = dailyEntities.get(0).getRise();
         String sunSet = dailyEntities.get(0).getSet();
 
-        customSunView.setSunriseTime(new Time(Integer.parseInt(sunRise.substring(0,2)), Integer.parseInt(sunRise.substring(3,4))));
-        customSunView.setSunsetTime(new  Time(Integer.parseInt(sunSet.substring(0,2)), Integer.parseInt(sunSet.substring(3,4))));
+        customSunView.setSunriseTime(new Time(Integer.parseInt(sunRise.substring(0,2)), Integer.parseInt(sunRise.substring(2,4))));
+        customSunView.setSunsetTime(new  Time(Integer.parseInt(sunSet.substring(0,2)), Integer.parseInt(sunSet.substring(2,4))));
 
         customSunView.startAnimate();
     }

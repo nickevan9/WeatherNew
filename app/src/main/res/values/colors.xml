@@ -27,6 +27,8 @@
 
     <color name="tintColorNight">#FFAD21</color>
     <color name="bgColorBottomBarNight">#232325</color>
+    <color name="colorBottomBarSelectedNight">#FFFFFF</color>
+    <color name="colorBottomBarUnselectedNight">#FEAD22</color>
 
 
 
@@ -56,4 +58,7 @@
     <color name="bg_tranfer_item">#00000000</color>
 
     <color name="bgColorBottomBarLight">#FFFFFF</color>
+
+    <color name="colorBottomBarSelectedLight">#FEAD22</color>
+    <color name="colorBottomBarUnselectedLight">#494949</color>
 </resources>

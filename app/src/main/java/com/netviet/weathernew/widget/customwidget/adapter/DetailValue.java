@@ -2,12 +2,12 @@ package com.netviet.weathernew.widget.customwidget.adapter;
 
 public class DetailValue {
     private String name ;
-    private int value;
+    private String value;
     private int drawable;
 
     public DetailValue(){}
 
-    public DetailValue(String name, int value, int drawable) {
+    public DetailValue(String name, String value, int drawable) {
         this.name = name;
         this.value = value;
         this.drawable = drawable;
@@ -21,11 +21,11 @@ public class DetailValue {
         this.name = name;
     }
 
-    public int getValue() {
+    public String getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(String value) {
         this.value = value;
     }
 

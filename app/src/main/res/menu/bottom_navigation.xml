@@ -2,17 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_shop"
+        android:id="@+id/navigation_weather"
         android:icon="@drawable/ic_menu_weather"
         android:title="@string/weather" />
 
     <item
-        android:id="@+id/navigation_gifts"
+        android:id="@+id/navigation_location"
         android:icon="@drawable/ic_menu_location"
         android:title="@string/location" />
 
     <item
-        android:id="@+id/navigation_cart"
+        android:id="@+id/navigation_theme"
         android:icon="@drawable/ic_menu_theme"
         android:title="@string/theme" />
 

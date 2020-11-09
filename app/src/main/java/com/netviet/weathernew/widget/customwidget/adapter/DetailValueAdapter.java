@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -36,7 +38,11 @@ public class DetailValueAdapter extends RecyclerView.Adapter<DetailValueAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.bindItem(valueList.get(position));
+    }
 
+    public void applyData(List<DetailValue> detailValues){
+        this.valueList = detailValues;
     }
 
     @Override
@@ -45,10 +51,21 @@ public class DetailValueAdapter extends RecyclerView.Adapter<DetailValueAdapter.
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-
+        ImageView imgDetailValue;
+        TextView tvDetailValue;
+        TextView tvNameValue;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            imgDetailValue = itemView.findViewById(R.id.img_detail_value);
+            tvDetailValue = itemView.findViewById(R.id.tv_detail_value);
+            tvNameValue = itemView.findViewById(R.id.tv_detail_name);
+        }
+
+        public void bindItem(DetailValue detailValue){
+            imgDetailValue.setImageResource(detailValue.getDrawable());
+            tvDetailValue.setText(detailValue.getValue());
+            tvNameValue.setText(detailValue.getName());
         }
     }
 }

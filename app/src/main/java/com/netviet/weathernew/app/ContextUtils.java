@@ -20,6 +20,6 @@ public class ContextUtils {
 }
 
 
-public interface CallBackThread{
+interface CallBackThread{
     void callBack();
 }

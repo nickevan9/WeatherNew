@@ -93,6 +93,10 @@ public class DataProccessor {
         Type type = new TypeToken<List<WeatherDb>>() {}.getType();
         weatherDbs = gson.fromJson(jsonPreferences, type);
 
+        if (weatherDbs == null){
+            weatherDbs = new ArrayList<>();
+        }
+
         return weatherDbs;
     }
 }

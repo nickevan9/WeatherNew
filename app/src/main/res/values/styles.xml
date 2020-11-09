@@ -20,13 +20,15 @@
         <item name="textInCard">@color/textColorAppLight</item>
         <item name="rainTextColor">@color/rainTextColorLight</item>
         <item name="backgroundSun">@drawable/bg_sun_light</item>
-        <item name="bgMoon">@color/bgMoonLight</item>
+<!--        <item name="bgMoon">@color/bgMoonLight</item>-->
         <item name="moonInsideColor">@color/moonInsideColorLight</item>
         <item name="textColorDay">@color/textColorDayLight</item>
         <item name="textColorMoonStatus">@color/textColorMoonStatusLight</item>
         <item name="bgWind">@color/bgWindDetailLight</item>
         <item name="tintColor">@color/tintColorLight</item>
         <item name="bgBottomBar">@color/bgColorBottomBarLight</item>
+        <item name="colorBottomBarSelected">@color/colorBottomBarSelectedLight</item>
+        <item name="colorBottomBarUnSelected">@color/colorBottomBarUnselectedLight</item>
     </style>
 
     <style name="AppTheme.Dark" parent="Theme.AppCompat.Light.NoActionBar">
@@ -42,13 +44,19 @@
         <item name="textInCard">@color/textColorAppNight</item>
         <item name="rainTextColor">@color/rainTextColorNight</item>
         <item name="backgroundSun">@drawable/bg_sun_light</item>
-        <item name="bgMoon">@color/bgMoonNight</item>
+<!--        <item name="bgMoon">@color/bgMoonNight</item>-->
         <item name="moonInsideColor">@color/moonInsideColorNight</item>
         <item name="textColorDay">@color/textColorDayNight</item>
         <item name="textColorMoonStatus">@color/textColorMoonStatusNight</item>
         <item name="bgWind">@color/bgWindDetailNight</item>
         <item name="tintColor">@color/tintColorNight</item>
         <item name="bgBottomBar">@color/bgColorBottomBarNight</item>
+        <item name="colorBottomBarSelected">@color/colorBottomBarSelectedNight</item>
+        <item name="colorBottomBarUnSelected">@color/colorBottomBarUnselectedNight</item>
+    </style>
+
+    <style name="SplashScreenTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_screen_background</item>
     </style>
 
 </resources>

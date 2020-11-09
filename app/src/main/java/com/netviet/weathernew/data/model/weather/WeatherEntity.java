@@ -25,10 +25,10 @@ public class WeatherEntity {
     private CcEntity cc;
     @SerializedName("fch")
     @Expose
-    private List<HourlyEntity> fch = null;
+    private List<HourlyEntity> listHourly = null;
     @SerializedName("fcd")
     @Expose
-    private List<DailyEntity> fcd = null;
+    private List<DailyEntity> listDaily = null;
     @Embedded
     @SerializedName("loc")
     @Expose
@@ -76,20 +76,20 @@ public class WeatherEntity {
         this.cc = cc;
     }
 
-    public List<HourlyEntity> getFch() {
-        return fch;
+    public List<HourlyEntity> getListHourly() {
+        return listHourly;
     }
 
-    public void setFch(List<HourlyEntity> fch) {
-        this.fch = fch;
+    public void setListHourly(List<HourlyEntity> listHourly) {
+        this.listHourly = listHourly;
     }
 
-    public List<DailyEntity> getFcd() {
-        return fcd;
+    public List<DailyEntity> getListDaily() {
+        return listDaily;
     }
 
-    public void setFcd(List<DailyEntity> fcd) {
-        this.fcd = fcd;
+    public void setListDaily(List<DailyEntity> listDaily) {
+        this.listDaily = listDaily;
     }
 
     public LocEntity getLoc() {

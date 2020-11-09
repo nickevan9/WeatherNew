@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.netviet.weathernew.R;
 import com.netviet.weathernew.app.RxBus;
 import com.netviet.weathernew.data.model.weather.DailyEntity;
-import com.netviet.weathernew.data.model.weather.HourlyEntity;
 import com.netviet.weathernew.widget.customwidget.adapter.DailyAdapter;
 import com.netviet.weathernew.widget.customwidget.adapter.DailyDayAdapter;
 import com.netviet.weathernew.widget.customwidget.adapter.LinearLayoutPagerManager;
@@ -64,12 +63,14 @@ public class WidgetWeatherDaily extends RelativeLayout {
 
         LinearLayoutPagerManager layoutPagerManager = new LinearLayoutPagerManager(getContext(), LinearLayoutManager.HORIZONTAL, false, 7);
 
+        LinearLayoutPagerManager layoutPagerManagerCard = new LinearLayoutPagerManager(getContext(), LinearLayoutManager.HORIZONTAL, false, 7);
+
 
         rvNextDay.setLayoutManager(layoutPagerManager);
         rvNextDay.setHasFixedSize(true);
         rvNextDay.setAdapter(dailyAdapter);
 
-        rvCardNextDay.setLayoutManager(layoutPagerManager);
+        rvCardNextDay.setLayoutManager(layoutPagerManagerCard);
         rvCardNextDay.setHasFixedSize(true);
         rvCardNextDay.setAdapter(dailyDayAdapter);
     }

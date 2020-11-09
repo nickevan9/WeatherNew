@@ -1,20 +1,53 @@
 package com.netviet.weathernew.ui.home;
 
-import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.netviet.weathernew.R;
-import com.netviet.weathernew.data.model.weathersaved.WeatherDb;
 import com.netviet.weathernew.ui.base.BaseActivity;
+import com.netviet.weathernew.ui.weather.WeatherFragment;
 
-import java.util.List;
 
-public class HomeActivity extends BaseActivity implements HomeContract.View {
+public class HomeActivity extends BaseActivity {
+
+    BottomNavigationView bottomNavigation;
 
     @Override
     protected void initView() {
 
+        bottomNavigation = findViewById(R.id.bottom_navigation);
+
+        bottomNavigation.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
+        openFragment(new WeatherFragment());
+
+    }
+
+    BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener =
+            item -> {
+                switch (item.getItemId()) {
+                    case R.id.navigation_weather:
+                        openFragment(new WeatherFragment());
+                        return true;
+                    case R.id.navigation_location:
+                        openFragment(new WeatherFragment());
+                        return true;
+                    case R.id.navigation_theme:
+                        openFragment(new WeatherFragment());
+                        return true;
+                }
+                return false;
+            };
+
+    public void openFragment(Fragment fragment) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_container, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 
     @Override
@@ -24,32 +57,8 @@ public class HomeActivity extends BaseActivity implements HomeContract.View {
 
     @Override
     protected int layoutRes() {
-        return 0;
-    }
-    
-
-    @Override
-    public void loadDataSuccess(List<WeatherDb> weatherDbList, Boolean addWeather) {
-
+        return R.layout.activity_home;
     }
 
-    @Override
-    public void loadDataFailed(String message) {
 
-    }
-
-    @Override
-    public void showLoadingDB() {
-
-    }
-
-    @Override
-    public void hideLoading() {
-
-    }
-
-    @Override
-    public void showLoadingAPI() {
-
-    }
 }

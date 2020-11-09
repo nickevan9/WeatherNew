@@ -42,6 +42,9 @@
     <attr name="textColorSecond" format="reference"/>
     <attr name="bgBottomBar" format="reference"/>
 
+    <attr name="colorBottomBarSelected" format="reference"/>
+    <attr name="colorBottomBarUnSelected" format="reference"/>
+
     <declare-styleable name="weatherDetail">
         <attr name="bgCardColor" format="reference" />
     </declare-styleable>

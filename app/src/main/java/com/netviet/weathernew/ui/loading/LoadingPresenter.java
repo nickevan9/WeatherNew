@@ -33,6 +33,7 @@ public class LoadingPresenter implements LoadingContract.Presenter {
     public void getAllWeather() {
         mView.showLoadingDB();
         List<WeatherDb> weatherDbs = DataProccessor.getWeatherData();
+
         if (weatherDbs.isEmpty()) {
             mView.loadDataEmpty();
         } else {
