@@ -23,13 +23,13 @@ public class CustomMoon extends View {
     private Paint mOvalPaint;
     private double mPercentMoon;
     private float mPercent;
-    private String mColorStroke;
-    private String mColorMoon;
+    private String mColorStroke = "#FFFFFF";
+    private String mColorMoon = "#FFFFFF";
 
 
     public CustomMoon(Context context) {
         super(context);
-        initView(null, null);
+        initView(context, null);
     }
 
     public CustomMoon(Context context, @Nullable AttributeSet attrs) {

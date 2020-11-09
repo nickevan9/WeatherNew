@@ -25,14 +25,17 @@ public class WidgetDetailValue extends RelativeLayout {
 
     public WidgetDetailValue(Context context) {
         super(context);
+        initView();
     }
 
     public WidgetDetailValue(Context context, AttributeSet attrs) {
         super(context, attrs);
+        initView();
     }
 
     public WidgetDetailValue(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        initView();
     }
 
     protected void initView() {

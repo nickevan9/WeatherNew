@@ -20,14 +20,17 @@ public class WidgetWeatherSun extends RelativeLayout {
 
     public WidgetWeatherSun(Context context) {
         super(context);
+        initView();
     }
 
     public WidgetWeatherSun(Context context, AttributeSet attrs) {
         super(context, attrs);
+        initView();
     }
 
     public WidgetWeatherSun(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        initView();
     }
 
     protected void initView() {
@@ -43,8 +46,8 @@ public class WidgetWeatherSun extends RelativeLayout {
         String sunRise = dailyEntities.get(0).getRise();
         String sunSet = dailyEntities.get(0).getSet();
 
-        customSunView.setSunriseTime(new Time(Integer.parseInt(sunRise.substring(0,2)), Integer.parseInt(sunRise.substring(2,4))));
-        customSunView.setSunsetTime(new  Time(Integer.parseInt(sunSet.substring(0,2)), Integer.parseInt(sunSet.substring(2,4))));
+        customSunView.setSunriseTime(new Time(Integer.parseInt(sunRise.substring(0,2)), Integer.parseInt(sunRise.substring(3,5))));
+        customSunView.setSunsetTime(new Time(Integer.parseInt(sunSet.substring(0,2)), Integer.parseInt(sunSet.substring(3,5))));
 
         customSunView.startAnimate();
     }

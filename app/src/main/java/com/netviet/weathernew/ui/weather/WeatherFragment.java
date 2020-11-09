@@ -75,9 +75,11 @@ public class WeatherFragment extends BaseFragment implements WeatherContract.Vie
     @Override
     protected void dataCreate() {
         loadingDialog = new LoadingDialog(requireActivity());
-        weatherPresenter = new WeatherPresenter(requireContext());
-        weatherPresenter.attachView(this);
         weatherDbs = new ArrayList<>();
+        weatherPresenter = new WeatherPresenter(requireContext());
+        homePagerAdapter = new HomePagerAdapter(getChildFragmentManager(), getLifecycle(), weatherDbs);
+        weatherPresenter.attachView(this);
+
 
     }
 
@@ -102,7 +104,7 @@ public class WeatherFragment extends BaseFragment implements WeatherContract.Vie
         widgetWeatherMap = requireView().findViewById(R.id.wg_weather_map);
 
 
-        homePagerAdapter = new HomePagerAdapter(getChildFragmentManager(), getLifecycle(), weatherDbs);
+
         vpWeather.setAdapter(homePagerAdapter);
 
         vpWeather.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {

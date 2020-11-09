@@ -72,7 +72,7 @@ public class WidgetWeatherAir extends ConstraintLayout {
 
     public void applyData(AirEntity airEntity) {
         int aqi = airEntity.getDataEntity().getAqi();
-        tvValueAir.setText(aqi);
+        tvValueAir.setText(String.valueOf(aqi));
 
         pbAir.applyData(aqi);
 

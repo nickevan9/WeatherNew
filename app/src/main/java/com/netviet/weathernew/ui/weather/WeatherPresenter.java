@@ -34,7 +34,7 @@ public class WeatherPresenter implements WeatherContract.Presenter {
     @Override
     public void getAllWeather(Boolean addWeather) {
         mView.showLoadingDB();
-        List<WeatherDb> weatherDbs = DataProccessor.getWeatherData();
+        List<WeatherDb> weatherDbs = dataProccessor.getWeatherData();
         mView.loadDataSuccess(weatherDbs,addWeather);
 
     }
@@ -102,6 +102,7 @@ public class WeatherPresenter implements WeatherContract.Presenter {
     @Override
     public void attachView(WeatherContract.View view) {
         this.mView = view;
+        getAllWeather(false);
     }
 
     @Override

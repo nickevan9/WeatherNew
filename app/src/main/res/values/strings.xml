@@ -4,7 +4,7 @@
     <string name="set_temp">%s ºC</string>
     <string name="set_speed">%s m/s</string>
     <string name="wind_level">Wind level %x</string>
-    <string name="set_pressure">%x mph</string>
+    <string name="set_pressure">%s mph</string>
 
     <string name="excellent_title">Good</string>
     <string name="good_title">Moderate</string>

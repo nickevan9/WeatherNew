@@ -16,17 +16,21 @@ public class CustomProgress extends ConstraintLayout {
 
     public CustomProgress(@NonNull Context context) {
         super(context);
+        initView();
     }
 
     public CustomProgress(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        initView();
     }
 
     public CustomProgress(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        initView();
     }
 
     protected void initView() {
+        inflate(getContext(), R.layout.custom_progress,this);
         guidelineChange = findViewById(R.id.guideline_change);
     }
 

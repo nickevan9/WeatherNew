@@ -29,14 +29,17 @@ public class WidgetWeatherMoon extends RelativeLayout {
 
     public WidgetWeatherMoon(Context context) {
         super(context);
+        initView();
     }
 
     public WidgetWeatherMoon(Context context, AttributeSet attrs) {
         super(context, attrs);
+        initView();
     }
 
     public WidgetWeatherMoon(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        initView();
     }
 
     protected void initView() {
@@ -60,7 +63,7 @@ public class WidgetWeatherMoon extends RelativeLayout {
     private void applyData(List<DailyEntity> dailyEntities, String timeZone) {
         moon1.updateMoon(dailyEntities.get(0).getMp() / 340);
         moon1.updateMoon(dailyEntities.get(7).getMp() / 340);
-        moon1.updateMoon(dailyEntities.get(13).getMp() / 340);
+        moon1.updateMoon(dailyEntities.get(dailyEntities.size()-1).getMp() / 340);
 
         tvDay1.setText(getContext().getString(R.string.today));
         tvDay2.setText(getContext().getString(R.string.seven_day_next));

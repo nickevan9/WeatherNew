@@ -28,14 +28,17 @@ public class WidgetWeatherWind extends RelativeLayout {
 
     public WidgetWeatherWind(@NonNull Context context) {
         super(context);
+        initView();
     }
 
     public WidgetWeatherWind(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        initView();
     }
 
     public WidgetWeatherWind(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        initView();
     }
 
     protected void initView() {
@@ -81,7 +84,7 @@ public class WidgetWeatherWind extends RelativeLayout {
             tvLevelWind.setText( getContext().getString(R.string.wind_level,12));
         }
 
-        tvPressure.setText(getContext().getString(R.string.set_pressure,hourlyEntity.getPressure()));
+        tvPressure.setText(getContext().getString(R.string.set_pressure,String.valueOf(hourlyEntity.getPressure())));
 
         rotateWindSpeed();
     }
