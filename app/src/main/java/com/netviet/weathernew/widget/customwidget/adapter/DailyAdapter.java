@@ -1,5 +1,6 @@
 package com.netviet.weathernew.widget.customwidget.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -60,6 +61,7 @@ public class DailyAdapter extends RecyclerView.Adapter<DailyAdapter.ViewHolder> 
         this.timeZone = timeZone;
         this.max = max;
         this.min = min;
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -81,6 +83,7 @@ public class DailyAdapter extends RecyclerView.Adapter<DailyAdapter.ViewHolder> 
             rlDaily = itemView.findViewById(R.id.rl_item_daily);
         }
 
+        @SuppressLint("SetTextI18n")
         public void bindItem(DailyEntity dailyEntity){
             tvTempMax.setText(dailyEntity.getTempMax().intValue() + "°");
             tvTempMin.setText(dailyEntity.getTempMin().intValue() + "°");

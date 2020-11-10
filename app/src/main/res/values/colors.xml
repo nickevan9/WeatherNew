@@ -5,6 +5,7 @@
     <color name="colorAccent">#03DAC5</color>
 
 <!--    night-->
+    <color name="backgroundColorAppNight">#131313</color>
     <color name="textColorAppNight">#EFEFEF</color>
     <color name="textColorSecondNight">#858585 </color>
 
@@ -34,6 +35,7 @@
 
 
 <!--    light-->
+    <color name="backgroundColorAppLight">#FFFFFF</color>
     <color name="textColorAppLight">#494949</color>
     <color name="textColorSecondLight">#484849</color>
 

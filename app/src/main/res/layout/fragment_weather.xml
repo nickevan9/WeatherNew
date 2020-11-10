@@ -92,49 +92,42 @@
                 android:id="@+id/wg_weather_air"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp"
                 />
 
             <com.netviet.weathernew.widget.customwidget.WidgetWeatherHourly
                 android:id="@+id/wg_weather_hourly"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp"
                 />
 
             <com.netviet.weathernew.widget.customwidget.WidgetWeatherDaily
                 android:id="@+id/wg_weather_daily"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp"
                 />
 
             <com.netviet.weathernew.widget.customwidget.WidgetWeatherSun
                 android:id="@+id/wg_weather_sun"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp"
                 />
 
             <com.netviet.weathernew.widget.customwidget.WidgetWeatherMoon
                 android:id="@+id/wg_weather_moon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp"
                 />
 
             <com.netviet.weathernew.widget.customwidget.WidgetWeatherWind
                 android:id="@+id/wg_weather_wind"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp"
                 />
 
             <com.netviet.weathernew.widget.customwidget.WidgetWeatherMap
                 android:id="@+id/wg_weather_map"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp"
                 />
 
         </LinearLayout>

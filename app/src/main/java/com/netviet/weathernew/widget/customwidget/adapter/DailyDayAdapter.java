@@ -56,6 +56,7 @@ public class DailyDayAdapter extends  RecyclerView.Adapter<DailyDayAdapter.ViewH
     public void applyData(List<DailyEntity> dailyEntities,String timeZone){
         this.dailyEntities = dailyEntities;
         this.timeZone = timeZone;
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

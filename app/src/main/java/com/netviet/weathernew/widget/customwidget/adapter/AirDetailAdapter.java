@@ -61,7 +61,7 @@ public class AirDetailAdapter extends RecyclerView.Adapter<AirDetailAdapter.View
         }
 
         public void bindItem(AirValue airValue){
-            tvValue.setText(airValue.getValue());
+            tvValue.setText(String.valueOf((int) Double.parseDouble(airValue.getValue())));
             tvName.setText(airValue.getName());
         }
     }

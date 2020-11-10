@@ -2,6 +2,7 @@ package com.netviet.weathernew.widget.customwidget.adapter;
 
 import android.content.Context;
 import android.graphics.drawable.AnimationDrawable;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.netviet.weathernew.R;
@@ -53,7 +55,7 @@ public class HourlyAdapter extends RecyclerView.Adapter<HourlyAdapter.ViewHolder
 
     @Override
     public int getItemCount() {
-        return hourlyEntities.size();
+        return 14;
     }
 
     public void applyData(List<HourlyEntity> list,String timeZone){
@@ -64,34 +66,46 @@ public class HourlyAdapter extends RecyclerView.Adapter<HourlyAdapter.ViewHolder
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private CardView cardHourly;
-        private TextView tvTemp;
-        private ImageView imgHourly;
-        private TextView tvHour;
-        private TextView tvRainHour;
+        CardView cardHourly;
+        TextView tvTemp;
+        ImageView imgHourly;
+        TextView tvHour;
+        TextView tvRainHour;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            cardHourly = itemView.findViewById(R.id.card_hourly);
+            tvTemp = itemView.findViewById(R.id.tv_temp);
+            imgHourly = itemView.findViewById(R.id.img_hourly);
+            tvHour = itemView.findViewById(R.id.tv_hour);
+            tvRainHour = itemView.findViewById(R.id.tv_rain_hour);
         }
 
         public void bindItem(HourlyEntity hourlyEntity, Boolean firstPosition) {
             if (firstPosition) {
-                cardHourly.setCardBackgroundColor(R.attr.bgCardSelected);
+                TypedValue typedValue = new TypedValue();
+                context.getTheme().resolveAttribute(R.attr.bgCardSelected, typedValue, true);
+                int colorCard = ContextCompat.getColor(context, typedValue.resourceId);
+                cardHourly.setCardBackgroundColor(colorCard);
                 cardHourly.setCardElevation(8);
-                cardHourly.setRadius(8);
-                tvTemp.setTextColor(R.attr.textInCard);
-                tvHour.setTextColor(R.attr.textInCard);
+                cardHourly.setRadius(60);
+
+                context.getTheme().resolveAttribute(R.attr.textInCard, typedValue, true);
+                int colorText = ContextCompat.getColor(context, typedValue.resourceId);
+
+                tvTemp.setTextColor(colorText);
+                tvHour.setTextColor(colorText);
+            } else {
+                cardHourly.setCardBackgroundColor(ContextCompat.getColor(context, R.color.bg_tranfer_item));
+                cardHourly.setCardElevation(0);
+                cardHourly.setRadius(0);
             }
 
             tvTemp.setText(context.getString(R.string.set_temp, String.valueOf(hourlyEntity.getTemp().intValue())));
-            ;
-
             imgHourly.setBackgroundResource(IconWeatherHelper.getDrawableAnimation(hourlyEntity.getStatus()));
             AnimationDrawable anim = (AnimationDrawable) imgHourly.getBackground();
             anim.start();
-
             tvHour.setText(TimeUtilsExt.convertTimeStampToTime12Hour(hourlyEntity.getDt(), timeZone));
-
             tvRainHour.setText(String.valueOf(hourlyEntity.getRh()));
 
         }

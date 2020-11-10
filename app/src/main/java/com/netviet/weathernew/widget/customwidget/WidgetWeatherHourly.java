@@ -48,7 +48,6 @@ public class WidgetWeatherHourly extends RelativeLayout {
         timeZone = "";
         hourlyEntities = new ArrayList<>();
 
-
         hourlyAdapter = new HourlyAdapter(getContext(),hourlyEntities,timeZone);
 
         LinearLayoutPagerManager layoutPagerManager = new LinearLayoutPagerManager(getContext(), LinearLayoutManager.HORIZONTAL, false, 7);
@@ -56,6 +55,7 @@ public class WidgetWeatherHourly extends RelativeLayout {
         rvHourly.setLayoutManager(layoutPagerManager);
         rvHourly.setHasFixedSize(true);
         rvHourly.setAdapter(hourlyAdapter);
+        rvHourly.setNestedScrollingEnabled(true);
     }
 
     public void applyData(List<HourlyEntity> fchEntityList,String timeZone){

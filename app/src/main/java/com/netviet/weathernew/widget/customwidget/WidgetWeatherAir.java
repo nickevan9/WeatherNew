@@ -3,15 +3,16 @@ package com.netviet.weathernew.widget.customwidget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.netviet.weathernew.R;
 import com.netviet.weathernew.app.RxBus;
+import com.netviet.weathernew.app.SimpleItemDecorator;
 import com.netviet.weathernew.data.model.air.AirEntity;
 import com.netviet.weathernew.widget.customview.CustomProgress;
 import com.netviet.weathernew.widget.customwidget.adapter.AirDetailAdapter;
@@ -52,28 +53,28 @@ public class WidgetWeatherAir extends ConstraintLayout {
 
         inflate(getContext(), R.layout.widget_weather_air,this);
 
+        airValueList = new ArrayList<>();
+
         imgAir = findViewById(R.id.img_air);
         tvValueAir = findViewById(R.id.tv_value_air);
         tvAirStatus = findViewById(R.id.tv_air_status);
         pbAir = findViewById(R.id.pb_air);
         rvAir = findViewById(R.id.rv_air);
 
-        airValueList = new ArrayList<>();
-
         airDetailAdapter = new AirDetailAdapter(getContext(), airValueList);
 
-        LinearLayoutPagerManager layoutPagerManager = new LinearLayoutPagerManager(getContext(), LinearLayoutManager.HORIZONTAL, false, 5);
+        LinearLayoutManager layoutPagerManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
 
         rvAir.setLayoutManager(layoutPagerManager);
         rvAir.setHasFixedSize(true);
         rvAir.setAdapter(airDetailAdapter);
+        rvAir.addItemDecoration(new SimpleItemDecorator(40,true));
 
     }
 
     public void applyData(AirEntity airEntity) {
         int aqi = airEntity.getDataEntity().getAqi();
         tvValueAir.setText(String.valueOf(aqi));
-
         pbAir.applyData(aqi);
 
         if (aqi < 50) {
@@ -90,21 +91,44 @@ public class WidgetWeatherAir extends ConstraintLayout {
             tvAirStatus.setText(getContext().getString(R.string.heavy_pollution_title));
         }
 
-        airValueList.add(new AirValue("PM 10",airEntity.getDataEntity().getDetailAqiEntity().getParticulateSmallAqi()));
+        if (!airEntity.getDataEntity().getDetailDensityEntity().getParticulateSmall().equals("-999")) {
+            airValueList.add(new AirValue("PM 10", airEntity.getDataEntity().getDetailDensityEntity().getParticulateSmall()));
+        } else {
+            airValueList.add(new AirValue("PM 10", "0"));
+        }
 
-        airValueList.add(new AirValue("PM 25",airEntity.getDataEntity().getDetailAqiEntity().getParticulateBigAqi()));
+        if (!airEntity.getDataEntity().getDetailDensityEntity().getParticulateBig().equals("-999")) {
+            airValueList.add(new AirValue("PM 25", airEntity.getDataEntity().getDetailDensityEntity().getParticulateBig()));
+        } else {
+            airValueList.add(new AirValue("PM 25", "0"));
+        }
 
-        airValueList.add(new AirValue("CO",airEntity.getDataEntity().getDetailAqiEntity().getCoAqi()));
+        if (!airEntity.getDataEntity().getDetailDensityEntity().getCo().equals("-999")) {
+            airValueList.add(new AirValue("CO", airEntity.getDataEntity().getDetailDensityEntity().getCo()));
+        } else {
+            airValueList.add(new AirValue("CO", "0"));
+        }
 
-        airValueList.add(new AirValue("NO2",airEntity.getDataEntity().getDetailAqiEntity().getNitrogenDioxideAqi()));
+        if (!airEntity.getDataEntity().getDetailDensityEntity().getNitrogenDioxide().equals("-999")) {
+            airValueList.add(new AirValue("NO2", airEntity.getDataEntity().getDetailDensityEntity().getNitrogenDioxide()));
+        } else {
+            airValueList.add(new AirValue("NO2", "0"));
+        }
 
-        airValueList.add(new AirValue("SO2",airEntity.getDataEntity().getDetailAqiEntity().getSulfurDioxideAqi()));
+        if (!airEntity.getDataEntity().getDetailDensityEntity().getSulfurDioxide().equals("-999")){
+            airValueList.add(new AirValue("SO2", airEntity.getDataEntity().getDetailDensityEntity().getSulfurDioxide()));
+        }else {
+            airValueList.add(new AirValue("SO2", "0"));
+        }
 
-        airValueList.add(new AirValue("O3",airEntity.getDataEntity().getDetailAqiEntity().getOzoneAqi()));
+        if (!airEntity.getDataEntity().getDetailDensityEntity().getOzone().equals("-999")){
+            airValueList.add(new AirValue("O3", airEntity.getDataEntity().getDetailDensityEntity().getOzone()));
+        }else {
+            airValueList.add(new AirValue("O3", "0"));
+        }
+
 
         airDetailAdapter.applyData(airValueList);
-
-
     }
 
     @Override

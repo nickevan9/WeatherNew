@@ -13,6 +13,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="backgroundApp">@drawable/bg_light</item>
+        <item name="backgroundColorApp">@color/backgroundColorAppLight</item>
         <item name="textColorApp">@color/textColorAppLight</item>
         <item name="textColorSecond">@color/textColorSecondLight</item>
         <item name="bgCardColor">@color/bgCardColorLight</item>
@@ -37,6 +38,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="backgroundApp">@drawable/bg_night</item>
+        <item name="backgroundColorApp">@color/backgroundColorAppNight</item>
         <item name="textColorApp">@color/textColorAppNight</item>
         <item name="textColorSecond">@color/textColorSecondNight</item>
         <item name="bgCardColor">@color/bgCardColorNight</item>

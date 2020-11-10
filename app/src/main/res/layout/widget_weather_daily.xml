@@ -4,7 +4,7 @@
     android:id="@+id/rl_next_day"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/bg_tranfer_item"
+    android:background="?attr/backgroundColorApp"
     android:padding="8dp">
 
     <LinearLayout
@@ -17,7 +17,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Dự báo hàng ngày"
+            android:text="@string/daily_forecasts"
             android:textAllCaps="true"
             android:textColor="?attr/textColorApp"
             android:textSize="@dimen/_13ssp" />
@@ -26,7 +26,6 @@
             android:id="@+id/img_next_day"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:src="@drawable/ic_baseline_arrow_right"
             android:textSize="@dimen/_13ssp"
             app:tint="?attr/textColorApp" />
@@ -37,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/ln_day_text"
-        android:layout_marginTop="@dimen/_4sdp" />
+        android:layout_marginTop="@dimen/_8sdp" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

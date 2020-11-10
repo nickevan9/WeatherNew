@@ -3,6 +3,8 @@ package com.netviet.weathernew.widget.customview.CustomSun;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.DashPathEffect;
@@ -203,9 +205,13 @@ public class CustomSunView extends View {
         prepareSunPaint();
         canvas.save();
 
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.ic_sun);
+
         float curPointX = mBoardRectF.left + mTrackRadius - mTrackRadius * (float) Math.cos(Math.PI * mRatio);
         float curPointY = mBoardRectF.bottom - mTrackRadius * (float) Math.sin(Math.PI * mRatio);
-        canvas.drawCircle(curPointX, curPointY, mSunRadius, mSunPaint);
+//        canvas.drawCircle(curPointX, curPointY, mSunRadius, mSunPaint);
+
+        canvas.drawBitmap(Bitmap.createScaledBitmap(bitmap,30,30,false),curPointX,curPointY,mSunPaint);
 
         canvas.restore();
     }

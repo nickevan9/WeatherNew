@@ -28,4 +28,7 @@
     <string name="visibility">Visibility</string>
     <string name="uv_index">UV index</string>
     <string name="dewpoint">Dewpoint</string>
+    <string name="daily_forecasts">Daily forecasts</string>
+    <string name="hourly_forecasts">Hourly forecasts</string>
+    <string name="air_quality">Air Quality</string>
 </resources>

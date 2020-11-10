@@ -11,7 +11,7 @@
         android:id="@+id/img_weather_status"
         android:layout_width="@dimen/_24sdp"
         android:layout_height="@dimen/_24sdp"
-        android:src="@drawable/ic_rain"/>
+        />
 
     <com.netviet.weathernew.widget.customview.CustomTextviewMedium
         android:id="@+id/tv_day_week"

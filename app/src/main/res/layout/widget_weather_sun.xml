@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/bg_tranfer_item"
+    android:background="?attr/backgroundColorApp"
     android:padding="8dp"
     >
 
@@ -31,12 +31,25 @@
             app:tint="?attr/textColorApp" />
     </LinearLayout>
 
-    <com.netviet.weathernew.widget.customview.CustomSun.CustomSunView
-        android:id="@+id/custom_sun"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/bg_sun_light"
         android:layout_below="@id/ln_wind_text"
-        android:layout_marginTop="@dimen/_6sdp"
-        />
+        android:layout_marginTop="@dimen/_8sdp"
+        android:paddingHorizontal="@dimen/_8sdp"
+        >
+
+        <com.netviet.weathernew.widget.customview.CustomSun.CustomSunView
+            android:id="@+id/custom_sun"
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="wrap_content"
+            app:ssv_track_color="#A5A5A5"
+            app:ssv_shadow_color="#7D6131"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            app:ssv_sun_radius="@dimen/_3sdp"
+            />
+    </RelativeLayout>
 
 </RelativeLayout>

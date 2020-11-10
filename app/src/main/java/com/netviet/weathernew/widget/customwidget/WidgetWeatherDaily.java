@@ -69,10 +69,12 @@ public class WidgetWeatherDaily extends RelativeLayout {
         rvNextDay.setLayoutManager(layoutPagerManager);
         rvNextDay.setHasFixedSize(true);
         rvNextDay.setAdapter(dailyAdapter);
+        rvNextDay.setNestedScrollingEnabled(true);
 
         rvCardNextDay.setLayoutManager(layoutPagerManagerCard);
         rvCardNextDay.setHasFixedSize(true);
         rvCardNextDay.setAdapter(dailyDayAdapter);
+        rvNextDay.setNestedScrollingEnabled(true);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -83,6 +85,7 @@ public class WidgetWeatherDaily extends RelativeLayout {
         dailyDayAdapter.applyData(dailyEntities,timeZone);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
