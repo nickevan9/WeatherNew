@@ -131,6 +131,7 @@ public class WeatherFragment extends BaseFragment implements WeatherContract.Vie
                 RxBus.publish(RxBus.TAG_LIST_DAY_ITEM,dailyEntityList);
                 RxBus.publish(RxBus.TAG_LIST_HOUR_ITEM, hourlyEntityList);
                 RxBus.publish(RxBus.TAG_HOUR_ITEM,hourlyEntityList.get(0));
+                RxBus.publish(RxBus.TAG_NAME_LOCATION,weatherDb.getCityName());
 
             }
 

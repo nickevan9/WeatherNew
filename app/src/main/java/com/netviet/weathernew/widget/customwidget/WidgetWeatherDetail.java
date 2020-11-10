@@ -45,7 +45,7 @@ public class WidgetWeatherDetail extends RelativeLayout {
     private void applyDataHourly(HourlyEntity hourlyEntity){
 
         tvTemp.setText(getContext().getString(R.string.set_temp,String.valueOf(hourlyEntity.getTempFeel().intValue())));
-        tvWeatherStatus.setText(hourlyEntity.getStatus());
+        tvWeatherStatus.setText(hourlyEntity.getTxt());
     }
 
     private void applyDataDaily( DailyEntity dailyEntity){
@@ -59,6 +59,7 @@ public class WidgetWeatherDetail extends RelativeLayout {
         super.onAttachedToWindow();
         RxBus.subscribe(RxBus.TAG_HOUR_ITEM,this,hourlyObject -> {
             HourlyEntity hourlyEntity = (HourlyEntity) hourlyObject;
+            applyDataHourly(hourlyEntity);
         });
 
         RxBus.subscribe(RxBus.TAG_DAY_ITEM,this,dailyObject -> {

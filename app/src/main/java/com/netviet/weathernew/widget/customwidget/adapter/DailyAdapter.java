@@ -89,7 +89,7 @@ public class DailyAdapter extends RecyclerView.Adapter<DailyAdapter.ViewHolder> 
             tvTempMin.setText(dailyEntity.getTempMin().intValue() + "°");
             float factor = itemView.getContext().getResources().getDisplayMetrics().density;
 
-            int marginLinear = ActivityUtils.convertDpToPixel(context,70);
+            int marginLinear = ActivityUtils.convertDpToPixel(context,50);
 
             LinearLayout.LayoutParams paramLinear = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             paramLinear.height = (int) ((max - min)* 6 * factor + marginLinear);
