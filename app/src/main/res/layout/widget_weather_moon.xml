@@ -35,7 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/ln_moon_text"
-        android:layout_marginTop="@dimen/_6sdp">
+        android:layout_marginTop="@dimen/_8sdp">
 
 
 
@@ -56,16 +56,17 @@
 
         <com.netviet.weathernew.widget.customview.CustomMoon
             android:id="@+id/moon_1"
-            android:layout_width="@dimen/_50sdp"
-            android:layout_height="@dimen/_50sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
             app:layout_constraintEnd_toStartOf="@+id/guideline13"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.netviet.weathernew.widget.customview.CustomMoon
             android:id="@+id/moon_2"
-            android:layout_width="@dimen/_50sdp"
-            android:layout_height="@dimen/_50sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toStartOf="@+id/guideline14"
             app:layout_constraintStart_toStartOf="@+id/guideline13"
             app:layout_constraintTop_toTopOf="parent" />
@@ -73,8 +74,8 @@
 
         <com.netviet.weathernew.widget.customview.CustomMoon
             android:id="@+id/moon_3"
-            android:layout_width="@dimen/_50sdp"
-            android:layout_height="@dimen/_50sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline14"
             app:layout_constraintTop_toTopOf="parent" />
@@ -85,7 +86,7 @@
             android:layout_height="wrap_content"
             android:text="Today"
             android:textSize="@dimen/_10ssp"
-            android:layout_marginTop="@dimen/_6sdp"
+            android:layout_marginTop="@dimen/_8sdp"
             android:textColor="?attr/textColorDay"
             app:layout_constraintEnd_toStartOf="@+id/guideline13"
             app:layout_constraintStart_toStartOf="parent"
@@ -107,7 +108,7 @@
             android:id="@+id/tv_day_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_6sdp"
+            android:layout_marginTop="@dimen/_8sdp"
             android:text="15-11"
             android:textColor="?attr/textColorDay"
             android:textSize="@dimen/_10ssp"
@@ -131,7 +132,7 @@
             android:id="@+id/tv_day_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_8sdp"
             android:text="30-11"
             android:textColor="?attr/textColorDay"
             android:textSize="@dimen/_10ssp"

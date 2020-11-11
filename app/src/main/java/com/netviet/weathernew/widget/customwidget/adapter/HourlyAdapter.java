@@ -46,11 +46,14 @@ public class HourlyAdapter extends RecyclerView.Adapter<HourlyAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        if (position == 0) {
-            holder.bindItem(hourlyEntities.get(position), true);
-        } else {
-            holder.bindItem(hourlyEntities.get(position), false);
+        if (!hourlyEntities.isEmpty()){
+            if (position == 0) {
+                holder.bindItem(hourlyEntities.get(position), true);
+            } else {
+                holder.bindItem(hourlyEntities.get(position), false);
+            }
         }
+
     }
 
     @Override

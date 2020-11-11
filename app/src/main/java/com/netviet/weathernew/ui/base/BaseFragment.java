@@ -33,7 +33,8 @@ public abstract class BaseFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         dataProccessor = new DataProccessor(requireContext());
-        dataCreate();
         initView();
+        dataCreate();
+
     }
 }

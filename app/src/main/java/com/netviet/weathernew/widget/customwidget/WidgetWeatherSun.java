@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.netviet.weathernew.R;
 import com.netviet.weathernew.app.RxBus;
@@ -17,6 +18,8 @@ public class WidgetWeatherSun extends RelativeLayout {
 
     private ImageView imgSun;
     private CustomSunView customSunView;
+    private TextView tvSunrise;
+    private TextView tvSunset;
 
     public WidgetWeatherSun(Context context) {
         super(context);
@@ -38,33 +41,22 @@ public class WidgetWeatherSun extends RelativeLayout {
 
         imgSun = findViewById(R.id.img_sun);
         customSunView = findViewById(R.id.custom_sun);
+        tvSunrise = findViewById(R.id.tv_sun_rise);
+        tvSunset = findViewById(R.id.tv_sun_set);
 
     }
 
 
-    private void applyData(List<DailyEntity> dailyEntities) {
+    public void applyData(List<DailyEntity> dailyEntities) {
         String sunRise = dailyEntities.get(0).getRise();
         String sunSet = dailyEntities.get(0).getSet();
+
+        tvSunrise.setText(sunRise);
+        tvSunset.setText(sunSet);
 
         customSunView.setSunriseTime(new Time(Integer.parseInt(sunRise.substring(0,2)), Integer.parseInt(sunRise.substring(3,5))));
         customSunView.setSunsetTime(new Time(Integer.parseInt(sunSet.substring(0,2)), Integer.parseInt(sunSet.substring(3,5))));
 
         customSunView.startAnimate();
-    }
-
-    @Override
-    protected void onAttachedToWindow() {
-        super.onAttachedToWindow();
-
-        RxBus.subscribe(RxBus.TAG_LIST_DAY_ITEM, this, listDayObject -> {
-            List<DailyEntity> dailyEntities = (List<DailyEntity>) listDayObject;
-            applyData(dailyEntities);
-        });
-    }
-
-    @Override
-    protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        RxBus.unregister(this);
     }
 }

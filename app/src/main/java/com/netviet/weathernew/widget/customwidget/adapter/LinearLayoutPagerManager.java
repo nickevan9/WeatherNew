@@ -49,4 +49,6 @@ public class LinearLayoutPagerManager extends LinearLayoutManager {
         int pageSize = getOrientation() == HORIZONTAL ? getWidth() : getHeight();
         return Math.round((float) pageSize / mItemsPerPage);
     }
+
+
 }

@@ -173,7 +173,7 @@ public class CustomSunView extends View {
         drawSunTrack(canvas);
         drawShadow(canvas);
         drawSun(canvas);
-        drawSunriseSunsetLabel(canvas);
+//        drawSunriseSunsetLabel(canvas);
     }
 
     private void drawSunTrack(Canvas canvas) {
@@ -209,34 +209,34 @@ public class CustomSunView extends View {
 
         float curPointX = mBoardRectF.left + mTrackRadius - mTrackRadius * (float) Math.cos(Math.PI * mRatio);
         float curPointY = mBoardRectF.bottom - mTrackRadius * (float) Math.sin(Math.PI * mRatio);
-//        canvas.drawCircle(curPointX, curPointY, mSunRadius, mSunPaint);
+        canvas.drawCircle(curPointX, curPointY, mSunRadius, mSunPaint);
 
-        canvas.drawBitmap(Bitmap.createScaledBitmap(bitmap,30,30,false),curPointX,curPointY,mSunPaint);
+//        canvas.drawBitmap(Bitmap.createScaledBitmap(bitmap,30,30,false),curPointX,curPointY,mSunPaint);
 
         canvas.restore();
     }
 
-    private void drawSunriseSunsetLabel(Canvas canvas) {
-        if (mSunriseTime == null || mSunsetTime == null) {
-            return;
-        }
-        prepareLabelPaint();
-
-        canvas.save();
-        String sunriseStr = mLabelFormatter.formatSunriseLabel(mSunriseTime);
-
-        mLabelPaint.setTextAlign(Paint.Align.LEFT);
-        Paint.FontMetricsInt metricsInt = mLabelPaint.getFontMetricsInt();
-        float baseLineX = mBoardRectF.left + mSunRadius + mLabelHorizontalOffset;
-        float baseLineY = mBoardRectF.bottom - metricsInt.bottom - mLabelVerticalOffset;
-        canvas.drawText(sunriseStr, baseLineX, baseLineY, mLabelPaint);
-
-        mLabelPaint.setTextAlign(Paint.Align.RIGHT);
-        String sunsetStr = mLabelFormatter.formatSunsetLabel(mSunsetTime);
-        baseLineX = mBoardRectF.right - mSunRadius - mLabelHorizontalOffset;
-        canvas.drawText(sunsetStr, baseLineX, baseLineY, mLabelPaint);
-        canvas.restore();
-    }
+//    private void drawSunriseSunsetLabel(Canvas canvas) {
+//        if (mSunriseTime == null || mSunsetTime == null) {
+//            return;
+//        }
+//        prepareLabelPaint();
+//
+//        canvas.save();
+//        String sunriseStr = mLabelFormatter.formatSunriseLabel(mSunriseTime);
+//
+//        mLabelPaint.setTextAlign(Paint.Align.RIGHT);
+//        Paint.FontMetricsInt metricsInt = mLabelPaint.getFontMetricsInt();
+//        float baseLineX = mBoardRectF.left + mSunRadius + mLabelHorizontalOffset;
+//        float baseLineY = mBoardRectF.bottom - metricsInt.bottom - mLabelVerticalOffset;
+//        canvas.drawText(sunriseStr, baseLineX, baseLineY, mLabelPaint);
+//
+//        mLabelPaint.setTextAlign(Paint.Align.LEFT);
+//        String sunsetStr = mLabelFormatter.formatSunsetLabel(mSunsetTime);
+//        baseLineX = mBoardRectF.right - mSunRadius - mLabelHorizontalOffset;
+//        canvas.drawText(sunsetStr, baseLineX, baseLineY, mLabelPaint);
+//        canvas.restore();
+//    }
 
     public void setRatio(float ratio) {
         mRatio = ratio;

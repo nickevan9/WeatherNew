@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.netviet.weathernew.widget.customwidget.WidgetWeatherDetail
+            android:id="@+id/wg_weather_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.netviet.weathernew.widget.customwidget.WidgetDetailValue
+            android:id="@+id/wg_detail_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.netviet.weathernew.widget.customwidget.WidgetWeatherAir
+            android:id="@+id/wg_weather_air"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.netviet.weathernew.widget.customwidget.WidgetWeatherHourly
+            android:id="@+id/wg_weather_hourly"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.netviet.weathernew.widget.customwidget.WidgetWeatherDaily
+            android:id="@+id/wg_weather_daily"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.netviet.weathernew.widget.customwidget.WidgetWeatherSun
+            android:id="@+id/wg_weather_sun"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.netviet.weathernew.widget.customwidget.WidgetWeatherMoon
+            android:id="@+id/wg_weather_moon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.netviet.weathernew.widget.customwidget.WidgetWeatherWind
+            android:id="@+id/wg_weather_wind"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.netviet.weathernew.widget.customwidget.WidgetWeatherMap
+            android:id="@+id/wg_weather_map"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

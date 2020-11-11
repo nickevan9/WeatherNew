@@ -23,7 +23,7 @@ public class CustomMoon extends View {
     private Paint mOvalPaint;
     private double mPercentMoon;
     private float mPercent;
-    private String mColorStroke = "#FFFFFF";
+    private String mColorStroke = "#F5EDED";
     private String mColorMoon = "#FFFFFF";
 
 
@@ -82,12 +82,12 @@ public class CustomMoon extends View {
             }
 
             case MeasureSpec.AT_MOST: {
-                mWidth = 100;
+                mWidth = 110;
                 break;
             }
 
             default:
-                mWidth = 100;
+                mWidth = 110;
         }
 
         switch (mHeightMode) {
@@ -97,12 +97,12 @@ public class CustomMoon extends View {
             }
 
             case MeasureSpec.AT_MOST: {
-                mHeight = 100;
+                mHeight = 110;
                 break;
             }
 
             default:
-                mHeight = 100;
+                mHeight = 110;
         }
 
         setMeasuredDimension(mWidth, mHeight);
@@ -116,28 +116,29 @@ public class CustomMoon extends View {
         super.onDraw(canvas);
 
         mCirclePaint.setStyle(Paint.Style.STROKE);
-        mCirclePaint.setColor(Color.parseColor(mColorStroke));
+        mCirclePaint.setColor(Color.parseColor("#F5EDED"));
         mCirclePaint.setStrokeWidth(3f);
 
         mCirclePaintInside.setStyle(Paint.Style.FILL);
-        mCirclePaintInside.setColor(Color.parseColor(mColorMoon));
+        mCirclePaintInside.setColor(Color.parseColor("#F5EDED"));
 
         mOvalPaint.setStyle(Paint.Style.FILL);
-        mOvalPaint.setColor(Color.parseColor(mColorMoon));
+        mOvalPaint.setColor(Color.parseColor("#F5EDED"));
 
         if (mPercentMoon == 0.0) {
-            RectF mCircleRectF = new RectF(2f, 2f, 100f, 100f);
+            RectF mCircleRectF = new RectF(2F, 2F, 102f, 102f);
             canvas.drawOval(mCircleRectF, mCirclePaint);
         } else if (mPercentMoon >= 0.5 && mPercentMoon <= 1) {
-            float mPercent = (float) (mPercentMoon * 100);
+            mPercent = (float) (mPercentMoon * 100);
 
-            RectF mCircleRectF = new RectF(2f, 2f, 100f, 100f);
+            RectF mCircleRectF = new RectF(2F, 2F, 102f, 102f);
             canvas.drawOval(mCircleRectF, mCirclePaint);
 
-            RectF mOvalRecF = new RectF(100f - mPercent, 2F, mPercent, 100f);
+            mCirclePaint.setStyle(Paint.Style.FILL);
+            RectF mOvalRecF = new RectF(102 - mPercent, 2F, mPercent, 102F);
             canvas.drawOval(mOvalRecF, mCirclePaint);
 
-            RectF mArcRecF = new RectF(2F, 2F, 100f, 100f);
+            RectF mArcRecF = new RectF(2F, 2F, 102F, 102F);
             canvas.drawArc(mArcRecF, 91F, 180F, false, mOvalPaint);
         } else {
             float mPercent = (float) (mPercentMoon * 100);
@@ -147,6 +148,7 @@ public class CustomMoon extends View {
 
             RectF mCircleRectF =new RectF(2F, 2F, 102f, 102f);
             canvas.drawOval(mCircleRectF, mCirclePaint);
+            mOvalPaint.setColor(Color.BLACK);
 
             RectF mOvalRecF =new RectF(mPercent, 2F, 102 - mPercent, 102F);
             canvas.drawOval(mOvalRecF, mOvalPaint);

@@ -1,6 +1,5 @@
 package com.netviet.weathernew.ui.weather;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.ImageView;
@@ -8,29 +7,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.core.content.ContextCompat;
 import androidx.core.widget.NestedScrollView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.netviet.weathernew.R;
 import com.netviet.weathernew.app.ActivityUtils;
-import com.netviet.weathernew.app.RxBus;
-import com.netviet.weathernew.app.TimeUtilsExt;
-import com.netviet.weathernew.data.model.weather.DailyEntity;
-import com.netviet.weathernew.data.model.weather.HourlyEntity;
-import com.netviet.weathernew.data.model.weather.WeatherEntity;
 import com.netviet.weathernew.data.model.weathersaved.WeatherDb;
-import com.netviet.weathernew.ui.adapter.HomePagerAdapter;
+import com.netviet.weathernew.ui.adapter.WeatherAdapter;
 import com.netviet.weathernew.ui.base.BaseFragment;
 import com.netviet.weathernew.ui.dialog.LoadingDialog;
-import com.netviet.weathernew.widget.customwidget.WidgetWeatherAir;
-import com.netviet.weathernew.widget.customwidget.WidgetWeatherDaily;
-import com.netviet.weathernew.widget.customwidget.WidgetWeatherHourly;
-import com.netviet.weathernew.widget.customwidget.WidgetWeatherMap;
-import com.netviet.weathernew.widget.customwidget.WidgetWeatherMoon;
-import com.netviet.weathernew.widget.customwidget.WidgetWeatherSun;
-import com.netviet.weathernew.widget.customwidget.WidgetWeatherWind;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +26,8 @@ public class WeatherFragment extends BaseFragment implements WeatherContract.Vie
 
     private List<WeatherDb> weatherDbs;
     private LoadingDialog loadingDialog;
-    private HomePagerAdapter homePagerAdapter;
+//    private HomePagerAdapter homePagerAdapter;
+    private WeatherAdapter weatherAdapter;
     private WeatherContract.Presenter weatherPresenter;
 
     private ImageView imgMenu;
@@ -48,13 +35,13 @@ public class WeatherFragment extends BaseFragment implements WeatherContract.Vie
     private ImageView imgAddLocation;
     private ViewPager2 vpWeather;
 
-    private WidgetWeatherAir wgWeatherAir;
-    private WidgetWeatherHourly widgetWeatherHourly;
-    private WidgetWeatherDaily widgetWeatherDaily;
-    private WidgetWeatherSun widgetWeatherSun;
-    private WidgetWeatherMoon widgetWeatherMoon;
-    private WidgetWeatherWind widgetWeatherWind;
-    private WidgetWeatherMap widgetWeatherMap;
+//    private WidgetWeatherAir wgWeatherAir;
+//    private WidgetWeatherHourly widgetWeatherHourly;
+//    private WidgetWeatherDaily widgetWeatherDaily;
+//    private WidgetWeatherSun widgetWeatherSun;
+//    private WidgetWeatherMoon widgetWeatherMoon;
+//    private WidgetWeatherWind widgetWeatherWind;
+//    private WidgetWeatherMap widgetWeatherMap;
 
 
     private CoordinatorLayout homeView;
@@ -74,20 +61,9 @@ public class WeatherFragment extends BaseFragment implements WeatherContract.Vie
 
     @Override
     protected void dataCreate() {
-        loadingDialog = new LoadingDialog(requireActivity());
-        weatherDbs = new ArrayList<>();
-        weatherPresenter = new WeatherPresenter(requireContext());
-        homePagerAdapter = new HomePagerAdapter(getChildFragmentManager(), getLifecycle(), weatherDbs);
-        weatherPresenter.attachView(this);
 
-
-    }
-
-
-    @Override
-    protected void initView() {
         homeView = requireView().findViewById(R.id.view_home);
-        scrollView = requireView().findViewById(R.id.scrollView);
+//        scrollView = requireView().findViewById(R.id.scrollView);
         appBarLayout = requireView().findViewById(R.id.app_bar);
 
         imgMenu = requireView().findViewById(R.id.img_menu);
@@ -95,65 +71,77 @@ public class WeatherFragment extends BaseFragment implements WeatherContract.Vie
         imgAddLocation = requireView().findViewById(R.id.img_add_location);
 
         vpWeather = requireView().findViewById(R.id.vp_weather);
-        wgWeatherAir = requireView().findViewById(R.id.wg_weather_air);
-        widgetWeatherHourly = requireView().findViewById(R.id.wg_weather_hourly);
-        widgetWeatherDaily = requireView().findViewById(R.id.wg_weather_daily);
-        widgetWeatherSun = requireView().findViewById(R.id.wg_weather_sun);
-        widgetWeatherMoon = requireView().findViewById(R.id.wg_weather_moon);
-        widgetWeatherWind = requireView().findViewById(R.id.wg_weather_wind);
-        widgetWeatherMap = requireView().findViewById(R.id.wg_weather_map);
 
 
+        loadingDialog = new LoadingDialog(requireActivity());
+        weatherDbs = new ArrayList<>();
+        weatherPresenter = new WeatherPresenter(requireContext());
+//        homePagerAdapter = new HomePagerAdapter(getChildFragmentManager(), getLifecycle(), weatherDbs);
+        weatherAdapter = new WeatherAdapter(requireContext(),weatherDbs);
 
-        vpWeather.setAdapter(homePagerAdapter);
+        vpWeather.setAdapter(weatherAdapter);
+        weatherPresenter.attachView(this);
 
-        vpWeather.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                super.onPageSelected(position);
-
-                WeatherDb weatherDb = weatherDbs.get(position);
-
-                String timeZone = weatherDb.getWeatherEntity().getLoc().getTzname();
+    }
 
 
-                List<HourlyEntity> hourlyEntityList = TimeUtilsExt.mapTimeToNow(weatherDb.getWeatherEntity().getListHourly(), timeZone);
-                List<DailyEntity> dailyEntityList = TimeUtilsExt.mapDateToNow(weatherDb.getWeatherEntity().getListDaily(), timeZone);
+    @Override
+    protected void initView() {
 
-                RxBus.publish(RxBus.TAG_TIME_ZONE, timeZone);
-                RxBus.publish(RxBus.TAG_AIR_WEATHER, weatherDb.getAirEntity());
-                RxBus.publish(RxBus.TAG_DAY_ITEM, dailyEntityList.get(0));
-                RxBus.publish(RxBus.TAG_LIST_DAY_ITEM,dailyEntityList);
-                RxBus.publish(RxBus.TAG_LIST_HOUR_ITEM, hourlyEntityList);
-                RxBus.publish(RxBus.TAG_HOUR_ITEM,hourlyEntityList.get(0));
-                RxBus.publish(RxBus.TAG_NAME_LOCATION,weatherDb.getCityName());
+//        wgWeatherAir = requireView().findViewById(R.id.wg_weather_air);
+//        widgetWeatherHourly = requireView().findViewById(R.id.wg_weather_hourly);
+//        widgetWeatherDaily = requireView().findViewById(R.id.wg_weather_daily);
+//        widgetWeatherSun = requireView().findViewById(R.id.wg_weather_sun);
+//        widgetWeatherMoon = requireView().findViewById(R.id.wg_weather_moon);
+//        widgetWeatherWind = requireView().findViewById(R.id.wg_weather_wind);
+//        widgetWeatherMap = requireView().findViewById(R.id.wg_weather_map);
 
-            }
 
-            @Override
-            public void onPageScrollStateChanged(int state) {
-                super.onPageScrollStateChanged(state);
-            }
-        });
+//        vpWeather.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+//            @Override
+//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
+//            }
+//
+//            @Override
+//            public void onPageSelected(int position) {
+//                super.onPageSelected(position);
+//
+////                WeatherDb weatherDb = weatherDbs.get(position);
+////
+////                String timeZone = weatherDb.getWeatherEntity().getLoc().getTzname();
+////
+////                List<HourlyEntity> hourlyEntityList = TimeUtilsExt.mapTimeToNow(weatherDb.getWeatherEntity().getListHourly(), timeZone);
+////                List<DailyEntity> dailyEntityList = TimeUtilsExt.mapDateToNow(weatherDb.getWeatherEntity().getListDaily(), timeZone);
+////
+////                RxBus.publish(RxBus.TAG_TIME_ZONE, timeZone);
+////                RxBus.publish(RxBus.TAG_AIR_WEATHER, weatherDb.getAirEntity());
+////                RxBus.publish(RxBus.TAG_DAY_ITEM, dailyEntityList.get(0));
+////                RxBus.publish(RxBus.TAG_LIST_DAY_ITEM,dailyEntityList);
+////                RxBus.publish(RxBus.TAG_LIST_HOUR_ITEM, hourlyEntityList);
+////                RxBus.publish(RxBus.TAG_HOUR_ITEM,hourlyEntityList.get(0));
+////                RxBus.publish(RxBus.TAG_NAME_LOCATION,weatherDb.getCityName());
+//            }
+//
+//            @Override
+//            public void onPageScrollStateChanged(int state) {
+//                super.onPageScrollStateChanged(state);
+//            }
+//        });
 
-        scrollView.setOnScrollChangeListener((NestedScrollView.OnScrollChangeListener) (v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
-
-            if (scrollY > oldScrollY) {
-                appBarLayout.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.bg_tranfer_item));
-            }
-            if (scrollY < oldScrollY) {
-                appBarLayout.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.bg_tranfer_item));
-            }
-
-            if (scrollY == 0) {
-                appBarLayout.setBackgroundColor(Color.TRANSPARENT); // required to delete elevation shadow
-            }
-        });
+//        scrollView.setOnScrollChangeListener((NestedScrollView.OnScrollChangeListener) (v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
+//
+//            if (scrollY > oldScrollY) {
+//                appBarLayout.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.bg_tranfer_item));
+//            }
+//            if (scrollY < oldScrollY) {
+//                appBarLayout.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.bg_tranfer_item));
+//            }
+//
+//            if (scrollY == 0) {
+//                appBarLayout.setBackgroundColor(Color.TRANSPARENT); // required to delete elevation shadow
+//            }
+//        });
 
     }
 
@@ -167,7 +155,8 @@ public class WeatherFragment extends BaseFragment implements WeatherContract.Vie
     public void loadDataSuccess(List<WeatherDb> weatherDbList, Boolean addWeather) {
         weatherDbs = weatherDbList;
 //        homeAdapter.applyData(weatherDbList);
-        homePagerAdapter.applyData(weatherDbs);
+//        homePagerAdapter.applyData(weatherDbs);
+        weatherAdapter.applyData(weatherDbs);
 
         if (addWeather) {
             vpWeather.setCurrentItem(weatherDbs.size(), false);

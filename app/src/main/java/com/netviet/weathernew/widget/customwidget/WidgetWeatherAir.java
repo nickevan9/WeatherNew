@@ -131,18 +131,5 @@ public class WidgetWeatherAir extends ConstraintLayout {
         airDetailAdapter.applyData(airValueList);
     }
 
-    @Override
-    protected void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        RxBus.subscribe(RxBus.TAG_AIR_WEATHER, this, airObject -> {
-            AirEntity airEntity = (AirEntity) airObject;
-            applyData(airEntity);
-        });
-    }
 
-    @Override
-    protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        RxBus.unregister(this);
-    }
 }

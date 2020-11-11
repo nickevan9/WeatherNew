@@ -78,33 +78,12 @@ public class WidgetWeatherDaily extends RelativeLayout {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
-    private void applyData(List<DailyEntity> dailyEntities, String timeZone) {
+    public void applyData(List<DailyEntity> dailyEntities, String timeZone) {
         max = (int) dailyEntities.stream().mapToDouble(DailyEntity::getTempMax).max().getAsDouble();
         min = (int) dailyEntities.stream().mapToDouble(DailyEntity::getTempMin).min().getAsDouble();
         dailyAdapter.applyData(dailyEntities,timeZone,max,min);
         dailyDayAdapter.applyData(dailyEntities,timeZone);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
-    @Override
-    protected void onAttachedToWindow() {
-        super.onAttachedToWindow();
 
-        RxBus.subscribe(RxBus.TAG_TIME_ZONE,this,timeZoneObject ->{
-            this.timeZone = (String)timeZoneObject;
-        });
-
-        RxBus.subscribe(RxBus.TAG_LIST_DAY_ITEM,this, listDayObject ->{
-            List<DailyEntity> dailyEntities = (List<DailyEntity>) listDayObject;
-            if (!timeZone.equals("")){
-                applyData(dailyEntities,timeZone);
-            }
-        });
-    }
-
-    @Override
-    protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        RxBus.unregister(this);
-    }
 }

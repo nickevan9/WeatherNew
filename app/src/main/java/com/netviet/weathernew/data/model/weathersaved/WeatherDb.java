@@ -3,10 +3,11 @@ package com.netviet.weathernew.data.model.weathersaved;
 import com.netviet.weathernew.data.model.air.AirEntity;
 import com.netviet.weathernew.data.model.weather.WeatherEntity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 
-public class WeatherDb {
+public class WeatherDb implements Serializable {
     private String locationName;
 
     private String cityName ;

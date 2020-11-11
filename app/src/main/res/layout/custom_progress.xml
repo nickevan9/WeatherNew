@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_45sdp"
-    android:paddingVertical="@dimen/_8sdp"
+    android:layout_height="@dimen/_40sdp"
+    android:paddingVertical="@dimen/_4sdp"
     android:background="@color/bg_tranfer_item">
 
     <androidx.constraintlayout.widget.Guideline

@@ -42,34 +42,19 @@ public class WidgetWeatherDetail extends RelativeLayout {
         tvTempMin = findViewById(R.id.tv_temp_min);
     }
 
-    private void applyDataHourly(HourlyEntity hourlyEntity){
+    public void applyDataHourly(HourlyEntity hourlyEntity){
 
         tvTemp.setText(getContext().getString(R.string.set_temp,String.valueOf(hourlyEntity.getTempFeel().intValue())));
         tvWeatherStatus.setText(hourlyEntity.getTxt());
     }
 
-    private void applyDataDaily( DailyEntity dailyEntity){
+    public void applyDataDaily( DailyEntity dailyEntity){
         tvTempMax.setText(getContext().getString(R.string.set_temp,String.valueOf(dailyEntity.getTempMax())));
         tvTempMin.setText(getContext().getString(R.string.set_temp,String.valueOf(dailyEntity.getTempMin())));
 
     }
 
-    @Override
-    protected void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        RxBus.subscribe(RxBus.TAG_HOUR_ITEM,this,hourlyObject -> {
-            HourlyEntity hourlyEntity = (HourlyEntity) hourlyObject;
-            applyDataHourly(hourlyEntity);
-        });
-
-        RxBus.subscribe(RxBus.TAG_DAY_ITEM,this,dailyObject -> {
-            DailyEntity dailyEntity = (DailyEntity) dailyObject;
-            applyDataDaily(dailyEntity);
-        });
-
-        RxBus.subscribe(RxBus.TAG_NAME_LOCATION,this,location -> {
-            String name = (String) location;
-            tvLocation.setText(name);
-        });
+    public void applyName(String name){
+        tvLocation.setText(name);
     }
 }

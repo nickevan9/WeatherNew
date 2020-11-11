@@ -60,37 +60,16 @@ public class WidgetWeatherMoon extends RelativeLayout {
         tvMoonStatus3 = findViewById(R.id.tv_moon_3);
     }
 
-    private void applyData(List<DailyEntity> dailyEntities, String timeZone) {
+    public void applyData(List<DailyEntity> dailyEntities, String timeZone) {
         moon1.updateMoon(dailyEntities.get(0).getMp() / 340);
-        moon1.updateMoon(dailyEntities.get(7).getMp() / 340);
-        moon1.updateMoon(dailyEntities.get(dailyEntities.size()-1).getMp() / 340);
+        moon2.updateMoon(dailyEntities.get(7).getMp() / 340);
+        moon3.updateMoon(dailyEntities.get(dailyEntities.size()-1).getMp() / 340);
 
         tvDay1.setText(getContext().getString(R.string.today));
         tvDay2.setText(getContext().getString(R.string.seven_day_next));
-        tvDay2.setText(getContext().getString(R.string.fourteen_day_next));
+        tvDay3.setText(getContext().getString(R.string.fourteen_day_next));
 
 
     }
 
-    @Override
-    protected void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        RxBus.subscribe(RxBus.TAG_TIME_ZONE, this, timeZoneObject -> {
-            this.timeZone = (String) timeZoneObject;
-        });
-
-        RxBus.subscribe(RxBus.TAG_LIST_DAY_ITEM, this, listDayObject -> {
-            List<DailyEntity> dailyEntities = (List<DailyEntity>) listDayObject;
-            if (!timeZone.equals("")) {
-                applyData(dailyEntities, timeZone);
-            }
-        });
-
-    }
-
-    @Override
-    protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        RxBus.unregister(this);
-    }
 }

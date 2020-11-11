@@ -53,7 +53,7 @@ public class WidgetWeatherWind extends RelativeLayout {
     }
 
 
-    private void applyData(HourlyEntity hourlyEntity) {
+    public void applyData(HourlyEntity hourlyEntity) {
         tvWindDirection.setText(WindConvert.convertWindDirection(hourlyEntity.getWindDirection()));
         tvWindSpeed.setText(getContext().getString(R.string.set_speed, hourlyEntity.getWindSpeed().toString()));
         windSpeed = hourlyEntity.getWindSpeed();
@@ -105,19 +105,4 @@ public class WidgetWeatherWind extends RelativeLayout {
         imgWind.startAnimation(rotateAnimation);
     }
 
-    @Override
-    protected void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        RxBus.subscribe(RxBus.TAG_HOUR_ITEM, this, hourlyObject -> {
-            HourlyEntity hourlyEntity = (HourlyEntity) hourlyObject;
-            applyData(hourlyEntity);
-
-        });
-    }
-
-    @Override
-    protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        RxBus.unregister(this);
-    }
 }

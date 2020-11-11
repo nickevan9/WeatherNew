@@ -62,25 +62,4 @@ public class WidgetWeatherHourly extends RelativeLayout {
         hourlyAdapter.applyData(fchEntityList,timeZone);
     }
 
-    @Override
-    protected void onAttachedToWindow() {
-        super.onAttachedToWindow();
-
-        RxBus.subscribe(RxBus.TAG_TIME_ZONE,this,timeZoneObject ->{
-            this.timeZone = (String)timeZoneObject;
-        });
-
-        RxBus.subscribe(RxBus.TAG_LIST_HOUR_ITEM,this, listHourEntity ->{
-            List<HourlyEntity> fchEntityList = (List<HourlyEntity>) listHourEntity;
-            if (!timeZone.equals("")){
-                applyData(fchEntityList,timeZone);
-            }
-        });
-    }
-
-    @Override
-    protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        RxBus.unregister(this);
-    }
 }
