@@ -20,6 +20,9 @@ import android.view.animation.LinearInterpolator;
 
 import com.netviet.weathernew.R;
 
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
+
 import java.util.Calendar;
 import java.util.Locale;
 
@@ -57,11 +60,6 @@ public class CustomSunView extends View {
     private float mSunRadius = DEFAULT_SUN_RADIUS_PX;
     private Paint.Style mSunPaintStyle = Paint.Style.FILL;
 
-    private TextPaint mLabelPaint;
-    private int mLabelTextSize = DEFAULT_LABEL_TEXT_SIZE;
-    private int mLabelTextColor = DEFAULT_LABEL_TEXT_COLOR;
-    private int mLabelVerticalOffset = DEFAULT_LABEL_VERTICAL_OFFSET_PX;
-    private int mLabelHorizontalOffset = DEFAULT_LABEL_HORIZONTAL_OFFSET_PX;
 
     private static final int MINIMAL_TRACK_RADIUS_PX = 300;
 
@@ -69,6 +67,8 @@ public class CustomSunView extends View {
     private Time mSunriseTime;
 
     private Time mSunsetTime;
+
+    private String timeZone;
 
 
     private RectF mBoardRectF = new RectF();
@@ -96,10 +96,7 @@ public class CustomSunView extends View {
             mSunColor = a.getColor(R.styleable.CustomSunView_ssv_sun_color, DEFAULT_SUN_COLOR);
             mSunRadius = a.getDimensionPixelSize(R.styleable.CustomSunView_ssv_sun_radius, DEFAULT_SUN_RADIUS_PX);
 
-            mLabelTextColor = a.getColor(R.styleable.CustomSunView_ssv_label_text_color, DEFAULT_LABEL_TEXT_COLOR);
-            mLabelTextSize = a.getDimensionPixelSize(R.styleable.CustomSunView_ssv_label_text_size, DEFAULT_LABEL_TEXT_SIZE);
-            mLabelVerticalOffset = a.getDimensionPixelOffset(R.styleable.CustomSunView_ssv_label_vertical_offset, DEFAULT_LABEL_VERTICAL_OFFSET_PX);
-            mLabelHorizontalOffset = a.getDimensionPixelOffset(R.styleable.CustomSunView_ssv_label_horizontal_offset, DEFAULT_LABEL_HORIZONTAL_OFFSET_PX);
+
             a.recycle();
         }
         init();
@@ -137,11 +134,10 @@ public class CustomSunView extends View {
         prepareShadowPaint();
 
         mSunPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mSunPaint.setStrokeWidth(DEFAULT_SUN_STROKE_WIDTH_PX);
+//        mSunPaint.setStrokeWidth(DEFAULT_SUN_STROKE_WIDTH_PX);
         prepareSunPaint();
 
-        mLabelPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
-        prepareLabelPaint();
+
     }
 
     private void prepareTrackPaint() {
@@ -156,13 +152,8 @@ public class CustomSunView extends View {
 
     private void prepareSunPaint() {
         mSunPaint.setColor(mSunColor);
-        mSunPaint.setStrokeWidth(DEFAULT_SUN_STROKE_WIDTH_PX);
-        mSunPaint.setStyle(mSunPaintStyle);
-    }
-
-    private void prepareLabelPaint() {
-        mLabelPaint.setColor(mLabelTextColor);
-        mLabelPaint.setTextSize(mLabelTextSize);
+//        mSunPaint.setStrokeWidth(DEFAULT_SUN_STROKE_WIDTH_PX);
+//        mSunPaint.setStyle(mSunPaintStyle);
     }
 
 
@@ -205,38 +196,17 @@ public class CustomSunView extends View {
         prepareSunPaint();
         canvas.save();
 
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.ic_sun);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_sun);
 
         float curPointX = mBoardRectF.left + mTrackRadius - mTrackRadius * (float) Math.cos(Math.PI * mRatio);
         float curPointY = mBoardRectF.bottom - mTrackRadius * (float) Math.sin(Math.PI * mRatio);
-        canvas.drawCircle(curPointX, curPointY, mSunRadius, mSunPaint);
+//        canvas.drawCircle(curPointX, curPointY, mSunRadius, mSunPaint);
 
-//        canvas.drawBitmap(Bitmap.createScaledBitmap(bitmap,30,30,false),curPointX,curPointY,mSunPaint);
+        canvas.drawBitmap(Bitmap.createScaledBitmap(bitmap, 40, 40, false), curPointX - 20, curPointY - 20, mSunPaint);
 
         canvas.restore();
     }
 
-//    private void drawSunriseSunsetLabel(Canvas canvas) {
-//        if (mSunriseTime == null || mSunsetTime == null) {
-//            return;
-//        }
-//        prepareLabelPaint();
-//
-//        canvas.save();
-//        String sunriseStr = mLabelFormatter.formatSunriseLabel(mSunriseTime);
-//
-//        mLabelPaint.setTextAlign(Paint.Align.RIGHT);
-//        Paint.FontMetricsInt metricsInt = mLabelPaint.getFontMetricsInt();
-//        float baseLineX = mBoardRectF.left + mSunRadius + mLabelHorizontalOffset;
-//        float baseLineY = mBoardRectF.bottom - metricsInt.bottom - mLabelVerticalOffset;
-//        canvas.drawText(sunriseStr, baseLineX, baseLineY, mLabelPaint);
-//
-//        mLabelPaint.setTextAlign(Paint.Align.LEFT);
-//        String sunsetStr = mLabelFormatter.formatSunsetLabel(mSunsetTime);
-//        baseLineX = mBoardRectF.right - mSunRadius - mLabelHorizontalOffset;
-//        canvas.drawText(sunsetStr, baseLineX, baseLineY, mLabelPaint);
-//        canvas.restore();
-//    }
 
     public void setRatio(float ratio) {
         mRatio = ratio;
@@ -299,20 +269,12 @@ public class CustomSunView extends View {
         mShadowColor = shadowColor;
     }
 
-    public void setLabelTextSize(int labelTextSize) {
-        mLabelTextSize = labelTextSize;
+    public String getTimeZone() {
+        return timeZone;
     }
 
-    public void setLabelTextColor(int labelTextColor) {
-        mLabelTextColor = labelTextColor;
-    }
-
-    public void setLabelVerticalOffset(int labelVerticalOffset) {
-        mLabelVerticalOffset = labelVerticalOffset;
-    }
-
-    public void setLabelHorizontalOffset(int labelHorizontalOffset) {
-        mLabelHorizontalOffset = labelHorizontalOffset;
+    public void setTimeZone(String timeZone) {
+        this.timeZone = timeZone;
     }
 
     public void startAnimate() {
@@ -321,9 +283,15 @@ public class CustomSunView extends View {
         }
         int sunrise = mSunriseTime.transformToMinutes();
         int sunset = mSunsetTime.transformToMinutes();
-        Calendar calendar = Calendar.getInstance(Locale.getDefault());
-        int currentHour = calendar.get(Calendar.HOUR_OF_DAY);
-        int currentMinute = calendar.get(Calendar.MINUTE);
+//        Calendar calendar = Calendar.getInstance(Locale.getDefault());
+//        int currentHour = calendar.get(Calendar.HOUR_OF_DAY);
+//        int currentMinute = calendar.get(Calendar.MINUTE);
+//        int currentTime = currentHour * Time.MINUTES_PER_HOUR + currentMinute;
+
+        DateTimeZone.setDefault(DateTimeZone.forID(timeZone));
+        DateTime dateTimeNow = DateTime.now();
+        int currentHour = dateTimeNow.getHourOfDay();
+        int currentMinute = dateTimeNow.getMinuteOfHour();
         int currentTime = currentHour * Time.MINUTES_PER_HOUR + currentMinute;
         float ratio = 1.0f * (currentTime - sunrise) / (sunset - sunrise);
         ratio = ratio <= 0 ? 0 : (ratio > 1.0f ? 1 : ratio);

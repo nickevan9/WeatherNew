@@ -70,6 +70,6 @@
         android:gravity="center"
         android:text=""
         android:textColor="?attr/textColorApp"
-        android:textSize="@dimen/_12ssp" />
+        android:textSize="@dimen/_11ssp" />
 
 </LinearLayout>

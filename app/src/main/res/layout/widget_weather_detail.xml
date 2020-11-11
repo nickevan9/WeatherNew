@@ -3,17 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/bg_tranfer_item"
-    android:paddingHorizontal="8dp">
+    android:paddingHorizontal="@dimen/_8sdp">
 
     <com.netviet.weathernew.widget.customview.CustomTextviewBold
         android:id="@+id/tv_location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_150sdp"
+        android:layout_marginTop="@dimen/_60sdp"
         android:includeFontPadding="false"
         android:text="Hà Nội"
         android:textColor="?attr/textColorApp"
-        android:textSize="@dimen/_20ssp" />
+        android:textSize="@dimen/_18ssp" />
 
     <com.netviet.weathernew.widget.customview.CustomTextviewMedium
         android:id="@+id/tv_weather_status"
@@ -24,19 +24,19 @@
         android:includeFontPadding="false"
         android:text="Chủ yếu Có Mây"
         android:textColor="?attr/textColorApp"
-        android:textSize="@dimen/_12ssp" />
+        android:textSize="@dimen/_10ssp" />
 
-    <com.netviet.weathernew.widget.customview.CustomTextviewBold
+    <com.netviet.weathernew.widget.customview.CustomTextviewMedium
         android:id="@+id/tv_temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_weather_status"
-        android:layout_marginTop="@dimen/_40sdp"
+        android:layout_marginTop="@dimen/_32sdp"
         android:background="@drawable/border_bottom"
         android:includeFontPadding="false"
         android:text="25ºC"
         android:textColor="?attr/textColorApp"
-        android:textSize="@dimen/_40ssp" />
+        android:textSize="@dimen/_36ssp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:text="23ºC"
             android:drawableEnd="@drawable/ic_baseline_arrow_downward"
-            android:textSize="@dimen/_14ssp"
+            android:textSize="@dimen/_13ssp"
             android:drawablePadding="@dimen/_2sdp"
             android:textColor="?attr/textColorSecond"
             android:drawableTint="@color/color_yellow"
@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:text="30ºC"
             android:drawableEnd="@drawable/ic_baseline_arrow_upward"
-            android:textSize="@dimen/_14ssp"
+            android:textSize="@dimen/_13ssp"
             android:drawablePadding="@dimen/_4sdp"
             android:textColor="?attr/textColorSecond"
             android:layout_marginStart="@dimen/_2sdp"

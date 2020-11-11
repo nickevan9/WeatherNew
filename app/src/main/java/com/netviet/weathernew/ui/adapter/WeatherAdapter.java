@@ -101,7 +101,7 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
             wgWeatherAir.applyData(weatherDb.getAirEntity());
             wgWeatherHourly.applyData(hourlyEntityList,timeZone);
             wgWeatherDaily.applyData(dailyEntityList,timeZone);
-            wgWeatherSun.applyData(dailyEntityList);
+            wgWeatherSun.applyData(dailyEntityList,timeZone);
             wgWeatherMoon.applyData(dailyEntityList,timeZone);
             wgWeatherWind.applyData(hourlyEntityList.get(0));
         }

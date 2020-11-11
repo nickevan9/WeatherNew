@@ -108,8 +108,8 @@ public class HourlyAdapter extends RecyclerView.Adapter<HourlyAdapter.ViewHolder
             imgHourly.setBackgroundResource(IconWeatherHelper.getDrawableAnimation(hourlyEntity.getStatus()));
             AnimationDrawable anim = (AnimationDrawable) imgHourly.getBackground();
             anim.start();
-            tvHour.setText(TimeUtilsExt.convertTimeStampToTime12Hour(hourlyEntity.getDt(), timeZone));
-            tvRainHour.setText(String.valueOf(hourlyEntity.getRh()));
+            tvHour.setText(TimeUtilsExt.convertTimeStampToTimeAdapter(hourlyEntity.getDt(), timeZone));
+            tvRainHour.setText(hourlyEntity.getRh().intValue() + "%");
 
         }
     }

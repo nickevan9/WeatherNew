@@ -53,7 +53,7 @@ public class WidgetDetailValue extends RelativeLayout {
         rvDetailValue.setLayoutManager(layoutPagerManager);
         rvDetailValue.setHasFixedSize(true);
         rvDetailValue.setAdapter(detailValueAdapter);
-        rvDetailValue.addItemDecoration(new SimpleItemDecorator(20,true));
+        rvDetailValue.addItemDecoration(new SimpleItemDecorator(40,true));
     }
 
     public void applyData(List<HourlyEntity> hourlyEntityList) {

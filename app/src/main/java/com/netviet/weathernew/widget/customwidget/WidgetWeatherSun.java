@@ -47,7 +47,7 @@ public class WidgetWeatherSun extends RelativeLayout {
     }
 
 
-    public void applyData(List<DailyEntity> dailyEntities) {
+    public void applyData(List<DailyEntity> dailyEntities,String timeZone) {
         String sunRise = dailyEntities.get(0).getRise();
         String sunSet = dailyEntities.get(0).getSet();
 
@@ -56,6 +56,7 @@ public class WidgetWeatherSun extends RelativeLayout {
 
         customSunView.setSunriseTime(new Time(Integer.parseInt(sunRise.substring(0,2)), Integer.parseInt(sunRise.substring(3,5))));
         customSunView.setSunsetTime(new Time(Integer.parseInt(sunSet.substring(0,2)), Integer.parseInt(sunSet.substring(3,5))));
+        customSunView.setTimeZone(timeZone);
 
         customSunView.startAnimate();
     }

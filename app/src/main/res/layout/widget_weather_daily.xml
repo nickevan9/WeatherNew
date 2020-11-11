@@ -4,8 +4,9 @@
     android:id="@+id/rl_next_day"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?attr/backgroundColorApp"
-    android:padding="8dp">
+    android:background="@color/bg_tranfer_item"
+    android:paddingHorizontal="@dimen/_8sdp"
+    android:paddingVertical="@dimen/_16sdp">
 
     <LinearLayout
         android:id="@+id/ln_day_text"
@@ -49,8 +50,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_card_next_day"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+            android:layout_height="wrap_content" />
 
     </androidx.cardview.widget.CardView>
 

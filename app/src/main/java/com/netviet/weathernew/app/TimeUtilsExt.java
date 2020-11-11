@@ -104,6 +104,13 @@ public class TimeUtilsExt {
         return dateFormat.print(dateTime);
     }
 
+    public static String formatTimeNowDay(String timeZone){
+        DateTimeZone.setDefault(DateTimeZone.forID(timeZone));
+        DateTimeFormatter dateFormat = DateTimeFormat.forPattern("EEE, dd MMMM");
+        DateTime dateTime = DateTime.now();
+        return dateFormat.print(dateTime);
+    }
+
     public static List<HourlyEntity> mapTimeToNow(List<HourlyEntity> hourlyEntityList, String timeZone){
         DateTimeZone.setDefault(DateTimeZone.forID(timeZone));
         List<HourlyEntity> listRemove = new ArrayList<>();

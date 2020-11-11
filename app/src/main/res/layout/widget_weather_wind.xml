@@ -4,8 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?attr/backgroundColorApp"
-    android:padding="8dp">
+    android:background="@color/bg_tranfer_item"
+    android:paddingHorizontal="@dimen/_8sdp"
+    android:paddingVertical="@dimen/_16sdp">
 
     <LinearLayout
         android:id="@+id/ln_wind_text"
@@ -36,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/ln_wind_text"
-        android:layout_marginTop="@dimen/_6sdp"
+        android:layout_marginTop="@dimen/_12sdp"
         android:background="@drawable/bg_card_wind">
 
         <androidx.constraintlayout.widget.Guideline
@@ -58,112 +59,112 @@
             app:tint="?attr/tintColor" />
 
         <ImageView
-        android:id="@+id/img_wind"
-        android:layout_width="@dimen/_40sdp"
-        android:layout_height="@dimen/_40sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_wind"
-        app:tint="?attr/tintColor" />
+            android:id="@+id/img_wind"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline4"
+            app:layout_constraintStart_toStartOf="@+id/guideline4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_wind"
+            app:tint="?attr/tintColor" />
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="@dimen/_1sdp"
-        android:layout_height="@dimen/_40sdp"
-        android:layout_marginVertical="@dimen/_16sdp"
-        android:layout_marginStart="@dimen/_8sdp"
-        android:background="?attr/tintColor"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/img_wind"
-        app:layout_constraintTop_toTopOf="parent" />
+        <View
+            android:id="@+id/view"
+            android:layout_width="@dimen/_1sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginVertical="@dimen/_16sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:background="?attr/tintColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_wind"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.1" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1" />
 
-    <com.netviet.weathernew.widget.customview.CustomTextviewMedium
-        android:id="@+id/tv_wind_direction"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_8sdp"
-        android:text="B"
-        android:textSize="@dimen/_10ssp"
-        android:textColor="?attr/textColorApp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_wind_speed"
-        app:layout_constraintStart_toEndOf="@+id/view"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
+        <com.netviet.weathernew.widget.customview.CustomTextviewMedium
+            android:id="@+id/tv_wind_direction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:text="B"
+            android:textColor="?attr/textColorApp"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_wind_speed"
+            app:layout_constraintStart_toEndOf="@+id/view"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
 
-    <com.netviet.weathernew.widget.customview.CustomTextviewMedium
-        android:id="@+id/tv_wind_speed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/_2sdp"
-        android:text="13.5 Km/h"
-        android:textSize="@dimen/_10ssp"
-        android:textColor="?attr/textColorApp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_level_wind"
-        app:layout_constraintStart_toStartOf="@+id/tv_wind_direction"
-        app:layout_constraintTop_toBottomOf="@+id/tv_wind_direction" />
+        <com.netviet.weathernew.widget.customview.CustomTextviewMedium
+            android:id="@+id/tv_wind_speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_2sdp"
+            android:text="13.5 Km/h"
+            android:textColor="?attr/textColorApp"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_level_wind"
+            app:layout_constraintStart_toStartOf="@+id/tv_wind_direction"
+            app:layout_constraintTop_toBottomOf="@+id/tv_wind_direction" />
 
-    <com.netviet.weathernew.widget.customview.CustomTextviewMedium
-        android:id="@+id/tv_level_wind"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="3 cap gio"
-        android:textSize="@dimen/_10ssp"
-        android:textColor="?attr/textColorApp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tv_wind_speed"
-        app:layout_constraintTop_toBottomOf="@+id/tv_wind_speed" />
+        <com.netviet.weathernew.widget.customview.CustomTextviewMedium
+            android:id="@+id/tv_level_wind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3 cap gio"
+            android:textColor="?attr/textColorApp"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_wind_speed"
+            app:layout_constraintTop_toBottomOf="@+id/tv_wind_speed" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.60" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.60" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="@dimen/_40sdp"
-        android:layout_height="@dimen/_50sdp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toStartOf="@+id/guideline3"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toTopOf="@+id/img_wind"
-        app:srcCompat="@drawable/ic_pressure"
-        app:tint="?attr/tintColor" />
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toTopOf="@+id/img_wind"
+            app:srcCompat="@drawable/ic_pressure"
+            app:tint="?attr/tintColor" />
 
-    <View
-        android:id="@+id/view2"
-        android:layout_width="@dimen/_1sdp"
-        android:layout_height="@dimen/_40sdp"
-        android:layout_marginVertical="@dimen/_16sdp"
-        android:background="?attr/tintColor"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="@dimen/_8sdp"
+        <View
+            android:id="@+id/view2"
+            android:layout_width="@dimen/_1sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginVertical="@dimen/_16sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:background="?attr/tintColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView3"
+            app:layout_constraintTop_toTopOf="parent"
 
-        />
+            />
 
-    <com.netviet.weathernew.widget.customview.CustomTextviewMedium
-        android:id="@+id/tv_pressure"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1018mbar"
-        android:textSize="@dimen/_10ssp"
-        android:textColor="?attr/textColorApp"
-        android:layout_marginStart="@dimen/_8sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/view2"
-        app:layout_constraintTop_toTopOf="parent" />
+        <com.netviet.weathernew.widget.customview.CustomTextviewMedium
+            android:id="@+id/tv_pressure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:text="1018mbar"
+            android:textColor="?attr/textColorApp"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/view2"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </RelativeLayout>

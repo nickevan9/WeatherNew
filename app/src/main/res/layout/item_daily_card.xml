@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/img_weather_status"
-        android:layout_width="@dimen/_24sdp"
-        android:layout_height="@dimen/_24sdp"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
         />
 
     <com.netviet.weathernew.widget.customview.CustomTextviewMedium
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:text="T5"
         android:layout_marginTop="@dimen/_8sdp"
-        android:textSize="@dimen/_12ssp"
+        android:textSize="@dimen/_10ssp"
         android:textColor="?attr/textColorApp"
         />
 

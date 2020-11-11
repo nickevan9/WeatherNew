@@ -30,13 +30,13 @@ public class CustomProgress extends ConstraintLayout {
     }
 
     protected void initView() {
-        inflate(getContext(), R.layout.custom_progress,this);
+        inflate(getContext(), R.layout.custom_progress, this);
         guidelineChange = findViewById(R.id.guideline_change);
     }
 
     public void applyData(int process) {
         ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) guidelineChange.getLayoutParams();
-        params.guidePercent = process % 5;
+        params.guidePercent = (float) (process / 500.0);
 
         guidelineChange.setLayoutParams(params);
     }

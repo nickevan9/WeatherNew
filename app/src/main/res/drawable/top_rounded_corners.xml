@@ -3,8 +3,8 @@
 
     <solid android:color="?attr/bgBottomBar"/>
     <corners
-        android:topLeftRadius="@dimen/_16sdp"
-        android:topRightRadius="@dimen/_16sdp"
+        android:topLeftRadius="@dimen/_24sdp"
+        android:topRightRadius="@dimen/_24sdp"
         android:bottomLeftRadius="0dp"
         android:bottomRightRadius="0dp"/>
 

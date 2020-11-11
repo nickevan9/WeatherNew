@@ -27,12 +27,12 @@
                 android:layout_height="wrap_content"
                 android:text="29°"
                 android:textColor="?attr/textColorSecond"
-                android:textSize="@dimen/_12ssp" />
+                android:textSize="@dimen/_10ssp" />
 
             <ImageView
                 android:id="@+id/img_hourly"
-                android:layout_width="@dimen/_24sdp"
-                android:layout_height="@dimen/_24sdp"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_12sdp"
                 android:scaleType="centerInside"
                 />
@@ -44,7 +44,7 @@
                 android:layout_marginTop="@dimen/_12sdp"
                 android:text="12:00"
                 android:textColor="#8E8E8E"
-                android:textSize="@dimen/_12ssp"
+                android:textSize="@dimen/_10ssp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 />
@@ -62,8 +62,8 @@
         >
 
         <ImageView
-            android:layout_width="@dimen/_16sdp"
-            android:layout_height="@dimen/_16sdp"
+            android:layout_width="@dimen/_14sdp"
+            android:layout_height="@dimen/_14sdp"
             android:src="@drawable/ic_rain"/>
 
         <com.netviet.weathernew.widget.customview.CustomTextviewMedium
@@ -71,7 +71,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0.0"
-            android:textSize="@dimen/_12ssp"
+            android:textSize="@dimen/_10ssp"
+            android:textColor="?attr/textColorApp"
             />
 
     </LinearLayout>
