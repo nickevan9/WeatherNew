@@ -34,7 +34,6 @@ public class HourlyAdapter extends RecyclerView.Adapter<HourlyAdapter.ViewHolder
         this.timeZone = timeZone;
         this.context = context;
         this.mInflater = LayoutInflater.from(context);
-
     }
 
     @NonNull

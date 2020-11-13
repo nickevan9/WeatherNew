@@ -46,6 +46,7 @@ public class WeatherFragment extends BaseFragment implements WeatherContract.Vie
     private NestedScrollView scrollView;
 
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
