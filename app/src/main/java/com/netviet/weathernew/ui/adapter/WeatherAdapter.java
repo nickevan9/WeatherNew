@@ -16,6 +16,7 @@ import com.netviet.weathernew.app.TimeUtilsExt;
 import com.netviet.weathernew.data.model.weather.DailyEntity;
 import com.netviet.weathernew.data.model.weather.HourlyEntity;
 import com.netviet.weathernew.data.model.weathersaved.WeatherDb;
+import com.netviet.weathernew.widget.customwidget.WidgetAdView;
 import com.netviet.weathernew.widget.customwidget.WidgetDetailValue;
 import com.netviet.weathernew.widget.customwidget.WidgetWeatherAir;
 import com.netviet.weathernew.widget.customwidget.WidgetWeatherDaily;
@@ -69,6 +70,7 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
         WidgetWeatherAir wgWeatherAir;
         WidgetWeatherHourly wgWeatherHourly;
         WidgetWeatherDaily wgWeatherDaily;
+        WidgetAdView wgAdView;
         WidgetWeatherSun wgWeatherSun;
         WidgetWeatherMoon wgWeatherMoon;
         WidgetWeatherWind wgWeatherWind;
@@ -82,6 +84,7 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
             wgWeatherAir = itemView.findViewById(R.id.wg_weather_air);
             wgWeatherHourly = itemView.findViewById(R.id.wg_weather_hourly);
             wgWeatherDaily = itemView.findViewById(R.id.wg_weather_daily);
+            wgAdView = itemView.findViewById(R.id.wg_ad_view);
             wgWeatherSun = itemView.findViewById(R.id.wg_weather_sun);
             wgWeatherMoon = itemView.findViewById(R.id.wg_weather_moon);
             wgWeatherWind = itemView.findViewById(R.id.wg_weather_wind);

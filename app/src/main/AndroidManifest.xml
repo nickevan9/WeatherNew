@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:networkSecurityConfig="@xml/network_security_config"
         android:name=".WeatherApplication"
-        android:theme="@style/AppTheme.Light">
+        android:theme="@style/AppTheme.Dark">
         <activity android:name=".ui.splash.SplashActivity"
             android:theme="@style/SplashScreenTheme"
             >
@@ -27,6 +27,10 @@
         </activity>
         <activity android:name=".ui.home.HomeActivity" />
         <activity android:name=".ui.loading.LoadingActivity" />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713"/>
     </application>
 
 </manifest>

@@ -10,9 +10,15 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdLoader;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.VideoOptions;
+import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
 import com.google.android.gms.ads.formats.MediaView;
+import com.google.android.gms.ads.formats.NativeAdOptions;
 import com.google.android.gms.ads.formats.UnifiedNativeAd;
 import com.google.android.gms.ads.formats.UnifiedNativeAdView;
 import com.netviet.weathernew.R;
@@ -21,7 +27,7 @@ import com.netviet.weathernew.R;
 public class WidgetAdView extends RelativeLayout {
 
 
-    private static final String AD_MANAGER_AD_UNIT_ID = "/6499/example/native";
+    private static final String AD_MANAGER_AD_UNIT_ID = "ca-app-pub-3940256099942544/2247696110";
     private static final String SIMPLE_TEMPLATE_ID = "10104090";
     private UnifiedNativeAd unifiedNativeAds;
 
@@ -31,14 +37,17 @@ public class WidgetAdView extends RelativeLayout {
 
     public WidgetAdView(Context context) {
         super(context);
+        initView();
     }
 
     public WidgetAdView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        initView();
     }
 
     public WidgetAdView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        initView();
     }
 
     protected void initView(){
@@ -57,14 +66,43 @@ public class WidgetAdView extends RelativeLayout {
             this.unifiedNativeAds = unifiedNativeAd;
 
             frameAdView = findViewById(R.id.fl_adplaceholder);
-            adView = (UnifiedNativeAdView) ((Activity)getContext()).getLayoutInflater().inflate(R.layout.ad_unified,null);
+            adView = (UnifiedNativeAdView) ((Activity) getContext()).getLayoutInflater().inflate(R.layout.ad_unified, null);
             populateUnifiedNativeAdView(unifiedNativeAd, adView);
 
             frameAdView.removeAllViews();
             frameAdView.addView(adView);
         });
 
+        VideoOptions videoOptions = new VideoOptions.Builder()
+                .setStartMuted(true)
+                .build();
 
+        NativeAdOptions adOptions = new NativeAdOptions.Builder()
+                .setVideoOptions(videoOptions)
+                .build();
+
+        builder.withNativeAdOptions(adOptions);
+
+        AdLoader adLoader = builder.withAdListener(
+                                new AdListener() {
+                                    @Override
+                                    public void onAdFailedToLoad(LoadAdError loadAdError) {
+                                        String error =
+                                                String.format(
+                                                        "domain: %s, code: %d, message: %s",
+                                                        loadAdError.getDomain(),
+                                                        loadAdError.getCode(),
+                                                        loadAdError.getMessage());
+                                        Toast.makeText(
+                                                getContext(),
+                                                "Failed to load native ad: " + error,
+                                                Toast.LENGTH_SHORT)
+                                                .show();
+                                    }
+                                })
+                        .build();
+
+        adLoader.loadAd(new PublisherAdRequest.Builder().build());
 
 
     }
@@ -141,37 +179,8 @@ public class WidgetAdView extends RelativeLayout {
             adView.getAdvertiserView().setVisibility(View.VISIBLE);
         }
 
-        // This method tells the Google Mobile Ads SDK that you have finished populating your
-        // native ad view with this native ad.
         adView.setNativeAd(nativeAd);
 
-        // Get the video controller for the ad. One will always be provided, even if the ad doesn't
-        // have a video asset.
-//        VideoController vc = nativeAd.getVideoController();
-
-        // Updates the UI to say whether or not this ad has a video asset.
-//        if (vc.hasVideoContent()) {
-//            videoStatus.setText(String.format(Locale.getDefault(),
-//                    "Video status: Ad contains a %.2f:1 video asset.",
-//                    vc.getAspectRatio()));
-//
-//            // Create a new VideoLifecycleCallbacks object and pass it to the VideoController. The
-//            // VideoController will call methods on this object when events occur in the video
-//            // lifecycle.
-//            vc.setVideoLifecycleCallbacks(new VideoController.VideoLifecycleCallbacks() {
-//                @Override
-//                public void onVideoEnd() {
-//                    // Publishers should allow native ads to complete video playback before
-//                    // refreshing or replacing them with another ad in the same UI location.
-//                    refresh.setEnabled(true);
-//                    videoStatus.setText("Video status: Video playback has ended.");
-//                    super.onVideoEnd();
-//                }
-//            });
-//        } else {
-//            videoStatus.setText("Video status: Ad does not contain a video asset.");
-//            refresh.setEnabled(true);
-//        }
     }
 
 

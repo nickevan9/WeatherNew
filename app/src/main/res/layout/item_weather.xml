@@ -34,6 +34,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
+        <com.netviet.weathernew.widget.customwidget.WidgetAdView
+            android:id="@+id/wg_ad_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
         <com.netviet.weathernew.widget.customwidget.WidgetWeatherSun
             android:id="@+id/wg_weather_sun"
             android:layout_width="match_parent"

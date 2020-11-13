@@ -91,7 +91,7 @@ public class HourlyAdapter extends RecyclerView.Adapter<HourlyAdapter.ViewHolder
                 int colorCard = ContextCompat.getColor(context, typedValue.resourceId);
                 cardHourly.setCardBackgroundColor(colorCard);
                 cardHourly.setCardElevation(8);
-                cardHourly.setRadius(60);
+                cardHourly.setRadius(80);
 
                 context.getTheme().resolveAttribute(R.attr.textInCard, typedValue, true);
                 int colorText = ContextCompat.getColor(context, typedValue.resourceId);
