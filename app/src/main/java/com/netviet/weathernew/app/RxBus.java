@@ -38,6 +38,8 @@ public class RxBus {
     public static final int TAG_DAY_ITEM= 8888;
     public static final int TAG_TIME_COUNT = 9999;
 
+    public static final int TAG_LOCATION_ADD = 10000;
+
 
 
 
@@ -54,7 +56,8 @@ public class RxBus {
             TAG_NAME_LOCATION,
             TAG_DAY_ITEM,
             TAG_CLICK_STATUS,
-            TAG_TIME_COUNT
+            TAG_TIME_COUNT,
+            TAG_LOCATION_ADD
 
     })
     @interface Subject {

@@ -23,18 +23,17 @@ public class WeatherPresenter implements WeatherContract.Presenter {
     private WeatherContract.View mView;
 
     private Context context;
-    private DataProccessor dataProccessor;
+
 
     public WeatherPresenter(Context context) {
         this.context = context;
-        dataProccessor = new DataProccessor(context);
     }
 
 
     @Override
     public void getAllWeather(Boolean addWeather) {
         mView.showLoadingDB();
-        List<WeatherDb> weatherDbs = dataProccessor.getWeatherData();
+        List<WeatherDb> weatherDbs = DataProccessor.getWeatherData();
         mView.loadDataSuccess(weatherDbs,addWeather);
 
     }
@@ -60,11 +59,11 @@ public class WeatherPresenter implements WeatherContract.Presenter {
                         AirEntity airEntity = response.body();
                         WeatherDb weatherDb = createWeather(weatherEntity, airEntity, new Date());
 
-                        List<WeatherDb> weatherDbList = new ArrayList<>();
+                        List<WeatherDb> weatherDbList = DataProccessor.getWeatherData();
                         weatherDbList.add(weatherDb);
 
                         DataProccessor.setWeatherData(weatherDbList);
-                        mView.hideLoading();
+                        mView.loadDataSuccess(weatherDbList,true);
 
                     }
 

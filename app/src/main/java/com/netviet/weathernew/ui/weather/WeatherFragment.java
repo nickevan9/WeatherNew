@@ -1,5 +1,6 @@
 package com.netviet.weathernew.ui.weather;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -14,13 +15,16 @@ import androidx.core.widget.NestedScrollView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.appbar.AppBarLayout;
+import com.mapbox.geojson.Point;
 import com.netviet.weathernew.R;
 import com.netviet.weathernew.app.ActivityUtils;
+import com.netviet.weathernew.app.RxBus;
 import com.netviet.weathernew.app.TimeUtilsExt;
 import com.netviet.weathernew.data.model.weathersaved.WeatherDb;
 import com.netviet.weathernew.ui.adapter.WeatherAdapter;
 import com.netviet.weathernew.ui.base.BaseFragment;
 import com.netviet.weathernew.ui.dialog.LoadingDialog;
+import com.netviet.weathernew.ui.place.PlaceActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -105,7 +109,9 @@ public class WeatherFragment extends BaseFragment implements WeatherContract.Vie
 
 
         imgAddLocation.setOnClickListener(view -> {
-
+            Intent intent = new Intent(requireContext(), PlaceActivity.class);
+            startActivity(intent);
+            requireActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         });
 
 
@@ -121,6 +127,13 @@ public class WeatherFragment extends BaseFragment implements WeatherContract.Vie
     public void onResume() {
         super.onResume();
         ActivityUtils.hideKeyboard(requireActivity());
+
+        RxBus.subscribe(RxBus.TAG_LOCATION_ADD,this,pointObject -> {
+            Point point = (Point) pointObject;
+            Double lat = point.latitude();
+            Double lon = point.longitude();
+            weatherPresenter.getSingleWeather(lat, lon);
+        });
     }
 
     @Override
@@ -155,6 +168,7 @@ public class WeatherFragment extends BaseFragment implements WeatherContract.Vie
     @Override
     public void hideLoading() {
         loadingDialog.dismissDialog();
+
     }
 
     @Override
@@ -166,6 +180,7 @@ public class WeatherFragment extends BaseFragment implements WeatherContract.Vie
             loadingDialog.startLoading(0);
         }
     }
+
 
     @Override
     public void onDestroy() {

@@ -16,6 +16,9 @@ import com.mapbox.mapboxsdk.plugins.places.autocomplete.ui.PlaceAutocompleteFrag
 import com.mapbox.mapboxsdk.plugins.places.autocomplete.ui.PlaceSelectionListener;
 import com.netviet.weathernew.BuildConfig;
 import com.netviet.weathernew.R;
+import com.netviet.weathernew.app.RxBus;
+
+import java.util.Objects;
 
 public class PlaceActivity extends AppCompatActivity {
 
@@ -51,9 +54,12 @@ public class PlaceActivity extends AppCompatActivity {
         autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
             @Override
             public void onPlaceSelected(CarmenFeature carmenFeature) {
-                Intent intent = new Intent();
-                intent.putExtra("dataPlace", carmenFeature.center());
-                setResult(Activity.RESULT_OK, intent);
+//                Intent intent = new Intent();
+//                intent.putExtra("dataPlace", carmenFeature.center());
+//                setResult(Activity.RESULT_OK, intent);
+
+
+                RxBus.publish(RxBus.TAG_LOCATION_ADD, Objects.requireNonNull(carmenFeature.center()));
                 finish();
 
             }
