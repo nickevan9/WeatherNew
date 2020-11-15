@@ -30,7 +30,7 @@ public class PlaceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place);
 
-
+        RxBus.unregister(this);
         if (savedInstanceState == null) {
             PlaceOptions placeOptions = PlaceOptions.builder()
                     .backgroundColor(Color.WHITE)
@@ -84,4 +84,5 @@ public class PlaceActivity extends AppCompatActivity {
         super.finish();
 //        overridePendingTransition(R.anim.slide_out_right, R.anim.slide_in_left);
     }
+
 }

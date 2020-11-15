@@ -1,5 +1,6 @@
 package com.netviet.weathernew.ui.loading;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 
 import com.netviet.weathernew.app.DataProccessor;
@@ -64,15 +65,21 @@ public class LoadingPresenter implements LoadingContract.Presenter {
                         public void onResponse(Call<AirEntity> call, Response<AirEntity> response) {
                             AirEntity airEntity = response.body();
 
-                            WeatherDb weatherDb = createWeather(weatherEntity, airEntity, new Date());
 
-                            if (finalIndex == (weatherDbs.size() - 1)) {
-                                weatherDbs.set(finalIndex, weatherDb);
-                                dataProccessor.setWeatherData(weatherDbs);
-                                mView.hideLoading();
+                            if (weatherEntity.getCc().getTimeTag() != null && airEntity.getDataEntity().getAqi() != null) {
+                                WeatherDb weatherDb = createWeather(weatherEntity, airEntity, new Date());
+
+                                if (finalIndex == (weatherDbs.size() - 1)) {
+                                    weatherDbs.set(finalIndex, weatherDb);
+                                    dataProccessor.setWeatherData(weatherDbs);
+                                    mView.hideLoading();
+                                } else {
+                                    weatherDbs.set(finalIndex, weatherDb);
+                                }
                             } else {
-                                weatherDbs.set(finalIndex, weatherDb);
+                                mView.loadDataFailed("Empty Data");
                             }
+
 
                         }
 
@@ -150,6 +157,13 @@ public class LoadingPresenter implements LoadingContract.Presenter {
                 mView.loadDataFailed(t.getMessage());
             }
         });
+    }
+
+
+    @SuppressLint("NewApi")
+    public boolean containsName(final List<WeatherDb> list, final String name) {
+        return list.stream().anyMatch(o -> o.getCityName().equals(name));
+
     }
 
     @Override

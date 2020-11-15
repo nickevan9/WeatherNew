@@ -133,6 +133,7 @@ public class WeatherFragment extends BaseFragment implements WeatherContract.Vie
             Double lat = point.latitude();
             Double lon = point.longitude();
             weatherPresenter.getSingleWeather(lat, lon);
+            RxBus.unregister(this);
         });
     }
 

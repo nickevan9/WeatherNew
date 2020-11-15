@@ -1,5 +1,6 @@
 package com.netviet.weathernew.ui.weather;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 
 import com.netviet.weathernew.app.DataProccessor;
@@ -42,6 +43,8 @@ public class WeatherPresenter implements WeatherContract.Presenter {
     public void getSingleWeather(Double lat, Double lon) {
         mView.showLoadingAPI();
 
+        List<WeatherDb> weatherDbs = DataProccessor.getWeatherData();
+
         AirService airService = ApiClient.getInstance().getClient2().create(AirService.class);
         WeatherService weatherService = ApiClient.getInstance().getClient().create(WeatherService.class);
 
@@ -57,13 +60,25 @@ public class WeatherPresenter implements WeatherContract.Presenter {
                     @Override
                     public void onResponse(Call<AirEntity> call, Response<AirEntity> response) {
                         AirEntity airEntity = response.body();
-                        WeatherDb weatherDb = createWeather(weatherEntity, airEntity, new Date());
 
-                        List<WeatherDb> weatherDbList = DataProccessor.getWeatherData();
-                        weatherDbList.add(weatherDb);
+                        if (containsName(weatherDbs,weatherEntity.getLoc().getName())){
+                            mView.loadDataFailed("Data already added");
+                        }else {
+                            if (weatherEntity.getLoc() != null && airEntity.getDataEntity() != null){
+                                WeatherDb weatherDb = createWeather(weatherEntity, airEntity, new Date());
 
-                        DataProccessor.setWeatherData(weatherDbList);
-                        mView.loadDataSuccess(weatherDbList,true);
+                                List<WeatherDb> weatherDbList = DataProccessor.getWeatherData();
+                                weatherDbList.add(weatherDb);
+
+                                DataProccessor.setWeatherData(weatherDbList);
+                                mView.loadDataSuccess(weatherDbList,true);
+                            }else {
+                                mView.loadDataFailed("Empty Data");
+                            }
+                        }
+
+
+
 
                     }
 
@@ -97,6 +112,11 @@ public class WeatherPresenter implements WeatherContract.Presenter {
         return weatherDb;
     }
 
+    @SuppressLint("NewApi")
+    public boolean containsName(final List<WeatherDb> list, final String name){
+        return list.stream().anyMatch(o -> o.getCityName().equals(name));
+
+    }
 
     @Override
     public void attachView(WeatherContract.View view) {
