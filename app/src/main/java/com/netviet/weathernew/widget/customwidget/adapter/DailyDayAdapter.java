@@ -50,7 +50,7 @@ public class DailyDayAdapter extends  RecyclerView.Adapter<DailyDayAdapter.ViewH
 
     @Override
     public int getItemCount() {
-        return 7;
+        return dailyEntities.size();
     }
 
     public void applyData(List<DailyEntity> dailyEntities,String timeZone){

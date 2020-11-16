@@ -11,7 +11,7 @@ public class CcEntity {
     private Double pr;
     @SerializedName("prestend")
     @Expose
-    private String prestend;
+    private Object prestend;
     @SerializedName("c")
     @Expose
     private Double c;
@@ -72,11 +72,11 @@ public class CcEntity {
         this.pr = pr;
     }
 
-    public String getPrestend() {
+    public Object getPrestend() {
         return prestend;
     }
 
-    public void setPrestend(String prestend) {
+    public void setPrestend(Object prestend) {
         this.prestend = prestend;
     }
 
