@@ -1,133 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/view_home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    android:orientation="vertical"
     android:background="?attr/backgroundApp"
-    >
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/app_bar"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:elevation="0dp"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:contentInsetStart="0dp"
+            android:contentInsetLeft="0dp"
+            android:contentInsetEnd="0dp"
+            android:contentInsetRight="0dp"
+            android:elevation="0dp"
+            app:contentInsetEnd="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetRight="0dp"
+            app:contentInsetStart="0dp"
+            app:layout_collapseMode="pin">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/_8sdp">
+
+                <ImageView
+                    android:id="@+id/img_menu"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:src="@drawable/ic_menu"
+                    app:tint="?attr/textColorApp" />
+
+                <com.netviet.weathernew.widget.customview.CustomTextviewMedium
+                    android:id="@+id/tv_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Mon, 08 November"
+                    android:textColor="?attr/textColorApp"
+                    android:textSize="@dimen/_14ssp" />
+
+
+                <ImageView
+                    android:id="@+id/img_add_location"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:src="@drawable/ic_add_location"
+                    app:tint="?attr/textColorApp" />
+
+
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:elevation="0dp"
-            app:elevation="0dp"
-            android:background="@android:color/transparent">
-
-            <androidx.appcompat.widget.Toolbar
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:elevation="0dp"
-                app:layout_collapseMode="pin"
-                android:contentInsetLeft="0dp"
-                android:contentInsetStart="0dp"
-                app:contentInsetLeft="0dp"
-                app:contentInsetStart="0dp"
-                android:contentInsetRight="0dp"
-                android:contentInsetEnd="0dp"
-                app:contentInsetRight="0dp"
-                app:contentInsetEnd="0dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="@dimen/_8sdp">
-
-                    <ImageView
-                        android:id="@+id/img_menu"
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="@dimen/_20sdp"
-                        android:src="@drawable/ic_menu"
-                        app:tint="?attr/textColorApp" />
-
-                    <com.netviet.weathernew.widget.customview.CustomTextviewMedium
-                        android:id="@+id/tv_time"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Mon, 08 November"
-                        android:gravity="center"
-                        android:textSize="@dimen/_14ssp"
-                        android:textColor="?attr/textColorApp"
-                        android:layout_weight="1"/>
-
-
-                    <ImageView
-                        android:id="@+id/img_add_location"
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="@dimen/_20sdp"
-                        android:src="@drawable/ic_add_location"
-                        app:tint="?attr/textColorApp"
-                        />
-
-
-                </LinearLayout>
-            </androidx.appcompat.widget.Toolbar>
-
-        </com.google.android.material.appbar.AppBarLayout>
-
-<!--    <androidx.core.widget.NestedScrollView-->
-<!--        android:id="@+id/scrollView"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
-
+            android:orientation="vertical">
 
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/vp_weather"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+
                 />
 
-<!--            <com.netviet.weathernew.widget.customwidget.WidgetWeatherAir-->
-<!--                android:id="@+id/wg_weather_air"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                />-->
+            <com.netviet.weathernew.widget.customwidget.WidgetWeatherAir
+                android:id="@+id/wg_weather_air"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-<!--            <com.netviet.weathernew.widget.customwidget.WidgetWeatherHourly-->
-<!--                android:id="@+id/wg_weather_hourly"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                />-->
+            <com.netviet.weathernew.widget.customwidget.WidgetWeatherHourly
+                android:id="@+id/wg_weather_hourly"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-<!--            <com.netviet.weathernew.widget.customwidget.WidgetWeatherDaily-->
-<!--                android:id="@+id/wg_weather_daily"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                />-->
+            <com.netviet.weathernew.widget.customwidget.WidgetWeatherDaily
+                android:id="@+id/wg_weather_daily"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-<!--            <com.netviet.weathernew.widget.customwidget.WidgetWeatherSun-->
-<!--                android:id="@+id/wg_weather_sun"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                />-->
+            <com.netviet.weathernew.widget.customwidget.WidgetAdView
+                android:id="@+id/wg_ad_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-<!--            <com.netviet.weathernew.widget.customwidget.WidgetWeatherMoon-->
-<!--                android:id="@+id/wg_weather_moon"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                />-->
+            <com.netviet.weathernew.widget.customwidget.WidgetWeatherSun
+                android:id="@+id/wg_weather_sun"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-<!--            <com.netviet.weathernew.widget.customwidget.WidgetWeatherWind-->
-<!--                android:id="@+id/wg_weather_wind"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                />-->
+            <com.netviet.weathernew.widget.customwidget.WidgetWeatherMoon
+                android:id="@+id/wg_weather_moon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-<!--            <com.netviet.weathernew.widget.customwidget.WidgetWeatherMap-->
-<!--                android:id="@+id/wg_weather_map"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                />-->
+            <com.netviet.weathernew.widget.customwidget.WidgetWeatherWind
+                android:id="@+id/wg_weather_wind"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <com.netviet.weathernew.widget.customwidget.WidgetWeatherMap
+                android:id="@+id/wg_weather_map"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
 
 
-<!--    </androidx.core.widget.NestedScrollView>-->
+    </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

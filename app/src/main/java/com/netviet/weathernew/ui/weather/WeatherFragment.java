@@ -20,11 +20,21 @@ import com.netviet.weathernew.R;
 import com.netviet.weathernew.app.ActivityUtils;
 import com.netviet.weathernew.app.RxBus;
 import com.netviet.weathernew.app.TimeUtilsExt;
+import com.netviet.weathernew.data.model.weather.DailyEntity;
+import com.netviet.weathernew.data.model.weather.HourlyEntity;
 import com.netviet.weathernew.data.model.weathersaved.WeatherDb;
 import com.netviet.weathernew.ui.adapter.WeatherAdapter;
 import com.netviet.weathernew.ui.base.BaseFragment;
 import com.netviet.weathernew.ui.dialog.LoadingDialog;
 import com.netviet.weathernew.ui.place.PlaceActivity;
+import com.netviet.weathernew.widget.customwidget.WidgetAdView;
+import com.netviet.weathernew.widget.customwidget.WidgetWeatherAir;
+import com.netviet.weathernew.widget.customwidget.WidgetWeatherDaily;
+import com.netviet.weathernew.widget.customwidget.WidgetWeatherHourly;
+import com.netviet.weathernew.widget.customwidget.WidgetWeatherMap;
+import com.netviet.weathernew.widget.customwidget.WidgetWeatherMoon;
+import com.netviet.weathernew.widget.customwidget.WidgetWeatherSun;
+import com.netviet.weathernew.widget.customwidget.WidgetWeatherWind;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,10 +54,18 @@ public class WeatherFragment extends BaseFragment implements WeatherContract.Vie
     private ViewPager2 vpWeather;
 
 
-
     private CoordinatorLayout homeView;
     private AppBarLayout appBarLayout;
     private NestedScrollView scrollView;
+
+    private WidgetWeatherAir widgetWeatherAir;
+    private WidgetWeatherHourly widgetWeatherHourly;
+    private WidgetWeatherDaily widgetWeatherDaily;
+    private WidgetAdView widgetAdView;
+    private WidgetWeatherSun widgetWeatherSun;
+    private WidgetWeatherMoon widgetWeatherMoon;
+    private WidgetWeatherWind widgetWeatherWind;
+    private WidgetWeatherMap widgetWeatherMap;
 
 
 
@@ -65,8 +83,17 @@ public class WeatherFragment extends BaseFragment implements WeatherContract.Vie
     protected void dataCreate() {
 
         homeView = requireView().findViewById(R.id.view_home);
-//        scrollView = requireView().findViewById(R.id.scrollView);
+        scrollView = requireView().findViewById(R.id.scrollView);
         appBarLayout = requireView().findViewById(R.id.app_bar);
+
+        widgetWeatherAir= requireView().findViewById(R.id.wg_weather_air);
+        widgetWeatherHourly= requireView().findViewById(R.id.wg_weather_hourly);
+        widgetWeatherDaily= requireView().findViewById(R.id.wg_weather_daily);
+        widgetAdView= requireView().findViewById(R.id.wg_ad_view);
+        widgetWeatherSun = requireView().findViewById(R.id.wg_weather_sun);
+        widgetWeatherMoon= requireView().findViewById(R.id.wg_weather_moon);
+        widgetWeatherWind= requireView().findViewById(R.id.wg_weather_wind);
+        widgetWeatherMap= requireView().findViewById(R.id.wg_weather_map);
 
         imgMenu = requireView().findViewById(R.id.img_menu);
         tvTime = requireView().findViewById(R.id.tv_time);
@@ -99,6 +126,17 @@ public class WeatherFragment extends BaseFragment implements WeatherContract.Vie
                 String timeZone = weatherDb.getWeatherEntity().getLoc().getTzname();
 
                 tvTime.setText(TimeUtilsExt.formatTimeNowDay(timeZone));
+
+                List<HourlyEntity> hourlyEntityList = TimeUtilsExt.mapTimeToNow(weatherDb.getWeatherEntity().getListHourly(), timeZone);
+                List<DailyEntity> dailyEntityList = TimeUtilsExt.mapDateToNow(weatherDb.getWeatherEntity().getListDaily(), timeZone);
+
+                widgetWeatherAir.applyData(weatherDb.getAirEntity());
+                widgetWeatherHourly.applyData(hourlyEntityList,timeZone);
+                widgetWeatherDaily.applyData(dailyEntityList,timeZone);
+                widgetWeatherSun.applyData(dailyEntityList,timeZone);
+                widgetWeatherMoon.applyData(dailyEntityList,timeZone);
+                widgetWeatherWind.applyData(hourlyEntityList.get(0));
+
             }
 
             @Override
