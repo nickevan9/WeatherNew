@@ -44,7 +44,7 @@ public class WidgetWeatherDetail extends RelativeLayout {
 
     public void applyDataHourly(HourlyEntity hourlyEntity){
 
-        tvTemp.setText(getContext().getString(R.string.set_temp,String.valueOf(hourlyEntity.getTempFeel().intValue())));
+        tvTemp.setText(getContext().getString(R.string.set_temp,String.valueOf((int) Double.parseDouble(hourlyEntity.getTempFeel()))));
         tvWeatherStatus.setText(hourlyEntity.getTxt());
     }
 

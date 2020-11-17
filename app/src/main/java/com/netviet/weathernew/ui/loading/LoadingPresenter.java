@@ -104,8 +104,8 @@ public class LoadingPresenter implements LoadingContract.Presenter {
         WeatherDb weatherDb = new WeatherDb();
         weatherDb.setLocationName(weatherEntity.getLoc().getName());
         weatherDb.setCityName(weatherEntity.getLoc().getName());
-        weatherDb.setLatLocation(weatherEntity.getLoc().getLat());
-        weatherDb.setLonLocation(weatherEntity.getLoc().getLon());
+        weatherDb.setLatLocation(Double.parseDouble(weatherEntity.getLoc().getLat()));
+        weatherDb.setLonLocation(Double.parseDouble(weatherEntity.getLoc().getLon()));
         weatherDb.setWeatherEntity(weatherEntity);
         weatherDb.setAirEntity(airEntity);
         if (date != null) {

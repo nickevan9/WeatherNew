@@ -66,7 +66,7 @@ public class WidgetAdView extends RelativeLayout {
             this.unifiedNativeAds = unifiedNativeAd;
 
             frameAdView = findViewById(R.id.fl_adplaceholder);
-            adView = (UnifiedNativeAdView) ((Activity) getContext()).getLayoutInflater().inflate(R.layout.ad_unified, null);
+            adView = (UnifiedNativeAdView) ((Activity) getContext()).getLayoutInflater().inflate(R.layout.ad_unified_custom, null);
             populateUnifiedNativeAdView(unifiedNativeAd, adView);
 
             frameAdView.removeAllViews();
@@ -115,12 +115,12 @@ public class WidgetAdView extends RelativeLayout {
         // Set other ad assets.
         adView.setHeadlineView(adView.findViewById(R.id.ad_headline));
         adView.setBodyView(adView.findViewById(R.id.ad_body));
-        adView.setCallToActionView(adView.findViewById(R.id.ad_call_to_action));
+//        adView.setCallToActionView(adView.findViewById(R.id.ad_call_to_action));
         adView.setIconView(adView.findViewById(R.id.ad_app_icon));
-        adView.setPriceView(adView.findViewById(R.id.ad_price));
-        adView.setStarRatingView(adView.findViewById(R.id.ad_stars));
-        adView.setStoreView(adView.findViewById(R.id.ad_store));
-        adView.setAdvertiserView(adView.findViewById(R.id.ad_advertiser));
+//        adView.setPriceView(adView.findViewById(R.id.ad_price));
+//        adView.setStarRatingView(adView.findViewById(R.id.ad_stars));
+//        adView.setStoreView(adView.findViewById(R.id.ad_store));
+//        adView.setAdvertiserView(adView.findViewById(R.id.ad_advertiser));
 
         // The headline and mediaContent are guaranteed to be in every UnifiedNativeAd.
         ((TextView) adView.getHeadlineView()).setText(nativeAd.getHeadline());
@@ -135,12 +135,12 @@ public class WidgetAdView extends RelativeLayout {
             ((TextView) adView.getBodyView()).setText(nativeAd.getBody());
         }
 
-        if (nativeAd.getCallToAction() == null) {
-            adView.getCallToActionView().setVisibility(View.INVISIBLE);
-        } else {
-            adView.getCallToActionView().setVisibility(View.VISIBLE);
-            ((Button) adView.getCallToActionView()).setText(nativeAd.getCallToAction());
-        }
+//        if (nativeAd.getCallToAction() == null) {
+//            adView.getCallToActionView().setVisibility(View.INVISIBLE);
+//        } else {
+//            adView.getCallToActionView().setVisibility(View.VISIBLE);
+//            ((Button) adView.getCallToActionView()).setText(nativeAd.getCallToAction());
+//        }
 
         if (nativeAd.getIcon() == null) {
             adView.getIconView().setVisibility(View.GONE);
@@ -150,34 +150,34 @@ public class WidgetAdView extends RelativeLayout {
             adView.getIconView().setVisibility(View.VISIBLE);
         }
 
-        if (nativeAd.getPrice() == null) {
-            adView.getPriceView().setVisibility(View.INVISIBLE);
-        } else {
-            adView.getPriceView().setVisibility(View.VISIBLE);
-            ((TextView) adView.getPriceView()).setText(nativeAd.getPrice());
-        }
+//        if (nativeAd.getPrice() == null) {
+//            adView.getPriceView().setVisibility(View.INVISIBLE);
+//        } else {
+//            adView.getPriceView().setVisibility(View.VISIBLE);
+//            ((TextView) adView.getPriceView()).setText(nativeAd.getPrice());
+//        }
 
-        if (nativeAd.getStore() == null) {
-            adView.getStoreView().setVisibility(View.INVISIBLE);
-        } else {
-            adView.getStoreView().setVisibility(View.VISIBLE);
-            ((TextView) adView.getStoreView()).setText(nativeAd.getStore());
-        }
+//        if (nativeAd.getStore() == null) {
+//            adView.getStoreView().setVisibility(View.INVISIBLE);
+//        } else {
+//            adView.getStoreView().setVisibility(View.VISIBLE);
+//            ((TextView) adView.getStoreView()).setText(nativeAd.getStore());
+//        }
 
-        if (nativeAd.getStarRating() == null) {
-            adView.getStarRatingView().setVisibility(View.INVISIBLE);
-        } else {
-            ((RatingBar) adView.getStarRatingView())
-                    .setRating(nativeAd.getStarRating().floatValue());
-            adView.getStarRatingView().setVisibility(View.VISIBLE);
-        }
+//        if (nativeAd.getStarRating() == null) {
+//            adView.getStarRatingView().setVisibility(View.INVISIBLE);
+//        } else {
+//            ((RatingBar) adView.getStarRatingView())
+//                    .setRating(nativeAd.getStarRating().floatValue());
+//            adView.getStarRatingView().setVisibility(View.VISIBLE);
+//        }
 
-        if (nativeAd.getAdvertiser() == null) {
-            adView.getAdvertiserView().setVisibility(View.INVISIBLE);
-        } else {
-            ((TextView) adView.getAdvertiserView()).setText(nativeAd.getAdvertiser());
-            adView.getAdvertiserView().setVisibility(View.VISIBLE);
-        }
+//        if (nativeAd.getAdvertiser() == null) {
+//            adView.getAdvertiserView().setVisibility(View.INVISIBLE);
+//        } else {
+//            ((TextView) adView.getAdvertiserView()).setText(nativeAd.getAdvertiser());
+//            adView.getAdvertiserView().setVisibility(View.VISIBLE);
+//        }
 
         adView.setNativeAd(nativeAd);
 

@@ -103,12 +103,12 @@ public class HourlyAdapter extends RecyclerView.Adapter<HourlyAdapter.ViewHolder
                 cardHourly.setRadius(0);
             }
 
-            tvTemp.setText(context.getString(R.string.set_temp, String.valueOf(hourlyEntity.getTemp().intValue())));
+            tvTemp.setText(context.getString(R.string.set_temp, String.valueOf((int)Double.parseDouble(hourlyEntity.getTemp()))));
             imgHourly.setBackgroundResource(IconWeatherHelper.getDrawableAnimation(hourlyEntity.getStatus()));
             AnimationDrawable anim = (AnimationDrawable) imgHourly.getBackground();
             anim.start();
             tvHour.setText(TimeUtilsExt.convertTimeStampToTimeAdapter(hourlyEntity.getDt(), timeZone));
-            tvRainHour.setText(hourlyEntity.getRh().intValue() + "%");
+            tvRainHour.setText((int) Double.parseDouble(hourlyEntity.getRh()) + "%");
 
         }
     }

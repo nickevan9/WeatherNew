@@ -56,7 +56,7 @@ public class WidgetWeatherWind extends RelativeLayout {
     public void applyData(HourlyEntity hourlyEntity) {
         tvWindDirection.setText(WindConvert.convertWindDirection(hourlyEntity.getWindDirection()));
         tvWindSpeed.setText(getContext().getString(R.string.set_speed, hourlyEntity.getWindSpeed().toString()));
-        windSpeed = hourlyEntity.getWindSpeed();
+        windSpeed = Double.parseDouble(hourlyEntity.getWindSpeed());
 
         if (windSpeed < 2) {
             tvLevelWind.setText( getContext().getString(R.string.wind_level,1));

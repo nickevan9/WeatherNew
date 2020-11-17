@@ -10,37 +10,37 @@ import java.io.Serializable;
 public class DailyEntity implements Serializable {
     @SerializedName("pr")
     @Expose
-    private Double pr;
+    private String pr;
     @SerializedName("pp")
     @Expose
-    private Double rainPercent;
+    private String rainPercent;
     @SerializedName("set")
     @Expose
     private String set;
     @SerializedName("tx")
     @Expose
-    private Double tempMax;
+    private String tempMax;
     @SerializedName("wn")
     @Expose
     private String wn;
     @SerializedName("ca")
     @Expose
-    private Double ca;
+    private String ca;
     @SerializedName("rise")
     @Expose
     private String rise;
     @SerializedName("dl")
     @Expose
-    private Double dl;
+    private String dl;
     @SerializedName("tp")
     @Expose
-    private Double tp;
+    private String tp;
     @SerializedName("tn")
     @Expose
-    private Double tempMin;
+    private String tempMin;
     @SerializedName("p")
     @Expose
-    private Double p;
+    private String p;
     @SerializedName("s")
     @Expose
     private String s;
@@ -49,13 +49,13 @@ public class DailyEntity implements Serializable {
     private String mrise;
     @SerializedName("rh_avg")
     @Expose
-    private Double rhAvg;
+    private String rhAvg;
     @SerializedName("time_tag")
     @Expose
-    private Double timeTag;
+    private String timeTag;
     @SerializedName("wsx")
     @Expose
-    private Double wsx;
+    private String wsx;
     @SerializedName("dt")
     @Expose
     private String dt;
@@ -70,27 +70,27 @@ public class DailyEntity implements Serializable {
     private String uv;
     @SerializedName("mp")
     @Expose
-    private Double mp;
+    private String mp;
     @SerializedName("txt")
     @Expose
     private String txt;
     @SerializedName("dts")
     @Expose
-    private Double dts;
+    private String dts;
 
-    public Double getPr() {
+    public String getPr() {
         return pr;
     }
 
-    public void setPr(Double pr) {
+    public void setPr(String pr) {
         this.pr = pr;
     }
 
-    public Double getRainPercent() {
+    public String getRainPercent() {
         return rainPercent;
     }
 
-    public void setRainPercent(Double rainPercent) {
+    public void setRainPercent(String rainPercent) {
         this.rainPercent = rainPercent;
     }
 
@@ -102,11 +102,11 @@ public class DailyEntity implements Serializable {
         this.set = set;
     }
 
-    public Double getTempMax() {
+    public String getTempMax() {
         return tempMax;
     }
 
-    public void setTempMax(Double tempMax) {
+    public void setTempMax(String tempMax) {
         this.tempMax = tempMax;
     }
 
@@ -118,11 +118,11 @@ public class DailyEntity implements Serializable {
         this.wn = wn;
     }
 
-    public Double getCa() {
+    public String getCa() {
         return ca;
     }
 
-    public void setCa(Double ca) {
+    public void setCa(String ca) {
         this.ca = ca;
     }
 
@@ -134,35 +134,35 @@ public class DailyEntity implements Serializable {
         this.rise = rise;
     }
 
-    public Double getDl() {
+    public String getDl() {
         return dl;
     }
 
-    public void setDl(Double dl) {
+    public void setDl(String dl) {
         this.dl = dl;
     }
 
-    public Double getTp() {
+    public String getTp() {
         return tp;
     }
 
-    public void setTp(Double tp) {
+    public void setTp(String tp) {
         this.tp = tp;
     }
 
-    public Double getTempMin() {
+    public String getTempMin() {
         return tempMin;
     }
 
-    public void setTempMin(Double tempMin) {
+    public void setTempMin(String tempMin) {
         this.tempMin = tempMin;
     }
 
-    public Double getP() {
+    public String getP() {
         return p;
     }
 
-    public void setP(Double p) {
+    public void setP(String p) {
         this.p = p;
     }
 
@@ -182,27 +182,27 @@ public class DailyEntity implements Serializable {
         this.mrise = mrise;
     }
 
-    public Double getRhAvg() {
+    public String getRhAvg() {
         return rhAvg;
     }
 
-    public void setRhAvg(Double rhAvg) {
+    public void setRhAvg(String rhAvg) {
         this.rhAvg = rhAvg;
     }
 
-    public Double getTimeTag() {
+    public String getTimeTag() {
         return timeTag;
     }
 
-    public void setTimeTag(Double timeTag) {
+    public void setTimeTag(String timeTag) {
         this.timeTag = timeTag;
     }
 
-    public Double getWsx() {
+    public String getWsx() {
         return wsx;
     }
 
-    public void setWsx(Double wsx) {
+    public void setWsx(String wsx) {
         this.wsx = wsx;
     }
 
@@ -238,11 +238,11 @@ public class DailyEntity implements Serializable {
         this.uv = uv;
     }
 
-    public Double getMp() {
+    public String getMp() {
         return mp;
     }
 
-    public void setMp(Double mp) {
+    public void setMp(String mp) {
         this.mp = mp;
     }
 
@@ -254,11 +254,11 @@ public class DailyEntity implements Serializable {
         this.txt = txt;
     }
 
-    public Double getDts() {
+    public String getDts() {
         return dts;
     }
 
-    public void setDts(Double dts) {
+    public void setDts(String dts) {
         this.dts = dts;
     }
 }

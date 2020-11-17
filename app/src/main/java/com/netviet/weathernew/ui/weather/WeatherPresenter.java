@@ -11,6 +11,8 @@ import com.netviet.weathernew.data.response.AirService;
 import com.netviet.weathernew.data.response.ApiClient;
 import com.netviet.weathernew.data.response.WeatherService;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -54,11 +56,11 @@ public class WeatherPresenter implements WeatherContract.Presenter {
 
         weatherEntityCall.enqueue(new Callback<WeatherEntity>() {
             @Override
-            public void onResponse(Call<WeatherEntity> call, Response<WeatherEntity> response) {
+            public void onResponse(@NotNull Call<WeatherEntity> call, @NotNull Response<WeatherEntity> response) {
                 WeatherEntity weatherEntity = response.body();
                 airEntityCall.enqueue(new Callback<AirEntity>() {
                     @Override
-                    public void onResponse(Call<AirEntity> call, Response<AirEntity> response) {
+                    public void onResponse(@NotNull Call<AirEntity> call, @NotNull Response<AirEntity> response) {
                         AirEntity airEntity = response.body();
 
                         if (containsName(weatherDbs,weatherEntity.getLoc().getName())){
@@ -76,10 +78,6 @@ public class WeatherPresenter implements WeatherContract.Presenter {
                                 mView.loadDataFailed("Empty Data");
                             }
                         }
-
-
-
-
                     }
 
                     @Override
@@ -100,8 +98,8 @@ public class WeatherPresenter implements WeatherContract.Presenter {
         WeatherDb weatherDb = new WeatherDb();
         weatherDb.setLocationName(weatherEntity.getLoc().getName());
         weatherDb.setCityName(weatherEntity.getLoc().getName());
-        weatherDb.setLatLocation(weatherEntity.getLoc().getLat());
-        weatherDb.setLonLocation(weatherEntity.getLoc().getLon());
+        weatherDb.setLatLocation(Double.parseDouble(weatherEntity.getLoc().getLat()));
+        weatherDb.setLonLocation(Double.parseDouble(weatherEntity.getLoc().getLon()));
         weatherDb.setWeatherEntity(weatherEntity);
         weatherDb.setAirEntity(airEntity);
         if (date != null) {

@@ -14,7 +14,7 @@ public class WeatherEntity {
     private String status;
     @SerializedName("d_id")
     @Expose
-    private Double dId;
+    private String dId;
     @Embedded
     @SerializedName("warning")
     @Expose
@@ -38,7 +38,7 @@ public class WeatherEntity {
     private String src;
     @SerializedName("update")
     @Expose
-    private Double update;
+    private String update;
     @Embedded
     @SerializedName("extra")
     @Expose
@@ -52,11 +52,11 @@ public class WeatherEntity {
         this.status = status;
     }
 
-    public Double getDId() {
+    public String getDId() {
         return dId;
     }
 
-    public void setDId(Double dId) {
+    public void setDId(String dId) {
         this.dId = dId;
     }
 
@@ -108,11 +108,11 @@ public class WeatherEntity {
         this.src = src;
     }
 
-    public Double getUpdate() {
+    public String getUpdate() {
         return update;
     }
 
-    public void setUpdate(Double update) {
+    public void setUpdate(String update) {
         this.update = update;
     }
 

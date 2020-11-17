@@ -85,8 +85,8 @@ public class DailyAdapter extends RecyclerView.Adapter<DailyAdapter.ViewHolder> 
 
         @SuppressLint("SetTextI18n")
         public void bindItem(DailyEntity dailyEntity){
-            tvTempMax.setText(dailyEntity.getTempMax().intValue() + "°");
-            tvTempMin.setText(dailyEntity.getTempMin().intValue() + "°");
+            tvTempMax.setText((int) Double.parseDouble(dailyEntity.getTempMax()) + "°");
+            tvTempMin.setText((int) Double.parseDouble(dailyEntity.getTempMin()) + "°");
             float factor = itemView.getContext().getResources().getDisplayMetrics().density;
 
             int marginLinear = ActivityUtils.convertDpToPixel(context,50);
@@ -96,12 +96,12 @@ public class DailyAdapter extends RecyclerView.Adapter<DailyAdapter.ViewHolder> 
             lnDaily.setLayoutParams(paramLinear);
 
             LinearLayout.LayoutParams paramRelative = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-            int marginTop = (int)((max - dailyEntity.getTempMax()) * 6 * factor );
-            int marginBottom = (int)((dailyEntity.getTempMin() - min) * 6 * factor );
+            int marginTop = (int)((max - Double.parseDouble(dailyEntity.getTempMax())) * 6 * factor );
+            int marginBottom = (int)((Double.parseDouble(dailyEntity.getTempMin()) - min) * 6 * factor );
             paramRelative.setMargins(0, marginTop,0, marginBottom);
             rlDaily.setLayoutParams(paramRelative);
 
-            tvRainPercent.setText(dailyEntity.getRainPercent().intValue() + "%");
+            tvRainPercent.setText((int) Double.parseDouble(dailyEntity.getRainPercent()) + "%");
         }
     }
 }

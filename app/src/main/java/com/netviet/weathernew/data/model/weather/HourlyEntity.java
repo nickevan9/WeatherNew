@@ -10,10 +10,10 @@ import java.io.Serializable;
 public class HourlyEntity implements Serializable {
     @SerializedName("pr")
     @Expose
-    private Double pr;
+    private String pr;
     @SerializedName("pp")
     @Expose
-    private Double pp;
+    private String pp;
     @SerializedName("upt")
     @Expose
     private String upt;
@@ -22,63 +22,63 @@ public class HourlyEntity implements Serializable {
     private String windDirection;
     @SerializedName("uv")
     @Expose
-    private Double uv;
+    private String uv;
     @SerializedName("c")
     @Expose
-    private Double c;
+    private String c;
     @SerializedName("tp")
     @Expose
-    private Double tp;
+    private String tp;
     @SerializedName("p")
     @Expose
-    private Double pressure;
+    private String pressure;
     @SerializedName("s")
     @Expose
     private String status;
     @SerializedName("ws")
     @Expose
-    private Double windSpeed;
+    private String windSpeed;
     @SerializedName("t")
     @Expose
-    private Double temp;
+    private String temp;
     @SerializedName("time_tag")
     @Expose
-    private Double timeTag;
+    private String timeTag;
     @SerializedName("v")
     @Expose
-    private Double v;
+    private String v;
     @SerializedName("tf")
     @Expose
-    private Double tempFeel;
+    private String tempFeel;
     @SerializedName("dt")
     @Expose
     private String dt;
     @SerializedName("rh")
     @Expose
-    private Double rh;
+    private String rh;
     @SerializedName("td")
     @Expose
-    private Double td;
+    private String td;
     @SerializedName("txt")
     @Expose
     private String txt;
     @SerializedName("dts")
     @Expose
-    private Double dts;
+    private String dts;
 
-    public Double getPr() {
+    public String getPr() {
         return pr;
     }
 
-    public void setPr(Double pr) {
+    public void setPr(String pr) {
         this.pr = pr;
     }
 
-    public Double getPp() {
+    public String getPp() {
         return pp;
     }
 
-    public void setPp(Double pp) {
+    public void setPp(String pp) {
         this.pp = pp;
     }
 
@@ -98,35 +98,35 @@ public class HourlyEntity implements Serializable {
         this.windDirection = windDirection;
     }
 
-    public Double getUv() {
+    public String getUv() {
         return uv;
     }
 
-    public void setUv(Double uv) {
+    public void setUv(String uv) {
         this.uv = uv;
     }
 
-    public Double getC() {
+    public String getC() {
         return c;
     }
 
-    public void setC(Double c) {
+    public void setC(String c) {
         this.c = c;
     }
 
-    public Double getTp() {
+    public String getTp() {
         return tp;
     }
 
-    public void setTp(Double tp) {
+    public void setTp(String tp) {
         this.tp = tp;
     }
 
-    public Double getPressure() {
+    public String getPressure() {
         return pressure;
     }
 
-    public void setPressure(Double pressure) {
+    public void setPressure(String pressure) {
         this.pressure = pressure;
     }
 
@@ -138,43 +138,43 @@ public class HourlyEntity implements Serializable {
         this.status = status;
     }
 
-    public Double getWindSpeed() {
+    public String getWindSpeed() {
         return windSpeed;
     }
 
-    public void setWindSpeed(Double windSpeed) {
+    public void setWindSpeed(String windSpeed) {
         this.windSpeed = windSpeed;
     }
 
-    public Double getTemp() {
+    public String getTemp() {
         return temp;
     }
 
-    public void setTemp(Double temp) {
+    public void setTemp(String temp) {
         this.temp = temp;
     }
 
-    public Double getTimeTag() {
+    public String getTimeTag() {
         return timeTag;
     }
 
-    public void setTimeTag(Double timeTag) {
+    public void setTimeTag(String timeTag) {
         this.timeTag = timeTag;
     }
 
-    public Double getV() {
+    public String getV() {
         return v;
     }
 
-    public void setV(Double v) {
+    public void setV(String v) {
         this.v = v;
     }
 
-    public Double getTempFeel() {
+    public String getTempFeel() {
         return tempFeel;
     }
 
-    public void setTempFeel(Double tempFeel) {
+    public void setTempFeel(String tempFeel) {
         this.tempFeel = tempFeel;
     }
 
@@ -186,19 +186,19 @@ public class HourlyEntity implements Serializable {
         this.dt = dt;
     }
 
-    public Double getRh() {
+    public String getRh() {
         return rh;
     }
 
-    public void setRh(Double rh) {
+    public void setRh(String rh) {
         this.rh = rh;
     }
 
-    public Double getTd() {
+    public String getTd() {
         return td;
     }
 
-    public void setTd(Double td) {
+    public void setTd(String td) {
         this.td = td;
     }
 
@@ -210,11 +210,11 @@ public class HourlyEntity implements Serializable {
         this.txt = txt;
     }
 
-    public Double getDts() {
+    public String getDts() {
         return dts;
     }
 
-    public void setDts(Double dts) {
+    public void setDts(String dts) {
         this.dts = dts;
     }
 }

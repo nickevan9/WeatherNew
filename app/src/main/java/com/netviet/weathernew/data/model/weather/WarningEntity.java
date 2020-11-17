@@ -14,7 +14,7 @@ public class WarningEntity {
     private String fs0;
     @SerializedName("f1")
     @Expose
-    private Double f1;
+    private String f1;
     @SerializedName("dtfrom")
     @Expose
     private String dtfrom;
@@ -53,11 +53,11 @@ public class WarningEntity {
         this.fs0 = fs0;
     }
 
-    public Double getF1() {
+    public String getF1() {
         return f1;
     }
 
-    public void setF1(Double f1) {
+    public void setF1(String f1) {
         this.f1 = f1;
     }
 

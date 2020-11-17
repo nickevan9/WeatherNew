@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName;
 public class LocEntity {
     @SerializedName("lid")
     @Expose
-    private Long lid;
+    private String lid;
     @SerializedName("name")
     @Expose
     private String name;
@@ -29,19 +29,19 @@ public class LocEntity {
     private String tz;
     @SerializedName("tzoffset")
     @Expose
-    private Double tzoffset;
+    private String tzoffset;
     @SerializedName("lat")
     @Expose
-    private Double lat;
+    private String lat;
     @SerializedName("lon")
     @Expose
-    private Double lon;
+    private String lon;
 
-    public Long getLid() {
+    public String getLid() {
         return lid;
     }
 
-    public void setLid(Long lid) {
+    public void setLid(String lid) {
         this.lid = lid;
     }
 
@@ -93,28 +93,27 @@ public class LocEntity {
         this.tz = tz;
     }
 
-    public Double getTzoffset() {
+    public String getTzoffset() {
         return tzoffset;
     }
 
-    public void setTzoffset(Double tzoffset) {
+    public void setTzoffset(String tzoffset) {
         this.tzoffset = tzoffset;
     }
 
-    public Double getLat() {
+    public String getLat() {
         return lat;
     }
 
-    public void setLat(Double lat) {
+    public void setLat(String lat) {
         this.lat = lat;
     }
 
-    public Double getLon() {
+    public String getLon() {
         return lon;
     }
 
-    public void setLon(Double lon) {
+    public void setLon(String lon) {
         this.lon = lon;
     }
-
 }

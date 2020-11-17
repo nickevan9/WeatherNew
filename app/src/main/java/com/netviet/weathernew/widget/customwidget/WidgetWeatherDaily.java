@@ -81,8 +81,8 @@ public class WidgetWeatherDaily extends RelativeLayout {
     public void applyData(List<DailyEntity> dailyEntities, String timeZone) {
 
         dailyEntities = dailyEntities.subList(0,7);
-        max = (int) dailyEntities.stream().mapToDouble(DailyEntity::getTempMax).max().getAsDouble();
-        min = (int) dailyEntities.stream().mapToDouble(DailyEntity::getTempMin).min().getAsDouble();
+        max = (int) dailyEntities.stream().mapToDouble(dailyEntity -> Double.parseDouble(dailyEntity.getTempMax())).max().getAsDouble();
+        min = (int) dailyEntities.stream().mapToDouble(dailyEntity -> Double.parseDouble(dailyEntity.getTempMin())).min().getAsDouble();
         dailyAdapter.applyData(dailyEntities,timeZone,max,min);
         dailyDayAdapter.applyData(dailyEntities,timeZone);
     }

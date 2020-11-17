@@ -61,9 +61,9 @@ public class WidgetWeatherMoon extends RelativeLayout {
     }
 
     public void applyData(List<DailyEntity> dailyEntities, String timeZone) {
-        moon1.updateMoon(dailyEntities.get(0).getMp() / 340);
-        moon2.updateMoon(dailyEntities.get(7).getMp() / 340);
-        moon3.updateMoon(dailyEntities.get(dailyEntities.size()-1).getMp() / 340);
+        moon1.updateMoon(Double.parseDouble(dailyEntities.get(0).getMp()) / 340);
+        moon2.updateMoon(Double.parseDouble(dailyEntities.get(7).getMp()) / 340);
+        moon3.updateMoon(Double.parseDouble(dailyEntities.get(dailyEntities.size()-1).getMp()) / 340);
 
         tvDay1.setText(getContext().getString(R.string.today));
         tvDay2.setText(getContext().getString(R.string.seven_day_next));
