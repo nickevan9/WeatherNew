@@ -1,15 +1,20 @@
 package com.netviet.weathernew.ui.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.core.content.ContextCompat;
+import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.color.MaterialColors;
 import com.netviet.weathernew.R;
 import com.netviet.weathernew.app.RxBus;
 import com.netviet.weathernew.app.TimeUtilsExt;
@@ -65,6 +70,8 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
+        NestedScrollView nestedScrollView;
+        LinearLayout lnWeather;
         WidgetWeatherDetail wgWeatherDetail;
         WidgetDetailValue wgDetailValue;
         WidgetWeatherAir wgWeatherAir;
@@ -79,6 +86,8 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            lnWeather = itemView.findViewById(R.id.ln_weather);
+            nestedScrollView = itemView.findViewById(R.id.nested_scroll);
             wgDetailValue = itemView.findViewById(R.id.wg_detail_value);
             wgWeatherDetail = itemView.findViewById(R.id.wg_weather_detail);
             wgWeatherAir = itemView.findViewById(R.id.wg_weather_air);
@@ -107,6 +116,20 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
             wgWeatherSun.applyData(dailyEntityList,timeZone);
             wgWeatherMoon.applyData(dailyEntityList,timeZone);
             wgWeatherWind.applyData(hourlyEntityList.get(0));
+
+            nestedScrollView.setOnScrollChangeListener((NestedScrollView.OnScrollChangeListener) (v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
+
+                if (scrollY > oldScrollY) {
+                    lnWeather.setBackgroundColor(MaterialColors.getColor(context, R.attr.backgroundColorApp, Color.BLACK));
+                }
+                if (scrollY < oldScrollY) {
+                    lnWeather.setBackgroundColor(MaterialColors.getColor(context, R.attr.backgroundColorApp, Color.BLACK));
+                }
+
+                if (scrollY == 0) {
+                    lnWeather.setBackgroundColor(Color.TRANSPARENT); // required to delete elevation shadow
+                }
+            });
         }
     }
 }
