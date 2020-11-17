@@ -47,13 +47,13 @@
 
     <com.netviet.weathernew.widget.customview.CustomSun.CustomSunView
         android:id="@+id/custom_sun"
-        android:layout_width="@dimen/_200sdp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_8sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline10"
+        app:layout_constraintStart_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toBottomOf="@+id/ln_wind_text"
         app:ssv_shadow_color="#7D6131"
         app:ssv_sun_radius="@dimen/_3sdp"
@@ -66,10 +66,11 @@
         android:layout_marginTop="@dimen/_4sdp"
         android:text="06:40"
         android:textColor="?attr/textColorApp"
-        android:textSize="@dimen/_8ssp"
+        android:textSize="@dimen/_10ssp"
         app:layout_constraintEnd_toStartOf="@+id/custom_sun"
         app:layout_constraintStart_toStartOf="@+id/custom_sun"
         app:layout_constraintTop_toBottomOf="@+id/custom_sun" />
+
 
     <com.netviet.weathernew.widget.customview.CustomTextviewMedium
         android:id="@+id/tv_sun_set"
@@ -78,12 +79,13 @@
         android:layout_marginTop="@dimen/_4sdp"
         android:text="18:00"
         android:textColor="?attr/textColorApp"
-        android:textSize="@dimen/_8ssp"
+        android:textSize="@dimen/_10ssp"
         app:layout_constraintEnd_toEndOf="@+id/custom_sun"
         app:layout_constraintStart_toEndOf="@+id/custom_sun"
         app:layout_constraintTop_toBottomOf="@+id/custom_sun" />
 
     <View
+        android:id="@+id/view3"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/_8sdp"
@@ -92,6 +94,54 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ln_wind_text" />
+
+
+    <ImageView
+        android:layout_width="@dimen/_6sdp"
+        android:layout_height="@dimen/_6sdp"
+        android:src="@drawable/circle_drawable"
+        app:layout_constraintBottom_toBottomOf="@+id/custom_sun"
+        app:layout_constraintEnd_toStartOf="@+id/guideline12"
+        app:layout_constraintStart_toStartOf="@+id/guideline12"
+        app:layout_constraintTop_toBottomOf="@+id/custom_sun" />
+
+    <ImageView
+        android:layout_width="@dimen/_6sdp"
+        android:layout_height="@dimen/_6sdp"
+        android:src="@drawable/circle_drawable"
+        app:layout_constraintBottom_toBottomOf="@+id/custom_sun"
+        app:layout_constraintEnd_toStartOf="@+id/guideline11"
+        app:layout_constraintStart_toStartOf="@+id/guideline11"
+        app:layout_constraintTop_toBottomOf="@+id/custom_sun" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.16" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.84" />
     <!--    </RelativeLayout>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

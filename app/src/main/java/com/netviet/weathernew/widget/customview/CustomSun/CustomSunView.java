@@ -60,7 +60,6 @@ public class CustomSunView extends View {
     private float mSunRadius = DEFAULT_SUN_RADIUS_PX;
     private Paint.Style mSunPaintStyle = Paint.Style.FILL;
 
-    private Paint mDotCircle;
 
 
     private static final int MINIMAL_TRACK_RADIUS_PX = 300;
@@ -139,13 +138,8 @@ public class CustomSunView extends View {
 //        mSunPaint.setStrokeWidth(DEFAULT_SUN_STROKE_WIDTH_PX);
         prepareSunPaint();
 
-        mDotCircle = new Paint(Paint.ANTI_ALIAS_FLAG);
-        prepareDotPaint();
     }
 
-    private void prepareDotPaint(){
-        mDotCircle.setColor(Color.YELLOW);
-    }
 
     private void prepareTrackPaint() {
         mTrackPaint.setColor(mTrackColor);
@@ -198,10 +192,6 @@ public class CustomSunView extends View {
         canvas.drawPath(path, mShadowPaint);
 
 
-        canvas.drawCircle(mBoardRectF.left,mBoardRectF.bottom,10f,mDotCircle);
-
-        canvas.drawCircle(mBoardRectF.right,mBoardRectF.bottom,10f,mDotCircle);
-
         canvas.restore();
     }
 
@@ -213,9 +203,8 @@ public class CustomSunView extends View {
 
         float curPointX = mBoardRectF.left + mTrackRadius - mTrackRadius * (float) Math.cos(Math.PI * mRatio);
         float curPointY = mBoardRectF.bottom - mTrackRadius * (float) Math.sin(Math.PI * mRatio);
-//        canvas.drawCircle(curPointX, curPointY, mSunRadius, mSunPaint);
 
-        canvas.drawBitmap(Bitmap.createScaledBitmap(bitmap, 40, 40, false), curPointX - 20, curPointY - 20, mSunPaint);
+        canvas.drawBitmap(Bitmap.createScaledBitmap(bitmap, 50, 50, false), curPointX - 25, curPointY - 25, mSunPaint);
 
         canvas.restore();
     }

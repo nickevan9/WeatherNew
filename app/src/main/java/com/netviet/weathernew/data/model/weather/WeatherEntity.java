@@ -116,6 +116,7 @@ public class WeatherEntity {
         this.update = update;
     }
 
+
     public ExtraEntity getExtra() {
         return extra;
     }
