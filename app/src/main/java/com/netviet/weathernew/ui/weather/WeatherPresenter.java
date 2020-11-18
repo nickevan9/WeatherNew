@@ -94,6 +94,66 @@ public class WeatherPresenter implements WeatherContract.Presenter {
         });
     }
 
+    @Override
+    public void fetchAllWeather(List<WeatherDb> weatherDbs) {
+        for (int index = 0; index < weatherDbs.size(); index++) {
+            Double lat = weatherDbs.get(index).getLatLocation();
+            Double lon = weatherDbs.get(index).getLonLocation();
+
+            AirService airService = ApiClient.getInstance().getClient2().create(AirService.class);
+            WeatherService weatherService = ApiClient.getInstance().getClient().create(WeatherService.class);
+
+            Call<AirEntity> airEntityCall = airService.getAirIndex(lat, lon);
+            Call<WeatherEntity> weatherEntityCall = weatherService.getWeatherData(lat, lon);
+
+            int finalIndex = index;
+
+            weatherEntityCall.enqueue(new Callback<WeatherEntity>() {
+                @Override
+                public void onResponse(Call<WeatherEntity> call, Response<WeatherEntity> response) {
+                    WeatherEntity weatherEntity = response.body();
+                    airEntityCall.enqueue(new Callback<AirEntity>() {
+                        @Override
+                        public void onResponse(Call<AirEntity> call, Response<AirEntity> response) {
+                            AirEntity airEntity = response.body();
+
+
+                            if (weatherEntity.getCc().getTimeTag() != null && airEntity.getDataEntity().getAqi() != null) {
+                                WeatherDb weatherDb = createWeather(weatherEntity, airEntity, new Date());
+
+                                if (finalIndex == (weatherDbs.size() - 1)) {
+                                    weatherDbs.set(finalIndex, weatherDb);
+                                    DataProccessor.setWeatherData(weatherDbs);
+                                    mView.refreshDataSuccess(weatherDbs);
+                                } else {
+                                    weatherDbs.set(finalIndex, weatherDb);
+                                }
+                            } else {
+                                mView.loadDataFailed("Empty Data");
+                            }
+
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<AirEntity> call, Throwable t) {
+                            mView.loadDataFailed(t.getMessage());
+                        }
+                    });
+                }
+
+                @Override
+                public void onFailure(Call<WeatherEntity> call, Throwable t) {
+                    mView.loadDataFailed(t.getMessage());
+                }
+            });
+
+
+        }
+    }
+
+
+
     private WeatherDb createWeather(WeatherEntity weatherEntity, AirEntity airEntity, Date date) {
         WeatherDb weatherDb = new WeatherDb();
         weatherDb.setLocationName(weatherEntity.getLoc().getName());

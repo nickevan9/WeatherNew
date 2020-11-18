@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.content.ContextCompat;
 import androidx.core.widget.NestedScrollView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.appbar.AppBarLayout;
@@ -49,6 +50,8 @@ public class WeatherFragment extends BaseFragment implements WeatherContract.Vie
     private AppBarLayout appBarLayout;
     private NestedScrollView scrollView;
 
+    private SwipeRefreshLayout swipeRefreshLayout;
+
 
 
     @Override
@@ -71,6 +74,7 @@ public class WeatherFragment extends BaseFragment implements WeatherContract.Vie
         imgMenu = requireView().findViewById(R.id.img_menu);
         tvTime = requireView().findViewById(R.id.tv_time);
         imgAddLocation = requireView().findViewById(R.id.img_add_location);
+        swipeRefreshLayout = requireView().findViewById(R.id.swipe_refresh);
 
         vpWeather = requireView().findViewById(R.id.vp_weather);
 
@@ -112,6 +116,12 @@ public class WeatherFragment extends BaseFragment implements WeatherContract.Vie
             Intent intent = new Intent(requireContext(), PlaceActivity.class);
             startActivity(intent);
             requireActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        });
+
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+
+            weatherPresenter.fetchAllWeather(weatherDbs);
+
         });
 
 
@@ -163,6 +173,15 @@ public class WeatherFragment extends BaseFragment implements WeatherContract.Vie
     public void loadDataFailed(String message) {
         Toast.makeText(requireActivity(), message, Toast.LENGTH_SHORT).show();
         loadingDialog.dismissDialog();
+    }
+
+    @Override
+    public void refreshDataSuccess(List<WeatherDb> weatherDbList) {
+        if (swipeRefreshLayout.isRefreshing()){
+            weatherDbs = weatherDbList;
+            weatherAdapter.applyData(weatherDbs);
+            swipeRefreshLayout.setRefreshing(false);
+        }
     }
 
     @Override

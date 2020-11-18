@@ -32,7 +32,7 @@ public class CustomSunView extends View {
     private static final int DEFAULT_TRACK_WIDTH_PX = 4;
 
     private static final int DEFAULT_SUN_COLOR = Color.YELLOW;
-    private static final int DEFAULT_SUN_RADIUS_PX = 20;
+    private static final int DEFAULT_SUN_RADIUS_PX = 25;
     private static final int DEFAULT_SUN_STROKE_WIDTH_PX = 4;
 
     private static final int DEFAULT_SHADOW_COLOR = Color.parseColor("#32FFFFFF");
@@ -118,8 +118,8 @@ public class CustomSunView extends View {
         }
 
         mTrackRadius = 1.0f * (widthSpecSize - paddingLeft - paddingRight - 2 * mSunRadius) / 2;
-        int expectedHeight = (int) (mTrackRadius + mSunRadius + paddingBottom + paddingTop);
-        mBoardRectF.set(paddingLeft + mSunRadius, paddingTop + mSunRadius, widthSpecSize - paddingRight - mSunRadius, expectedHeight - paddingBottom);
+        int expectedHeight = (int) (mTrackRadius + mSunRadius + paddingBottom + paddingTop + 25);
+        mBoardRectF.set(paddingLeft + mSunRadius, paddingTop + mSunRadius + 25, widthSpecSize - paddingRight - mSunRadius, expectedHeight - paddingBottom);
         setMeasuredDimension(widthSpecSize, expectedHeight);
     }
 
