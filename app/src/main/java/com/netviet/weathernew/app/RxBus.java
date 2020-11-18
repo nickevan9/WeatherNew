@@ -40,6 +40,8 @@ public class RxBus {
 
     public static final int TAG_LOCATION_ADD = 10000;
 
+    public static final int TAG_SWIPE_VIEWPAGER = 11111;
+
 
 
 
@@ -57,7 +59,8 @@ public class RxBus {
             TAG_DAY_ITEM,
             TAG_CLICK_STATUS,
             TAG_TIME_COUNT,
-            TAG_LOCATION_ADD
+            TAG_LOCATION_ADD,
+            TAG_SWIPE_VIEWPAGER
 
     })
     @interface Subject {
