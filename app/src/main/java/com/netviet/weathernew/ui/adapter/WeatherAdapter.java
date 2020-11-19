@@ -10,7 +10,6 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.core.content.ContextCompat;
 import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -131,7 +130,6 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
                 if (scrollY == 0) {
                     RxBus.publish(RxBus.TAG_SWIPE_VIEWPAGER,false);
                     lnWeather.setBackgroundColor(Color.TRANSPARENT); // required to delete elevation shadow
-
                 }
             });
         }

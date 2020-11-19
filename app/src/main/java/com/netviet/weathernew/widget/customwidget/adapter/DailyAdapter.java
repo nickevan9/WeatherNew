@@ -96,8 +96,8 @@ public class DailyAdapter extends RecyclerView.Adapter<DailyAdapter.ViewHolder> 
             lnDaily.setLayoutParams(paramLinear);
 
             LinearLayout.LayoutParams paramRelative = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-            int marginTop = (int)((max - Double.parseDouble(dailyEntity.getTempMax())) * 10 * factor );
-            int marginBottom = (int)((Double.parseDouble(dailyEntity.getTempMin()) - min) * 10 * factor );
+            int marginTop = (int)((max - Double.parseDouble(dailyEntity.getTempMax())) * 8 * factor );
+            int marginBottom = (int)((Double.parseDouble(dailyEntity.getTempMin()) - min) * 8 * factor );
             paramRelative.setMargins(0, marginTop,0, marginBottom);
             rlDaily.setLayoutParams(paramRelative);
 

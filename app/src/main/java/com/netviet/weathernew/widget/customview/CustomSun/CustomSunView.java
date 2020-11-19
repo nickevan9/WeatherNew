@@ -118,8 +118,8 @@ public class CustomSunView extends View {
         }
 
         mTrackRadius = 1.0f * (widthSpecSize - paddingLeft - paddingRight - 2 * mSunRadius) / 2;
-        int expectedHeight = (int) (mTrackRadius + mSunRadius + paddingBottom + paddingTop + 25);
-        mBoardRectF.set(paddingLeft + mSunRadius, paddingTop + mSunRadius + 25, widthSpecSize - paddingRight - mSunRadius, expectedHeight - paddingBottom);
+        int expectedHeight = (int) (mTrackRadius + mSunRadius + paddingBottom + paddingTop );
+        mBoardRectF.set(paddingLeft + mSunRadius, paddingTop + mSunRadius, widthSpecSize - paddingRight - mSunRadius, expectedHeight - paddingBottom);
         setMeasuredDimension(widthSpecSize, expectedHeight);
     }
 
@@ -204,7 +204,7 @@ public class CustomSunView extends View {
         float curPointX = mBoardRectF.left + mTrackRadius - mTrackRadius * (float) Math.cos(Math.PI * mRatio);
         float curPointY = mBoardRectF.bottom - mTrackRadius * (float) Math.sin(Math.PI * mRatio);
 
-        canvas.drawBitmap(Bitmap.createScaledBitmap(bitmap, 50, 50, false), curPointX - 25, curPointY - 25, mSunPaint);
+        canvas.drawBitmap(Bitmap.createScaledBitmap(bitmap, (int) mSunRadius *2 , (int) mSunRadius *2, false), curPointX - mSunRadius, curPointY -mSunRadius, mSunPaint);
 
         canvas.restore();
     }
