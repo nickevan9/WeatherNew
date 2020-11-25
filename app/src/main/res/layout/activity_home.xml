@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/view_home"
@@ -7,30 +7,142 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    android:background="?attr/backgroundColorApp"
-
+    android:background="@drawable/bg_cloudy_day"
     >
 
-    <FrameLayout
-        android:id="@+id/frame_container"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        app:elevation="@dimen/_8sdp"
-        android:background="@drawable/top_rounded_corners"
-        app:menu="@menu/bottom_navigation"
-        app:itemIconTint="@color/bottom_navigation_selected"
-        app:itemTextColor="@color/bottom_navigation_selected"
-        />
+        android:elevation="0dp"
+        app:elevation="0dp"
+        android:background="@android:color/transparent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:elevation="0dp"
+            app:layout_collapseMode="pin"
+            android:contentInsetLeft="0dp"
+            android:contentInsetStart="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp"
+            android:contentInsetRight="0dp"
+            android:contentInsetEnd="0dp"
+            app:contentInsetRight="0dp"
+            app:contentInsetEnd="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/_8sdp">
+
+                <ImageView
+                    android:id="@+id/img_drop_down"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:src="@drawable/ic_baseline_arrow_drop_down"
+                    app:tint="@android:color/white" />
+
+                <com.netviet.weathernew.widget.customview.CustomTextviewMedium
+                    android:id="@+id/tv_name_city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Ha noi"
+                    android:maxLines="1"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/_14ssp" />
+
+                <ImageView
+                    android:id="@+id/img_share"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:src="@drawable/ic_baseline_share"
+                    app:tint="@android:color/white" />
+
+                <ImageView
+                    android:id="@+id/img_setting"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:src="@drawable/ic_baseline_settings"
+                    app:tint="@android:color/white" />
+
+                <ImageView
+                    android:id="@+id/img_add_location"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:src="@drawable/ic_baseline_add_location"
+                    app:tint="@android:color/white" />
 
 
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
 
-</LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vPHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+
+            <com.example.weatherapp.widget.customwidget.WidgetNextHour
+                android:id="@+id/wg_next_hour"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp" />
+
+            <com.example.weatherapp.widget.customwidget.WidgetNextDay
+                android:id="@+id/wg_next_day"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp" />
+
+            <com.example.weatherapp.widget.customwidget.WidgetWind
+                android:id="@+id/wg_wind"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp" />
+
+            <com.example.weatherapp.widget.customwidget.WidgetAirQuality
+                android:id="@+id/wg_air"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp" />
+
+            <!--            <com.example.weatherapp.widget.customwidget.WidgetRainPercent-->
+            <!--                android:id="@+id/wg_rain_percent"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="@dimen/_8sdp" />-->
+
+            <com.example.weatherapp.widget.customwidget.WidgetPrecipitation
+                android:id="@+id/wg_precipitation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp" />
+
+            <com.example.weatherapp.widget.customwidget.WidgetSunView
+                android:id="@+id/wg_sun"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

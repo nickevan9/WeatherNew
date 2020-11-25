@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+    <com.netviet.weathernew.widget.customwidget.WidgetWeatherDetail
+        android:id="@+id/wg_weather_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.netviet.weathernew.widget.customwidget.WidgetDetailValue
+        android:id="@+id/wg_detail_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
