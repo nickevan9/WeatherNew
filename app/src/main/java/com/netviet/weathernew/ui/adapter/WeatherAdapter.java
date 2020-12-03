@@ -105,7 +105,7 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
 
             List<HourlyEntity> hourlyEntityList = TimeUtilsExt.mapTimeToNow(weatherDb.getWeatherEntity().getListHourly(), timeZone);
             List<DailyEntity> dailyEntityList = TimeUtilsExt.mapDateToNow(weatherDb.getWeatherEntity().getListDaily(), timeZone);
-            wgDetailValue.applyData(hourlyEntityList);
+            wgDetailValue.applyData(hourlyEntityList.get(0));
             wgWeatherDetail.applyDataDaily(dailyEntityList.get(0));
             wgWeatherDetail.applyDataHourly(hourlyEntityList.get(0));
             wgWeatherDetail.applyName(weatherDb.getLocationName());

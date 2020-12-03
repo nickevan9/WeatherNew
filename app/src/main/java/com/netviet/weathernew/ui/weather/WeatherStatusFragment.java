@@ -74,6 +74,8 @@ public class WeatherStatusFragment extends Fragment {
         widgetWeatherDetail.applyDataDaily(dailyEntity);
         widgetWeatherDetail.applyName(name);
 
+        widgetDetailValue.applyData(hourlyEntity);
+
 
     }
 }

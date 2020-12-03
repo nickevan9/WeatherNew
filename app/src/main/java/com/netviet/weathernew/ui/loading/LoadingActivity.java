@@ -39,10 +39,7 @@ public class LoadingActivity extends BaseActivity implements LoadingContract.Vie
 
     @Override
     protected void dataCreate() {
-        loadingDialog = new LoadingDialog(this);
-        loadingPresenter = new LoadingPresenter(this);
 
-        mFusedLocationClient = new FusedLocationProviderClient(this);
 
         loadingPresenter.attachView(this);
 
@@ -51,6 +48,14 @@ public class LoadingActivity extends BaseActivity implements LoadingContract.Vie
         } else {
             loadingPresenter.getAllWeather();
         }
+    }
+
+    @Override
+    protected void initData() {
+        loadingDialog = new LoadingDialog(this);
+        loadingPresenter = new LoadingPresenter(this);
+
+        mFusedLocationClient = new FusedLocationProviderClient(this);
     }
 
     @Override

@@ -54,12 +54,9 @@ public class PlaceActivity extends AppCompatActivity {
         autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
             @Override
             public void onPlaceSelected(CarmenFeature carmenFeature) {
-//                Intent intent = new Intent();
-//                intent.putExtra("dataPlace", carmenFeature.center());
-//                setResult(Activity.RESULT_OK, intent);
-
-
-                RxBus.publish(RxBus.TAG_LOCATION_ADD, Objects.requireNonNull(carmenFeature.center()));
+                Intent intent = new Intent();
+                intent.putExtra("dataPlace", carmenFeature.center());
+                setResult(Activity.RESULT_OK, intent);
                 finish();
 
             }

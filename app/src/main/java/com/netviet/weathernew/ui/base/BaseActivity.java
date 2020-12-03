@@ -17,6 +17,8 @@ public abstract class BaseActivity  extends AppCompatActivity {
 
     protected abstract void dataCreate();
 
+    protected abstract void initData();
+
     @LayoutRes
     protected abstract int layoutRes();
 
@@ -25,8 +27,9 @@ public abstract class BaseActivity  extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(layoutRes());
         dataProccessor = new DataProccessor(this);
-        dataCreate();
+        initData();
         initView();
+        dataCreate();
     }
 
     @Override

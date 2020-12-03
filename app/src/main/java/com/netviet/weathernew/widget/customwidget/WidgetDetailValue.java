@@ -53,11 +53,9 @@ public class WidgetDetailValue extends RelativeLayout {
         rvDetailValue.addItemDecoration(new SimpleItemDecorator(40,true));
     }
 
-    public void applyData(List<HourlyEntity> hourlyEntityList) {
-        HourlyEntity hourlyEntity = hourlyEntityList.get(0);
+    public void applyData(HourlyEntity hourlyEntity) {
 
         detailValues.clear();
-
         detailValues.add(new DetailValue(getContext().getString(R.string.humidity), (int) Double.parseDouble(hourlyEntity.getPp()) + " %", R.drawable.ic_humidity));
         detailValues.add(new DetailValue(getContext().getString(R.string.visibility), (int) Double.parseDouble(hourlyEntity.getV()) / 1000 + " km", R.drawable.ic_vision));
         detailValues.add(new DetailValue(getContext().getString(R.string.uv_index), String.valueOf((int) Double.parseDouble(hourlyEntity.getUv())), R.drawable.ic_uv));

@@ -7,7 +7,11 @@ import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 
+import com.netviet.weathernew.app.TimeUtilsExt;
+import com.netviet.weathernew.data.model.weather.DailyEntity;
+import com.netviet.weathernew.data.model.weather.HourlyEntity;
 import com.netviet.weathernew.data.model.weathersaved.WeatherDb;
+import com.netviet.weathernew.ui.weather.WeatherStatusFragment;
 
 import java.util.List;
 
@@ -26,8 +30,8 @@ public class HomePagerAdapter extends FragmentStateAdapter {
 
         String timeZone = weatherDb.getWeatherEntity().getLoc().getTzname();
 
-        List<FchEntity> fchEntityList = TimeUtilsExt.mapTimeToNow(weatherDb.getWeatherEntity().getFch(), timeZone);
-        List<FcdEntity> fcdEntityList = TimeUtilsExt.mapDateToNow(weatherDb.getWeatherEntity().getFcd(), timeZone);
+        List<HourlyEntity> fchEntityList = TimeUtilsExt.mapTimeToNow(weatherDb.getWeatherEntity().getListHourly(), timeZone);
+        List<DailyEntity> fcdEntityList = TimeUtilsExt.mapDateToNow(weatherDb.getWeatherEntity().getListDaily(), timeZone);
 
         return WeatherStatusFragment.newInstance(fchEntityList.get(0), fcdEntityList.get(0), timeZone);
     }
